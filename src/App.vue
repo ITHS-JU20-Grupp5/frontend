@@ -34,4 +34,17 @@
   margin-top: 60px;
   font-size: 20px;
 }
+
+p {
+  font-family: Roboto, Helvetica, Arial, sans-serif, serif;
+  font-size: 30px;
+}
+
+h1 {
+  font-family: New Tegomin, serif;
+}
+
+#nav {
+  font-family: New Tegomin, serif;
+}
 </style>
