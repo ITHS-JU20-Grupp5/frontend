@@ -11,17 +11,6 @@
 
 </template>
 
-<!--<script>-->
-<!--import HelloWorld from './components/HelloWorld.vue'-->
-
-<!--export default {-->
-<!--  name: 'App',-->
-<!--  components: {-->
-<!--    HelloWorld-->
-<!--  }-->
-<!--}-->
-<!--</script>-->
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
@@ -78,24 +67,26 @@ h1 {
 }
 
 /* Desktop */
-@media screen and (min-width: 1025px){
+@media screen and (min-width: 768px){
+  .result{
+    margin: 0 auto;
+    text-decoration: none;
+    width: clamp(200px, 80vw, 90%);
+  }
+
   .wrapper {
     display: grid;
     color: #000;
-    /*padding-left: 4vw;*/
-    /*padding-right: 4vw;*/
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 200px auto auto 200px;
+    grid-template-columns: 200px 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
     height: 500px;
-    width: clamp(200px, 80vw, 90%);
+    /*width: clamp(200px, 80vw, 90%);*/
     gap: 10px;
     grid-template-areas:
-      "a a b b b"
-      "a a b b b"
-      "c c d d d";
-    /*grid-template-columns: auto;*/
-    /*grid-template-rows: auto;*/
-    /*text-align: left;*/
+      "a b b b b"
+      "a b b b b"
+      "c e d d d"
+      "c f g h i";
   }
   .item1 {
     grid-area: a;
@@ -112,6 +103,30 @@ h1 {
   .item4 {
     grid-area: d;
     background: orange;
+  }
+  .item5 {
+    grid-area: e;
+    background: orange;
+  }
+  .item6 {
+    grid-area: f;
+    background: orange;
+  }
+  .item7 {
+    grid-area: g;
+    background: orange;
+  }
+  .item8 {
+    grid-area: h;
+    background: orange;
+  }
+  .item9 {
+    grid-area: i;
+    background: orange;
+  }
+  .img{
+    width: 100px;
+    height: auto;
   }
 }
 
