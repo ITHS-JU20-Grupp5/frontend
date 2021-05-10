@@ -46,15 +46,39 @@ export default {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
   font-size: 20px;
+  justify-content:center;
+  align-items:center;
 }
 
-#bubble {
-text-align-all: left;
+.bubble {
+text-align: left;
+  position: relative;
+  max-width: 30em;
+  background-color: #fff;
+  padding: 1.25em 1.5em;
+  font-size: 1.25em;
+  border-radius: 2rem;
+  margin: clamp(10px, 1vw, 20px);
+  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2)
 }
+
+.bubble::before {
+content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 100%;
+  left: 1.5em;
+  border: .75rem solid transparent;
+  border-top: none;
+  border-bottom-color: #fff;
+  filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
+}
+
+
 
 .wrapper {
   display: grid;
@@ -70,19 +94,19 @@ text-align-all: left;
 
 .item1 {
   grid-area: a;
-  background: red;
+  background: whitesmoke;
 }
 .item2 {
   grid-area: b;
-  background: yellow;
+  background: whitesmoke;
 }
 .item3 {
   grid-area: c;
-  background: aqua;
+  background: whitesmoke;
 }
 .item4 {
   grid-area: d;
-  background: orange;
+  background: whitesmoke;
 }
 p {
   font-family: Roboto, Helvetica, Arial, sans-serif, serif;
@@ -91,10 +115,23 @@ p {
 
 h1 {
   font-family: New Tegomin, serif;
+  text-align: center;
 }
+h2{
+  font-family: New Tegomin, serif;
+  text-align: center;
+}
+h3{
+  font-family: New Tegomin, serif;
+  text-align: start;
+  padding-left: 20px;
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+
 
 #nav {
   font-family: New Tegomin, serif;
+  text-align: center;
 }
 
 /* Desktop */
@@ -121,39 +158,57 @@ h1 {
   }
   .item1 {
     grid-area: a;
-    background: red;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item2 {
     grid-area: b;
-    background: yellow;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item3 {
     grid-area: c;
-    background: aqua;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item4 {
     grid-area: d;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item5 {
     grid-area: e;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item6 {
     grid-area: f;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item7 {
     grid-area: g;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item8 {
     grid-area: h;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item9 {
     grid-area: i;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item10 {
     grid-area: j;
