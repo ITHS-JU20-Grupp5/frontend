@@ -25,6 +25,10 @@
   font-size: 20px;
 }
 
+#bubble {
+text-align-all: left;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr;
