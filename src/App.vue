@@ -77,7 +77,7 @@ h1 {
   .wrapper {
     display: grid;
     color: #000;
-    grid-template-columns: 200px 1fr 1fr 1fr;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto auto auto;
     height: 500px;
     /*width: clamp(200px, 80vw, 90%);*/

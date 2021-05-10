@@ -11,7 +11,7 @@
         <div class="item6">Item 6</div>
         <div class="item7">Item 7</div>
         <div class="item8">Item 8</div>
+        <div class="item9">Item 9</div>
       </div>
-
   </div>
 </template>
