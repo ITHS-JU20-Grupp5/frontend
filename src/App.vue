@@ -67,7 +67,7 @@ content: '';
 
 .item1 {
   grid-area: a;
-  background: red;
+  background: whitesmoke;
 }
 .item2 {
   grid-area: b;
@@ -75,11 +75,11 @@ content: '';
 }
 .item3 {
   grid-area: c;
-  background: aqua;
+  background: whitesmoke;
 }
 .item4 {
   grid-area: d;
-  background: orange;
+  background: whitesmoke;
 }
 p {
   font-family: Roboto, Helvetica, Arial, sans-serif, serif;
