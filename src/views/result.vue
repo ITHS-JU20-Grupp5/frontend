@@ -1,10 +1,11 @@
 <template>
   <div class="result">
 
-      <h1>This is an result page!</h1>
       <div class="wrapper">
         <div class="item1"><img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img"></div>
-        <div class="item2">Här kommer frågorna</div>
+        <div class="item2">Här kommer frågorna
+        <h3>This is an result page!</h3>
+        </div>
         <div class="item3">Denna är tom eller inloggningsrutorna</div>
         <div class="item4">
           <p>QUIZ</p>
