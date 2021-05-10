@@ -10,7 +10,33 @@
   </div>
 
 </template>
-
+<script>
+export default {
+  name: 'app',
+  data() {
+    return {
+      authenticated: false,
+      mockAccount: {
+        username: "a",
+        password: "password"
+      }
+    }
+  },
+  mounted() {
+    if(!this.authenticated) {
+      this.$router.replace({ name: "login" });
+    }
+  },
+  methods: {
+    setAuthenticated(status) {
+      this.authenticated = status;
+    },
+    logout() {
+      this.authenticated = false;
+    }
+  }
+}
+</script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');

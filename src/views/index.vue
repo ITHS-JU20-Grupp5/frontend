@@ -9,7 +9,6 @@
       </div>
     </div>
     <img alt="TheGeneral" src="../assets/GeneralKnowledge.png">
-      <p>Löptext</p>
   </div>
 </template>
 
@@ -29,7 +28,7 @@ export default {
       if(this.input.username != "" && this.input.password != "") {
         if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
           this.$emit("authenticated", true);
-          this.$router.replace({ name: "secure" });
+          this.$router.replace({ name: "result" });
         } else {
           console.log("The username and / or password is incorrect");
         }
