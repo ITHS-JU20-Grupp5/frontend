@@ -85,8 +85,8 @@ h1 {
     grid-template-areas:
       "a b b b b"
       "a b b b b"
-      "c e d d d"
-      "c f g h i";
+      "c d e f g"
+      "c h i j k";
   }
   .item1 {
     grid-area: a;
@@ -122,6 +122,14 @@ h1 {
   }
   .item9 {
     grid-area: i;
+    background: orange;
+  }
+  .item10 {
+    grid-area: j;
+    background: orange;
+  }
+  .item11 {
+    grid-area: k;
     background: orange;
   }
   .img{
