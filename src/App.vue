@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+      <h1>General Knowledge Quiz</h1>
       <router-link to="/">Home</router-link> |
       <router-link to="/quiz">Quiz</router-link> |
       <router-link to="/result">Result</router-link> |
@@ -10,33 +11,33 @@
   </div>
 
 </template>
-<script>
-export default {
-  name: 'app',
-  data() {
-    return {
-      authenticated: false,
-      mockAccount: {
-        username: "a",
-        password: "a"
-      }
-    }
-  },
-  mounted() {
-    if(!this.authenticated) {
-      this.$router.replace({ name: "login" });
-    }
-  },
-  methods: {
-    setAuthenticated(status) {
-      this.authenticated = status;
-    },
-    logout() {
-      this.authenticated = false;
-    }
-  }
-}
-</script>
+<!--<script>-->
+<!--export default {-->
+<!--  name: 'app',-->
+<!--  data() {-->
+<!--    return {-->
+<!--      authenticated: false,-->
+<!--      mockAccount: {-->
+<!--        username: "a",-->
+<!--        password: "a"-->
+<!--      }-->
+<!--    }-->
+<!--  },-->
+<!--  mounted() {-->
+<!--    if(!this.authenticated) {-->
+<!--      this.$router.replace({ name: "login" });-->
+<!--    }-->
+<!--  },-->
+<!--  methods: {-->
+<!--    setAuthenticated(status) {-->
+<!--      this.authenticated = status;-->
+<!--    },-->
+<!--    logout() {-->
+<!--      this.authenticated = false;-->
+<!--    }-->
+<!--  }-->
+<!--}-->
+<!--</script>-->
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
@@ -136,10 +137,12 @@ h3{
 
 /* Desktop */
 @media screen and (min-width: 768px){
-  .result{
+  .main{
     margin: 0 auto;
     text-decoration: none;
     width: clamp(200px, 80vw, 90%);
+    padding: 20px;
+    /*background-image: linear-gradient(#0F228C, #1F47BF);*/
   }
 
   .wrapper {
@@ -212,11 +215,15 @@ h3{
   }
   .item10 {
     grid-area: j;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item11 {
     grid-area: k;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .img{
     width: 100px;
