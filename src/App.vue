@@ -71,7 +71,7 @@ content: '';
 }
 .item2 {
   grid-area: b;
-  background: yellow;
+  background: whitesmoke;
 }
 .item3 {
   grid-area: c;
@@ -97,6 +97,7 @@ h2{
 h3{
   font-family: New Tegomin, serif;
   text-align: start;
+  padding-left: 20px;
   font-size: clamp(2rem, 4vw, 4rem);
 }
 
@@ -130,39 +131,57 @@ h3{
   }
   .item1 {
     grid-area: a;
-    background: red;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item2 {
     grid-area: b;
-    background: yellow;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item3 {
     grid-area: c;
-    background: aqua;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item4 {
     grid-area: d;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item5 {
     grid-area: e;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item6 {
     grid-area: f;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item7 {
     grid-area: g;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item8 {
     grid-area: h;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .item9 {
     grid-area: i;
-    background: orange;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-radius: 25px;
   }
   .img{
     width: 100px;

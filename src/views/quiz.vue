@@ -29,7 +29,5 @@
       <div class="item8">Item 8</div>
       <div class="item9">Item 9</div>
     </div>
-
-    <p>Löptext</p>
   </div>
 </template>
