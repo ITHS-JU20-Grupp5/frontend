@@ -18,7 +18,7 @@ export default {
       authenticated: false,
       mockAccount: {
         username: "a",
-        password: "password"
+        password: "a"
       }
     }
   },
@@ -37,6 +37,7 @@ export default {
   }
 }
 </script>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
