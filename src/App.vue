@@ -43,6 +43,9 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
 /* Mobile */
+body{
+  background-image: linear-gradient(#0F228C, #1F47BF);
+}
 *#app {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -52,6 +55,7 @@
   font-size: 20px;
   justify-content:center;
   align-items:center;
+
 }
 
 .bubble {
@@ -142,7 +146,7 @@ h3{
     text-decoration: none;
     width: clamp(200px, 80vw, 90%);
     padding: 20px;
-    /*background-image: linear-gradient(#0F228C, #1F47BF);*/
+
   }
 
   .wrapper {
