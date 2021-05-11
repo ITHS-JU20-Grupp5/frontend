@@ -62,18 +62,18 @@ content: '';
   border-bottom-color: #fff;
   filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
 }
-.bubble_right {
-  float: right;
-  text-align: left;
-  position: relative;
-  max-width: 30em;
-  background-color: #fff;
-  padding: 1.25em 1.5em;
-  font-size: 1.25em;
-  border-radius: 2rem;
-  margin: clamp(10px, 1vw, 20px);
-  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2)
-}
+/*.bubble_right {*/
+/*  float: right;*/
+/*  text-align: left;*/
+/*  position: relative;*/
+/*  max-width: 30em;*/
+/*  background-color: #fff;*/
+/*  padding: 1.25em 1.5em;*/
+/*  font-size: 1.25em;*/
+/*  border-radius: 2rem;*/
+/*  margin: clamp(10px, 1vw, 20px);*/
+/*  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2)*/
+/*}*/
 
 .wrapper {
   display: grid;
@@ -95,6 +95,7 @@ content: '';
   padding-inline: 1rem;
   border-radius: 25px;
 
+
   float: right;
   text-align: left;
   position: relative;
@@ -106,7 +107,6 @@ content: '';
   margin: clamp(10px, 1vw, 20px);
   box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2)
 
-
 }
 .item3 {
   grid-area: c;
@@ -114,54 +114,54 @@ content: '';
   padding-inline: 1rem;
   border-radius: 25px;
 }
-.item4 {
-  grid-area: d;
-  background: whitesmoke;
-  padding-inline: 1rem;
-  border-radius: 25px;
-}
-.item5 {
-  grid-area: e;
-  background: whitesmoke;
-  padding-inline: 1rem;
-  border-radius: 25px;
-}
-.item6 {
-  grid-area: f;
-  background: whitesmoke;
-  padding-inline: 1rem;
-  border-radius: 25px;
-}
-.item7 {
-  grid-area: g;
-  background: whitesmoke;
-  padding-inline: 1rem;
-  border-radius: 25px;
-}
-.item8 {
-  grid-area: h;
-  background: whitesmoke;
-  padding-inline: 1rem;
-  border-radius: 25px;
-}
-.item9 {
-  grid-area: i;
-  background: whitesmoke;
-  padding-inline: 1rem;
-  border-radius: 25px;
-}
-.item10 {
-  grid-area: j;
-  background: whitesmoke;
-  padding-inline: 1rem;
-  border-radius: 25px;
-}
-.item11 {
-  grid-area: k;
-  background: whitesmoke;
-  padding-inline: 1rem;
-  border-radius: 25px;
-}
+/*.item4 {*/
+/*  grid-area: d;*/
+/*  background: whitesmoke;*/
+/*  padding-inline: 1rem;*/
+/*  border-radius: 25px;*/
+/*}*/
+/*.item5 {*/
+/*  grid-area: e;*/
+/*  background: whitesmoke;*/
+/*  padding-inline: 1rem;*/
+/*  border-radius: 25px;*/
+/*}*/
+/*.item6 {*/
+/*  grid-area: f;*/
+/*  background: whitesmoke;*/
+/*  padding-inline: 1rem;*/
+/*  border-radius: 25px;*/
+/*}*/
+/*.item7 {*/
+/*  grid-area: g;*/
+/*  background: whitesmoke;*/
+/*  padding-inline: 1rem;*/
+/*  border-radius: 25px;*/
+/*}*/
+/*.item8 {*/
+/*  grid-area: h;*/
+/*  background: whitesmoke;*/
+/*  padding-inline: 1rem;*/
+/*  border-radius: 25px;*/
+/*}*/
+/*.item9 {*/
+/*  grid-area: i;*/
+/*  background: whitesmoke;*/
+/*  padding-inline: 1rem;*/
+/*  border-radius: 25px;*/
+/*}*/
+/*.item10 {*/
+/*  grid-area: j;*/
+/*  background: whitesmoke;*/
+/*  padding-inline: 1rem;*/
+/*  border-radius: 25px;*/
+/*}*/
+/*.item11 {*/
+/*  grid-area: k;*/
+/*  background: whitesmoke;*/
+/*  padding-inline: 1rem;*/
+/*  border-radius: 25px;*/
+/*}*/
 p {
   font-family: Roboto, Helvetica, Arial, sans-serif, serif;
   font-size: 30px;
@@ -181,11 +181,45 @@ h3{
   padding-left: 20px;
   font-size: clamp(2rem, 4vw, 4rem);
 }
+
+button {
+  box-shadow:inset 0px 1px 0px 0px #f2d335;
+  background:linear-gradient(to bottom, #0f228c 5%, #010440 100%);
+  background-color:#0f228c;
+  border-radius:6px;
+  border:1px solid #1f47bf;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Roboto, Helvetica, Arial, sans-serif;
+  font-size:15px;
+  font-weight:bold;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #0f228c;
+}
+button:hover {
+  background:linear-gradient(to bottom, #010440 5%, #0f228c 100%);
+  background-color:#010440;
+}
+button:active {
+  position:relative;
+  top:1px;
+}
+
+input {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  border-color: transparent;
+  box-shadow: 0 0.125rem 0.5rem #010440, 0 0.0625rem 0.125rem #0f228c;
+}
+
 #nav {
   font-family: New Tegomin, serif;
   text-align: center;
   color: #F2D335;
 }
+
 
 .flex-container {
   display: flex;
@@ -217,7 +251,6 @@ h3{
     text-decoration: none;
     width: clamp(200px, 80vw, 90%);
     padding: 20px;
-
   }
 
   /*.wrapper {*/
