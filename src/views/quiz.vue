@@ -1,5 +1,5 @@
 <template>
-  <div class="quiz">
+  <div class="main">
     <div class="wrapper">
       <div class="item1"><img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img"></div>
       <div class="item2">
