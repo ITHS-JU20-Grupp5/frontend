@@ -5,7 +5,7 @@
       <router-link to="/" class="routerlink">Home</router-link> |
       <router-link to="/quiz" class="routerlink">Quiz</router-link> |
       <router-link to="/result" class="routerlink">Result</router-link> |
-      <router-link to="/member" class="routerlink">Member</router-link> |
+      <router-link to="/settings" class="routerlink">Settings</router-link> |
       <router-link to="/categories" class="routerlink">Categories</router-link>
     </div>
     <router-view/>
@@ -25,7 +25,7 @@ body{
   font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #F2D335;
+  color: #010440;
   margin-top: 60px;
   font-size: 20px;
   justify-content:center;
@@ -86,12 +86,14 @@ body{
   padding-inline: 1rem;
   border-bottom-left-radius: 25px;
   border-top-left-radius: 25px;
+  padding-bottom: 20px;
 }
 .item2 {
   grid-area: b;
   background: whitesmoke;
   border-bottom-right-radius: 25px;
   border-top-right-radius: 25px;
+  padding-bottom: 20px;
   /*padding-inline: 1rem;*/
   /*border-radius: 25px;*/
   /*float: right;*/
@@ -173,8 +175,9 @@ h2{
 }
 h3{
   font-family: New Tegomin, serif;
-  text-align: start;
-  padding-left: 20px;
+  text-align: left;
+  /*padding-left: 1rem;*/
+  margin-bottom: 2px;
   font-size: clamp(2rem, 4vw, 4rem);
 }
 button {
@@ -238,7 +241,7 @@ input {
   /*    "c h i j k";*/
   /*}*/
   .img{
-    width: 100px;
+    width: 50%;
     height: auto;
   }
   .categories{
