@@ -71,6 +71,13 @@ body{
   grid-template-areas:
   "a b";
 }
+.wrapperLogin {
+  display: grid;
+  grid-template-columns: 50% 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "a b c";
+}
 .item1 {
   grid-area: a;
   background: whitesmoke;
@@ -98,11 +105,17 @@ body{
   /*margin: clamp(10px, 1vw, 20px);*/
   /*box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2)*/
 }
+.item2Login {
+  grid-area: b;
+  background: whitesmoke;
+}
 .item3 {
   grid-area: c;
   background: whitesmoke;
   padding-inline: 1rem;
-  border-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+  padding-bottom: 20px;
 }
 p {
   font-family: Roboto, Helvetica, Arial, sans-serif, serif;
@@ -122,6 +135,9 @@ h3{
   /*padding-left: 1rem;*/
   margin-bottom: 2px;
   font-size: clamp(2rem, 4vw, 4rem);
+}
+.form{
+  line-height: 30px;
 }
 button {
   box-shadow:inset 0px 1px 0px 0px #f2d335;
@@ -167,11 +183,6 @@ input {
 @media screen and (min-width: 768px){
 
 
-
-  .categories{
-    display: flex;
-    justify-content: left;
-  }
 }
 </style>
 
