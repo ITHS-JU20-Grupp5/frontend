@@ -12,33 +12,7 @@
   </div>
 
 </template>
-<!--<script>-->
-<!--export default {-->
-<!--  name: 'app',-->
-<!--  data() {-->
-<!--    return {-->
-<!--      authenticated: false,-->
-<!--      mockAccount: {-->
-<!--        username: "a",-->
-<!--        password: "a"-->
-<!--      }-->
-<!--    }-->
-<!--  },-->
-<!--  mounted() {-->
-<!--    if(!this.authenticated) {-->
-<!--      this.$router.replace({ name: "login" });-->
-<!--    }-->
-<!--  },-->
-<!--  methods: {-->
-<!--    setAuthenticated(status) {-->
-<!--      this.authenticated = status;-->
-<!--    },-->
-<!--    logout() {-->
-<!--      this.authenticated = false;-->
-<!--    }-->
-<!--  }-->
-<!--}-->
-<!--</script>-->
+
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
@@ -104,12 +78,9 @@ content: '';
 .wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto;
   grid-template-areas:
-  "a"
-  "b"
-  "c"
-  "d";
+  "a";
   grid-gap: 20px;
 }
 .item1 {
@@ -216,6 +187,29 @@ h3{
   color: #F2D335;
 }
 
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.flex-item {
+  background: tomato;
+  padding: 5px;
+  width: 300px;
+  height: 150px;
+  margin-top: 10px;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+
+
 /* Desktop */
 @media screen and (min-width: 768px){
   .main{
@@ -226,34 +220,20 @@ h3{
 
   }
 
-  .wrapper {
-    display: grid;
-    color: #000;
-    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
-    height: 500px;
-    /*width: clamp(200px, 80vw, 90%);*/
-    gap: 10px;
-    grid-template-areas:
-      "a b b b b"
-      "a b b b b"
-      "c d e f g"
-      "c h i j k";
-  }
-  .wrapper_result {
-    display: grid;
-    color: #000;
-    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
-    height: 500px;
-    /*width: clamp(200px, 80vw, 90%);*/
-    gap: 10px;
-    grid-template-areas:
-      "a b b b b"
-      "a b b b b"
-      "a d e f g"
-      "c h i j k";
-  }
+  /*.wrapper {*/
+  /*  display: grid;*/
+  /*  color: #000;*/
+  /*  grid-template-columns: 1fr 1fr 1fr 1fr;*/
+  /*  grid-template-rows: auto auto auto auto;*/
+  /*  height: 500px;*/
+  /*  !*width: clamp(200px, 80vw, 90%);*!*/
+  /*  gap: 10px;*/
+  /*  grid-template-areas:*/
+  /*    "a b b b b"*/
+  /*    "a b b b b"*/
+  /*    "c d e f g"*/
+  /*    "c h i j k";*/
+  /*}*/
   .img{
     width: 100px;
     height: auto;
@@ -266,3 +246,35 @@ h3{
 }
 
 </style>
+
+
+
+
+
+<!--<script>-->
+<!--export default {-->
+<!--  name: 'app',-->
+<!--  data() {-->
+<!--    return {-->
+<!--      authenticated: false,-->
+<!--      mockAccount: {-->
+<!--        username: "a",-->
+<!--        password: "a"-->
+<!--      }-->
+<!--    }-->
+<!--  },-->
+<!--  mounted() {-->
+<!--    if(!this.authenticated) {-->
+<!--      this.$router.replace({ name: "login" });-->
+<!--    }-->
+<!--  },-->
+<!--  methods: {-->
+<!--    setAuthenticated(status) {-->
+<!--      this.authenticated = status;-->
+<!--    },-->
+<!--    logout() {-->
+<!--      this.authenticated = false;-->
+<!--    }-->
+<!--  }-->
+<!--}-->
+<!--</script>-->
