@@ -2,11 +2,11 @@
   <div id="app">
     <div id="nav">
       <h1>General Knowledge Quiz</h1>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/quiz">Quiz</router-link> |
-      <router-link to="/result">Result</router-link> |
-      <router-link to="/member">Member</router-link> |
-      <router-link to="/categories">Categories</router-link>
+      <router-link to="/" class="routerlink">Home</router-link> |
+      <router-link to="/quiz" class="routerlink">Quiz</router-link> |
+      <router-link to="/result" class="routerlink">Result</router-link> |
+      <router-link to="/member" class="routerlink">Member</router-link> |
+      <router-link to="/categories" class="routerlink">Categories</router-link>
     </div>
     <router-view/>
   </div>
@@ -57,6 +57,12 @@ body{
   justify-content:center;
   align-items:center;
 }
+.align_left{
+  float: left;
+}
+.routerlink{
+  color: #F2D335;
+}
 
 .bubble {
 text-align: left;
@@ -82,6 +88,19 @@ content: '';
   border-bottom-color: #fff;
   filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
 }
+.bubble_right {
+  float: right;
+  text-align: left;
+  position: relative;
+  max-width: 30em;
+  background-color: #fff;
+  padding: 1.25em 1.5em;
+  font-size: 1.25em;
+  border-radius: 2rem;
+  margin: clamp(10px, 1vw, 20px);
+  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2)
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr;
@@ -104,6 +123,19 @@ content: '';
   background: whitesmoke;
   padding-inline: 1rem;
   border-radius: 25px;
+
+  float: right;
+  text-align: left;
+  position: relative;
+  max-width: 30em;
+  /*background-color: #fff;*/
+  padding: 1.25em 1.5em;
+  font-size: 1.25em;
+  /*border-radius: 2rem;*/
+  margin: clamp(10px, 1vw, 20px);
+  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2)
+
+
 }
 .item3 {
   grid-area: c;
