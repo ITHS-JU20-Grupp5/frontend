@@ -133,6 +133,31 @@ h3{
   font-size: clamp(2rem, 4vw, 4rem);
 }
 
+button {
+  box-shadow:inset 0px 1px 0px 0px #f2d335;
+  background:linear-gradient(to bottom, #0f228c 5%, #010440 100%);
+  background-color:#0f228c;
+  border-radius:6px;
+  border:1px solid #1f47bf;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Roboto, Helvetica, Arial, sans-serif;
+  font-size:15px;
+  font-weight:bold;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #0f228c;
+}
+button:hover {
+  background:linear-gradient(to bottom, #010440 5%, #0f228c 100%);
+  background-color:#010440;
+}
+button:active {
+  position:relative;
+  top:1px;
+}
+
 
 #nav {
   font-family: New Tegomin, serif;

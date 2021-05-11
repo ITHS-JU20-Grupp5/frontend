@@ -18,7 +18,7 @@
             <input type="radio" id="answer4" name="bridge" value="42">
             <label for="answer4">42</label>
               <br>
-          <input type="submit" value="Submit">
+          <button value="submit" type="submit" name="submit">Submit</button>
         </form>
       </div>
     </div>
