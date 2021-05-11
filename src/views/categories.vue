@@ -3,13 +3,15 @@
     <div class="wrapper">
       <div class="item1"><img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img"></div>
       <div class="item2">
-        <h3>Login</h3>
-          <p>
-        <input type="text" name="username" v-model="input.username" placeholder="Username" /><br/>
-        <input type="password" name="password" v-model="input.password" placeholder="Password" /><br/>
-        <button type="button" v-on:click="login()">Login</button><br/>
-        <button type="button" v-on:click="register()">Register</button>
-        </p>
+        <h3>Categories</h3>
+          <div class="categories">
+            <p>
+            <button type="button" v-on:click="login()">History</button>
+            <button type="button" v-on:click="register()">Sports</button><br/>
+            <button type="button" v-on:click="login()">Geography</button>
+            <button type="button" v-on:click="register()">General knowledge</button>
+            </p>
+          </div>
       </div>
 <!--      <div class="item3">Item 3</div>-->
 <!--      <div class="item4">Item 4</div>-->

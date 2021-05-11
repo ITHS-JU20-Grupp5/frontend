@@ -1,11 +1,10 @@
 <template>
   <div class="main">
-      <div class="wrapper">
+      <div class="wrapper_result">
         <div class="item1"><img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img"></div>
         <div class="item2">
           <h3>Result</h3>
         </div>
-        <div class="item3">Denna är tom eller inloggningsrutorna</div>
         <div class="item4">
           <p>QUIZ</p>
           xxx
