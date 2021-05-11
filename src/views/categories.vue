@@ -4,14 +4,12 @@
       <div class="item1"><img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img"></div>
       <div class="item2">
         <h3>Categories</h3>
-          <div class="categories">
             <p>
             <button type="button" v-on:click="login()">History</button>
             <button type="button" v-on:click="register()">Sports</button><br/>
             <button type="button" v-on:click="login()">Geography</button>
             <button type="button" v-on:click="register()">General knowledge</button>
             </p>
-          </div>
       </div>
     </div>
   </div>

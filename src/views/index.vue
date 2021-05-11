@@ -2,14 +2,12 @@
   <div class="main">
     <div class="wrapper">
       <div class="item1">
-        <h3>Login</h3>
-        <div class="align_left"> <p>
+        <h3>Login</h3><p>
           <input type="text" name="username" v-model="input.username" placeholder="Username" /><br/>
           <input type="password" name="password" v-model="input.password" placeholder="Password" /><br/>
           <button type="button" v-on:click="login()">Login</button><br/>
           <button type="button" v-on:click="register()">Register</button>
         </p>
-        </div>
       </div>
       <div class="item2">
         <h3>Register</h3>
