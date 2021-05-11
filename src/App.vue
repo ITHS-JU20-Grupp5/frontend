@@ -129,8 +129,7 @@ h2{
 h3{
   font-family: New Tegomin, serif;
   text-align: start;
-  padding-left: 1rem;
-  margin-bottom: 2px;
+  padding-left: 20px;
   font-size: clamp(2rem, 4vw, 4rem);
 }
 
