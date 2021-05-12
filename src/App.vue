@@ -3,7 +3,6 @@
     <div id="nav">
       <h1>General Knowledge Quiz</h1>
       <router-link to="/" class="routerlink">Home</router-link> |
-      <router-link to="/categories" class="routerlink">Categories</router-link> |
       <router-link to="/quiz" class="routerlink">Quiz</router-link> |
       <router-link to="/result" class="routerlink">Result</router-link> |
       <router-link to="/settings" class="routerlink">Settings</router-link>
@@ -73,7 +72,14 @@ body{
 }
 .wrapperLogin {
   display: grid;
-  grid-template-columns: 50% 1fr 1fr;
+  grid-template-columns: 30% 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "a b c";
+}
+.wrapperQuiz {
+  display: grid;
+  grid-template-columns: 30% 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas:
   "a b c";
@@ -105,7 +111,7 @@ body{
   /*margin: clamp(10px, 1vw, 20px);*/
   /*box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2)*/
 }
-.item2Login {
+.item2Col3 {
   grid-area: b;
   background: whitesmoke;
 }
@@ -119,7 +125,7 @@ body{
 }
 p {
   font-family: Roboto, Helvetica, Arial, sans-serif, serif;
-  font-size: 30px;
+  font-size: 20px;
 }
 h1 {
   font-family: New Tegomin, serif;
@@ -132,12 +138,15 @@ h2{
 h3{
   font-family: New Tegomin, serif;
   text-align: left;
-  /*padding-left: 1rem;*/
   margin-bottom: 2px;
   font-size: clamp(2rem, 4vw, 4rem);
 }
 .form{
-  line-height: 30px;
+  line-height: 35px;
+
+}
+label{
+  font-size: 20px;
 }
 button {
   box-shadow:inset 0px 1px 0px 0px #f2d335;
@@ -151,9 +160,12 @@ button {
   font-family:Roboto, Helvetica, Arial, sans-serif;
   font-size:15px;
   font-weight:bold;
-  padding:6px 24px;
+  padding:6px 25px;
+  width: 180px;
+  margin-right: 5px;
   text-decoration:none;
   text-shadow:0px 1px 0px #0f228c;
+
 }
 button:hover {
   background:linear-gradient(to bottom, #010440 5%, #0f228c 100%);
@@ -175,8 +187,8 @@ input {
   color: #F2D335;
 }
 .img{
-  width: 50%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 /* Desktop */
@@ -185,35 +197,3 @@ input {
 
 }
 </style>
-
-
-
-
-
-<!--<script>-->
-<!--export default {-->
-<!--  name: 'app',-->
-<!--  data() {-->
-<!--    return {-->
-<!--      authenticated: false,-->
-<!--      mockAccount: {-->
-<!--        username: "a",-->
-<!--        password: "a"-->
-<!--      }-->
-<!--    }-->
-<!--  },-->
-<!--  mounted() {-->
-<!--    if(!this.authenticated) {-->
-<!--      this.$router.replace({ name: "login" });-->
-<!--    }-->
-<!--  },-->
-<!--  methods: {-->
-<!--    setAuthenticated(status) {-->
-<!--      this.authenticated = status;-->
-<!--    },-->
-<!--    logout() {-->
-<!--      this.authenticated = false;-->
-<!--    }-->
-<!--  }-->
-<!--}-->
-<!--</script>-->
