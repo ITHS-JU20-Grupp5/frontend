@@ -175,6 +175,9 @@ button:active {
   position:relative;
   top:1px;
 }
+.buttonSettings{
+  margin-left: 5px;
+}
 input {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-size: 1rem;
