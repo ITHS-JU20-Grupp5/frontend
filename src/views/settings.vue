@@ -1,10 +1,10 @@
 <template>
   <div class="main">
-    <div class="wrapper">
+    <div class="wrapperLogin">
       <div class="item1">
         <img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img">
       </div>
-      <div class="item2">
+      <div class="item2Col3">
         <h3>Settings</h3>
         <form>
           <input type="text" id="username" name="username" placeholder="Username">
@@ -19,6 +19,7 @@
           <br>
         </form>
         </div>
+      <div class="item3"></div>
     </div>
   </div>
 

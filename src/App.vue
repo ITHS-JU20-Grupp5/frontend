@@ -77,13 +77,6 @@ body{
   grid-template-areas:
   "a b c";
 }
-.wrapperQuiz {
-  display: grid;
-  grid-template-columns: 30% 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-  "a b c";
-}
 .item1 {
   grid-area: a;
   background: whitesmoke;
@@ -191,8 +184,8 @@ input {
   color: #F2D335;
 }
 .img{
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
 }
 
 /* Desktop */
