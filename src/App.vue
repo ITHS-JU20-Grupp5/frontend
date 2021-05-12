@@ -183,6 +183,7 @@ input {
   font-size: 1rem;
   border-color: transparent;
   box-shadow: 0 0.125rem 0.5rem #010440, 0 0.0625rem 0.125rem #0f228c;
+  margin-bottom: 10px;
 }
 #nav {
   font-family: New Tegomin, serif;
