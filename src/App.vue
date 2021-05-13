@@ -6,7 +6,6 @@
       <router-link to="/quiz" class="routerlink">Quiz</router-link> |
       <router-link to="/result" class="routerlink">Result</router-link> |
       <router-link to="/settings" class="routerlink">Settings</router-link>
-
     </div>
     <router-view/>
   </div>
@@ -17,6 +16,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
 /* Mobile */
 body{
   background-image: linear-gradient(#010440, #0F228C);
@@ -65,13 +65,6 @@ body{
 }
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-  "a b";
-}
-.wrapperLogin {
-  display: grid;
   grid-template-columns: 30% 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas:
@@ -86,25 +79,6 @@ body{
   padding-bottom: 20px;
 }
 .item2 {
-  grid-area: b;
-  background: whitesmoke;
-  border-bottom-right-radius: 25px;
-  border-top-right-radius: 25px;
-  padding-bottom: 20px;
-  /*padding-inline: 1rem;*/
-  /*border-radius: 25px;*/
-  /*float: right;*/
-  /*text-align: left;*/
-  /*position: relative;*/
-  /*max-width: 30em;*/
-  /*!*background-color: #fff;*!*/
-  /*padding: 1.25em 1.5em;*/
-  /*font-size: 1.25em;*/
-  /*!*border-radius: 2rem;*!*/
-  /*margin: clamp(10px, 1vw, 20px);*/
-  /*box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2)*/
-}
-.item2Col3 {
   grid-area: b;
   background: whitesmoke;
 }
@@ -136,7 +110,6 @@ h3{
 }
 .form{
   line-height: 35px;
-
 }
 label{
   font-size: 20px;
@@ -158,7 +131,6 @@ button {
   margin-right: 5px;
   text-decoration:none;
   text-shadow:0px 1px 0px #0f228c;
-
 }
 button:hover {
   background:linear-gradient(to bottom, #010440 5%, #0f228c 100%);

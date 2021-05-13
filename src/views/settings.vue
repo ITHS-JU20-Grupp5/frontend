@@ -1,10 +1,8 @@
 <template>
   <div class="main">
-    <div class="wrapperLogin">
-      <div class="item1">
-        <img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img">
-      </div>
-      <div class="item2Col3">
+    <div class="wrapper">
+      <div class="item1"><img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img"></div>
+      <div class="item2">
         <h3>Settings</h3>
         <form>
           <input type="text" id="username" name="username" placeholder="Username">
@@ -22,5 +20,4 @@
       <div class="item3"></div>
     </div>
   </div>
-
 </template>
