@@ -87,6 +87,9 @@ body{
 }
 .item3 {
   grid-area: c;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-self: inherit;
   background: whitesmoke;
   padding-inline: 1rem;
   border-bottom-right-radius: 25px;
@@ -183,17 +186,20 @@ button:active {
     padding-inline: 1rem;
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
+    border-top-right-radius: 0px;
     padding-bottom: 20px;
   }
 
   .item2 {
     grid-area: b;
     background: whitesmoke;
+    border-top-right-radius: 0px;
   }
   .item3 {
     grid-area: c;
     background: whitesmoke;
     padding-inline: 1rem;
+    border-bottom-left-radius: 0px;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
     padding-bottom: 20px;
