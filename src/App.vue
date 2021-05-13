@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <h1>General Knowledge Quiz</h1>
+      <img alt="Banner" src="../src/assets/Banner.png" class="banner"><br/>
+<!--      <h1>General Knowledge Quiz</h1>-->
       <router-link to="/" class="routerlink">Home</router-link> |
       <router-link to="/quiz" class="routerlink">Quiz</router-link> |
       <router-link to="/result" class="routerlink">Result</router-link> |
@@ -157,6 +158,10 @@ input {
 }
 .img{
   width: 100%;
+  height: auto;
+}
+.banner{
+  width: 35%;
   height: auto;
 }
 
