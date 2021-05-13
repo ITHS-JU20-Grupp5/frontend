@@ -1,8 +1,8 @@
 <template>
   <div class="main">
-    <div class="wrapperLogin">
+    <div class="wrapper">
       <div class="item1"><img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img"></div>
-      <div class="item2Col3">
+      <div class="item2">
         <h3>Questions</h3>
         <form class="bubble">
         <p>What is the answer? Annan löpande text så att det fyller ut lite utrymme.</p>
@@ -18,16 +18,16 @@
             <input type="radio" id="answer4" name="bridge" value="42">
             <label for="answer4">42</label>
               <br>
-          <button value="submit" type="submit" name="submit">Submit</button>
+          <button class="button" value="submit" type="submit" name="submit">Submit</button>
         </form>
       </div>
       <div class="item3">
         <h3>Categories</h3>
         <p>
-          <button type="button" v-on:click="login()">History</button>
-          <button type="button" v-on:click="register()">Sports</button><br/>
-          <button type="button" v-on:click="login()">Geography</button>
-          <button type="button" v-on:click="register()">General knowledge</button></p>
+          <button class="button" type="button" v-on:click="login()">History</button>
+          <button class="button" type="button" v-on:click="register()">Sports</button><br/>
+          <button class="button" type="button" v-on:click="login()">Geography</button>
+          <button class="button" type="button" v-on:click="register()">General knowledge</button></p>
 
       </div>
     </div>

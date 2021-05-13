@@ -1,10 +1,10 @@
 <template>
   <div class="main">
-    <div class="wrapperLogin">
+    <div class="wrapper">
       <div class="item1">
         <img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img">
       </div>
-      <div class="item2Col3">
+      <div class="item2">
         <h3>Result</h3>
 
       </div>

@@ -63,57 +63,34 @@ body{
   border-bottom-color: #fff;
   filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
 }
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas:
-  "a b";
-}
-.wrapperLogin {
-  display: grid;
-  grid-template-columns: 30% 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-  "a b c";
+  "a b"
+  "c c";
 }
 .item1 {
   grid-area: a;
   background: whitesmoke;
   padding-inline: 1rem;
-  border-bottom-left-radius: 25px;
   border-top-left-radius: 25px;
   padding-bottom: 20px;
 }
+
 .item2 {
   grid-area: b;
   background: whitesmoke;
-  border-bottom-right-radius: 25px;
   border-top-right-radius: 25px;
-  padding-bottom: 20px;
-  /*padding-inline: 1rem;*/
-  /*border-radius: 25px;*/
-  /*float: right;*/
-  /*text-align: left;*/
-  /*position: relative;*/
-  /*max-width: 30em;*/
-  /*!*background-color: #fff;*!*/
-  /*padding: 1.25em 1.5em;*/
-  /*font-size: 1.25em;*/
-  /*!*border-radius: 2rem;*!*/
-  /*margin: clamp(10px, 1vw, 20px);*/
-  /*box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2)*/
-}
-.item2Col3 {
-  grid-area: b;
-  background: whitesmoke;
 }
 .item3 {
   grid-area: c;
   background: whitesmoke;
   padding-inline: 1rem;
   border-bottom-right-radius: 25px;
-  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
   padding-bottom: 20px;
 }
 p {
@@ -154,7 +131,7 @@ button {
   font-size:15px;
   font-weight:bold;
   padding:6px 25px;
-  width: 180px;
+  width: clamp(8vw, 180px, 15vw);
   margin-right: 5px;
   text-decoration:none;
   text-shadow:0px 1px 0px #0f228c;
@@ -171,12 +148,13 @@ button:active {
 .buttonSettings{
   margin-left: 5px;
 }
-input {
+.input {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-size: 1rem;
   border-color: transparent;
   box-shadow: 0 0.125rem 0.5rem #010440, 0 0.0625rem 0.125rem #0f228c;
   margin-bottom: 10px;
+  width: clamp(8vw, 180px, 14vw);
 }
 #nav {
   font-family: New Tegomin, serif;
@@ -189,8 +167,37 @@ input {
 }
 
 /* Desktop */
-@media screen and (min-width: 768px){
+@media screen and (min-width: 1024px){
 
+  .wrapper {
+    display: grid;
+    grid-template-columns: 30% 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+  "a b c";
+  }
+
+  .item1 {
+    grid-area: a;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    padding-bottom: 20px;
+  }
+
+  .item2 {
+    grid-area: b;
+    background: whitesmoke;
+  }
+  .item3 {
+    grid-area: c;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    padding-bottom: 20px;
+  }
 
 }
 </style>
