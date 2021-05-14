@@ -34,7 +34,6 @@
 			</div>
 			<div class="item4">
 				<h3>Categories</h3>
-				<br />
 				<p>
 					<button class="button" type="button" v-on:click="login()">
 						History
@@ -49,6 +48,16 @@
 						General knowledge
 					</button>
 				</p>
+        <h3>Levels</h3>
+        <button class="button" type="button" value="easy">
+          Easy
+        </button>
+        <button class="button" type="button" value="easy">
+          Normal
+        </button>
+        <button class="button" type="button" value="easy">
+          Hard
+        </button>
 			</div>
 		</div>
 	</div>

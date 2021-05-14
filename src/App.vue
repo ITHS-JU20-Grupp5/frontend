@@ -140,12 +140,14 @@ h2 {
 	align-content: center;
 	font-family: New Tegomin, serif;
 	text-align: center;
+  margin-top: 2px;
 	margin-bottom: 2px;
 	font-size: clamp(2rem, 4vw, 4rem);
 }
 h3 {
 	font-family: New Tegomin, serif;
 	text-align: left;
+  margin-top: 2px;
 	margin-bottom: 2px;
 	font-size: clamp(2rem, 4vw, 4rem);
 }
@@ -155,7 +157,7 @@ h3 {
 label {
 	font-size: 20px;
 }
-button {
+.button {
 	box-shadow: inset 0px 1px 0px 0px #f2d335;
 	background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
 	background-color: #0f228c;
