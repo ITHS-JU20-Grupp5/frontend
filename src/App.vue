@@ -1,10 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <header>
-      <img src="assets/generalknowledgebanner.png"/>
-      </header>
-      <h1>General Knowledge Quiz</h1>
+      <img class="banner" src="../src/assets/generalknowledgebanner.png"/><br>
       <router-link to="/" class="routerlink">Home</router-link> |
       <router-link to="/quiz" class="routerlink">Quiz</router-link> |
       <router-link to="/result" class="routerlink">Result</router-link> |
@@ -35,7 +32,7 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #010440;
-  margin-top: 60px;
+  margin-top: 20px;
   font-size: 20px;
   justify-content:center;
   align-items:center;
@@ -91,8 +88,20 @@ body{
 .item3 {
   grid-area: c;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-self: inherit;
+  justify-content: center;
+  background: whitesmoke;
+  padding-inline: 1rem;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding-bottom: 20px;
+}
+
+.item4 {
+  grid-area: c;
+  display: grid;
+  /*grid-template-columns: 1fr 1fr;*/
+  /*justify-self: inherit;*/
+  justify-content: center;
   background: whitesmoke;
   padding-inline: 1rem;
   border-bottom-right-radius: 25px;
@@ -109,8 +118,13 @@ h1 {
   font-size: clamp(2rem, 5vw, 5rem);
 }
 h2{
+  display: grid;
+  justify-items: legacy;
+  align-content: center;
   font-family: New Tegomin, serif;
   text-align: center;
+  margin-bottom: 2px;
+  font-size: clamp(2rem, 4vw, 4rem);
 }
 h3{
   font-family: New Tegomin, serif;
@@ -171,7 +185,9 @@ button:active {
   width: 100%;
   height: auto;
 }
-
+.banner{
+  width: clamp(350px, 50%, 1200px);
+}
 /* Desktop */
 @media screen and (min-width: 1024px){
 
@@ -199,6 +215,16 @@ button:active {
     border-top-right-radius: 0px;
   }
   .item3 {
+    grid-area: c;
+    background: whitesmoke;
+    align-content: start;
+    padding-inline: 1rem;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+
+  .item4 {
     grid-area: c;
     background: whitesmoke;
     padding-inline: 1rem;

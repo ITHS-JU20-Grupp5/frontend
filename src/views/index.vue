@@ -11,7 +11,7 @@
         </form>
       </div>
       <div class="item3">
-        <h3>Register</h3>
+        <h2>Register</h2>
         <form class="form">
           <input class="input" type="text" id="username" name="username" placeholder="Username"><br/>
           <input class="input" type="text" id="name" name="name" placeholder="Name"><br/>

@@ -21,7 +21,7 @@
           <button class="button" value="submit" type="submit" name="submit">Submit</button>
         </form>
       </div>
-      <div class="item3">
+      <div class="item4">
         <h3>Categories</h3><br>
         <p>
           <button class="button" type="button" v-on:click="login()">History</button>
