@@ -1,144 +1,156 @@
 <template>
-  <div class="main">
-    <div class="wrapper">
-      <div class="item1"><img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img"></div>
-      <div class="item2">
-        <h3>Login</h3>
-        <form class="form">
-          <input class="input" type="text" name="username" v-model="input.username" placeholder="Username" /><br/>
-          <input class="input" type="password" name="password" v-model="input.password" placeholder="Password" /><br/>
-          <button class="button" type="button" v-on:click="login()">Login</button>
-        </form>
-      </div>
-      <div class="item3">
-        <h2>Register</h2>
-        <form class="form">
-          <input class="input" type="text" id="username" name="username" placeholder="Username"><br/>
-          <input class="input" type="text" id="name" name="name" placeholder="Name"><br/>
-          <input class="input" type="email" id="email" name="email" placeholder="Email"><br/>
-          <input class="input" type="password" id="password" name="password" placeholder="Password"><br/>
-          <input class="input" type="password" id="password2" name="password2" placeholder="Confirm password"><br/>
-          <button class="button" value="Submit" type="Submit" name="Submit">Register user</button>
-        </form>
-      </div>
-    </div>
-  </div>
+	<div class="main">
+		<div class="wrapper">
+			<div class="item1">
+				<img
+					alt="TheGeneral"
+					src="../assets/GeneralKnowledge.png"
+					class="img"
+				/>
+			</div>
+			<div class="item2">
+				<h3>Login</h3>
+				<form class="form" @submit.prevent="handleLogin">
+					<input
+						class="input"
+						type="text"
+						name="username"
+						v-model="loginUser.username"
+						placeholder="Username"
+					/><br />
+					<input
+						class="input"
+						type="password"
+						name="password"
+						v-model="loginUser.password"
+						placeholder="Password"
+					/><br />
+					<!-- <button class="button" type="button">
+						Login
+					</button> -->
+					<input type="submit" class="button" value="Login" />
+				</form>
+			</div>
+			<div class="item3">
+				<h2>Register</h2>
+				<form class="form">
+					<input
+						class="input"
+						type="text"
+						id="username"
+						name="username"
+						placeholder="Username"
+					/><br />
+					<input
+						class="input"
+						type="text"
+						id="name"
+						name="name"
+						placeholder="Name"
+					/><br />
+					<input
+						class="input"
+						type="email"
+						id="email"
+						name="email"
+						placeholder="Email"
+					/><br />
+					<input
+						class="input"
+						type="password"
+						id="password"
+						name="password"
+						placeholder="Password"
+					/><br />
+					<input
+						class="input"
+						type="password"
+						id="password2"
+						name="password2"
+						placeholder="Confirm password"
+					/><br />
+					<button class="button" value="Submit" type="Submit" name="Submit">
+						Register user
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
+import User from '../models/user';
 export default {
-  name: 'Login',
-  data() {
-    return {
-      input: {
-        username: "",
-        password: ""
-      }
-    }
-  },
-  // methods: {
-  //   login() {
-  //     if(this.input.username != "" && this.input.password != "") {
-  //       if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-  //         this.$emit("authenticated", true);
-  //         this.$router.replace({ name: "result" });
-  //       } else {
-  //         console.log("The username and / or password is incorrect");
-  //       }
-  //     } else {
-  //       console.log("A username and password must be present");
-  //     }
-  //   }
-  // }
-}
+	name: 'Login',
+	data() {
+		return {
+			loginUser: new User('', ''),
+			registerUser: new User('', '', '', ''),
+		};
+	},
+	computed: {
+		loggedIn() {
+			return this.$store.state.auth.status.loggedIn;
+		},
+	},
+	mounted() {
+		if (this.loggedIn) {
+			this.$router.push('/quiz');
+		}
+	},
+	methods: {
+		handleLogin() {
+			// this.loading = true;
+			// this.$validator.validateAll().then(isValid => {
+			// if (!isValid) {
+			// this.loading = false;
+			// return;
+			// }
+
+			if (this.loginUser.username && this.loginUser.password) {
+				this.$store.dispatch('auth/login', this.loginUser).then(
+					() => {
+						this.$router.push('/quiz');
+					},
+					// (error) => {
+					// this.loading = false;
+					// this.message =
+					//   (error.response && error.response.data) || error.message || error.toString();
+					// },
+				);
+			}
+			// });
+		},
+		handleRegister() {
+			// this.message = "";
+			// this.submitted = true;
+			// this.$validator.validate().then(isValid => {
+			//   if (isValid) {
+			this.$store
+				.dispatch('auth/register', this.registerUser)
+				.then
+				// (data) => {
+				// 	this.message = data.message;
+				// 	this.successful = true;
+				// },
+				// (error) => {
+				// this.message =
+				//   (error.response && error.response.data) || error.message || error.toString();
+				// this.successful = false;
+				// },
+				();
+		},
+		// });
+	},
+	//         },
+	//         error => {
+	//           this.loading = false;
+	//           this.message =
+	//             (error.response && error.response.data) || error.message || error.toString();
+	//         }
+	//       );
+	//     }
+	//   });
+	// }
+};
 </script>
-
-<!--<style scoped>-->
-<!--#login {-->
-<!--  margin: auto;-->
-<!--}-->
-<!--</style>-->
-
-
-
-
-
-<!--<template>-->
-<!--  <div class="main">-->
-<!--    <div class="wrapper">-->
-<!--      <div class="item1">-->
-<!--        <h3>Login</h3>-->
-<!--        <div class="align_left"> <p>-->
-<!--          <input type="text" name="username" v-model="input.username" placeholder="Username" /><br/>-->
-<!--          <input type="password" name="password" v-model="input.password" placeholder="Password" /><br/>-->
-<!--          <button type="button" v-on:click="login()">Login</button><br/>-->
-<!--          <button type="button" v-on:click="register()">Register</button>-->
-<!--        </p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="item2">-->
-<!--        <h3>Register</h3>-->
-<!--        <form>-->
-<!--          <label for="fname">First name</label>-->
-<!--          <br>-->
-<!--          <input type="text" id="fname" name="firstname" placeholder="Your name...">-->
-<!--          <br>-->
-<!--          <label for="lname">Last name</label>-->
-<!--          <br>-->
-<!--          <input type="text" id="lname" name="lastname" placeholder="Your last name...">-->
-<!--          <br>-->
-<!--          <label for="phone">Phone</label>-->
-<!--          <br>-->
-<!--          <input type="tel" id="phone" name="phone" placeholder="Phone number">-->
-<!--          <br>-->
-<!--          <label for="email">Email</label>-->
-<!--          <br>-->
-<!--          <input type="email" id="email" name="email" placeholder="your@email.here">-->
-<!--          <br>-->
-<!--          <label for="password">Password</label>-->
-<!--          <br>-->
-<!--          <input type="password" id="password" name="password" placeholder="Password">-->
-<!--          <br>-->
-<!--          <input type="password" id="password2" name="password2" placeholder="Confirm password">-->
-<!--          <br>-->
-<!--          <button value="Submit" type="Submit" name="Submit">Register user</button>-->
-<!--          <br>-->
-<!--        </form>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</template>-->
-
-<!--<script>-->
-<!--export default {-->
-<!--  name: 'Login',-->
-<!--  data() {-->
-<!--    return {-->
-<!--      input: {-->
-<!--        username: "",-->
-<!--        password: ""-->
-<!--      }-->
-<!--    }-->
-<!--  },-->
-<!--  // methods: {-->
-<!--  //   login() {-->
-<!--  //     if(this.input.username != "" && this.input.password != "") {-->
-<!--  //       if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {-->
-<!--  //         this.$emit("authenticated", true);-->
-<!--  //         this.$router.replace({ name: "result" });-->
-<!--  //       } else {-->
-<!--  //         console.log("The username and / or password is incorrect");-->
-<!--  //       }-->
-<!--  //     } else {-->
-<!--  //       console.log("A username and password must be present");-->
-<!--  //     }-->
-<!--  //   }-->
-<!--  // }-->
-<!--}-->
-<!--</script>-->
-
-<!--&lt;!&ndash;<style scoped>&ndash;&gt;-->
-<!--&lt;!&ndash;#login {&ndash;&gt;-->
-<!--&lt;!&ndash;  margin: auto;&ndash;&gt;-->
-<!--&lt;!&ndash;}&ndash;&gt;-->
-<!--&lt;!&ndash;</style>&ndash;&gt;-->
