@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
+      <header>
+      <img src="assets/generalknowledgebanner.png"/>
+      </header>
       <h1>General Knowledge Quiz</h1>
       <router-link to="/" class="routerlink">Home</router-link> |
       <router-link to="/quiz" class="routerlink">Quiz</router-link> |
@@ -103,6 +106,7 @@ p {
 h1 {
   font-family: New Tegomin, serif;
   text-align: center;
+  font-size: clamp(2rem, 5vw, 5rem);
 }
 h2{
   font-family: New Tegomin, serif;
@@ -134,11 +138,10 @@ button {
   font-size:15px;
   font-weight:bold;
   padding:6px 25px;
-  width: clamp(8vw, 180px, 15vw);
+  width: clamp(125px, 11vw, 180px);
   margin-right: 5px;
   text-decoration:none;
   text-shadow:0px 1px 0px #0f228c;
-
 }
 button:hover {
   background:linear-gradient(to bottom, #010440 5%, #0f228c 100%);
@@ -153,11 +156,11 @@ button:active {
 }
 .input {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 1rem;
+  font-size: clamp(12px, 1vw, 14px);
   border-color: transparent;
   box-shadow: 0 0.125rem 0.5rem #010440, 0 0.0625rem 0.125rem #0f228c;
   margin-bottom: 10px;
-  width: clamp(8vw, 180px, 14vw);
+  width: clamp(120px, 11vw, 170px);
 }
 #nav {
   font-family: New Tegomin, serif;

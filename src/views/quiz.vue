@@ -22,7 +22,7 @@
         </form>
       </div>
       <div class="item3">
-        <h3>Categories</h3>
+        <h3>Categories</h3><br>
         <p>
           <button class="button" type="button" v-on:click="login()">History</button>
           <button class="button" type="button" v-on:click="register()">Sports</button><br/>
