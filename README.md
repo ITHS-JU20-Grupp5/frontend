@@ -1,24 +1,39 @@
-# general-knowledge-frontend
+# General Knowledge Quiz (Backend)
 
-## Project setup
-```
-yarn install
-```
+## To get it running:
 
-### Compiles and hot-reloads for development
+Rename the
+
 ```
-yarn serve
+.env.example
 ```
 
-### Compiles and minifies for production
+file to:
+
 ```
-yarn build
+.env
 ```
 
-### Lints and fixes files
-```
-yarn lint
+Run the following command to start a dev server:
+
+```shell
+npm run dev
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+To populate the database with some dummy data run the following command while the server is running:
+
+```shell
+node utils/dummyData
+```
+
+### Dummy data
+
+The dummy data consists of:
+
+- One user
+  - Username: user, Password: Password123
+- Three categories
+  - KATEGORI1, KATEGORI2, KATEGORI3
+- Five questions per category
+- Six answers per question
+  - One correct answer, five incorrect answers
