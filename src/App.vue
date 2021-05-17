@@ -5,11 +5,11 @@
 				class="banner"
 				src="../src/assets/generalknowledgebanner.png"
 			/><br />
-			<router-link to="/" class="routerlink">Home</router-link> |
-			<router-link to="/quiz" class="routerlink">Quiz</router-link> |
-			<router-link to="/result" class="routerlink">Result</router-link> |
-			<router-link to="/settings" class="routerlink">Settings</router-link>
-			<button v-if="currentUser" @click="logOut">Logout</button>
+			<router-link to="/" class="routerlink">| Home | </router-link>
+			<router-link to="/quiz" class="routerlink">Quiz | </router-link>
+			<router-link to="/result" class="routerlink">Result | </router-link>
+			<router-link to="/settings" class="routerlink">Settings |</router-link>
+			<a href="/" class="routerlink" v-if="currentUser" @click="logOut"> Logout |</a>
 		</div>
 		<router-view />
 	</div>
@@ -56,6 +56,8 @@ body {
 }
 .routerlink {
 	color: #f2d335;
+  font-size: clamp(20px, 3vw, 30px);
+  text-decoration: none;
 }
 .bubble {
 	text-align: left;
@@ -141,11 +143,13 @@ h2 {
 	align-content: center;
 	font-family: New Tegomin, serif;
 	text-align: center;
+  margin-top: 2px;
 	margin-bottom: 2px;
 	font-size: clamp(2rem, 4vw, 4rem);
 }
 h3 {
 	font-family: New Tegomin, serif;
+  margin-top: 2px;
 	text-align: left;
 	margin-bottom: 2px;
 	font-size: clamp(2rem, 4vw, 4rem);
@@ -156,7 +160,7 @@ h3 {
 label {
 	font-size: 20px;
 }
-button {
+.button {
 	box-shadow: inset 0px 1px 0px 0px #f2d335;
 	background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
 	background-color: #0f228c;

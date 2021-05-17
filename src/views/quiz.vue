@@ -49,6 +49,16 @@
 						General knowledge
 					</button>
 				</p>
+        <h3>Levels</h3>
+        <button class="button" type="button" value="easy">
+          Easy
+        </button>
+        <button class="button" type="button" value="easy">
+          Normal
+        </button>
+        <button class="button" type="button" value="easy">
+          Hard
+        </button>
 			</div>
 		</div>
 	</div>
