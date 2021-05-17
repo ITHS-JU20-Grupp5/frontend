@@ -9,25 +9,26 @@
 			<router-link to="/quiz" class="routerlink">Quiz</router-link> |
 			<router-link to="/result" class="routerlink">Result</router-link> |
 			<router-link to="/settings" class="routerlink">Settings</router-link>
+			<button v-if="currentUser" @click="logOut">Logout</button>
 		</div>
 		<router-view />
 	</div>
 </template>
 
 <script>
-// export default {
-//   computed: {
-//     currentUser() {
-//       return this.$store.state.auth.user;
-//     }
-//   },
-//   methods: {
-//     logOut() {
-//       this.$store.dispatch("auth/logout");
-//       this.$router.push("/login");
-//     }
-//   }
-// };
+export default {
+	computed: {
+		currentUser() {
+			return this.$store.state.auth.user;
+		},
+	},
+	methods: {
+		logOut() {
+			this.$store.dispatch('auth/logout');
+			this.$router.push('/');
+		},
+	},
+};
 </script>
 
 <style>

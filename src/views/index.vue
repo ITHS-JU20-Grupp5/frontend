@@ -33,13 +33,14 @@
 			</div>
 			<div class="item3">
 				<h2>Register</h2>
-				<form class="form">
+				<form class="form" @submit.prevent="handleRegister">
 					<input
 						class="input"
 						type="text"
 						id="username"
 						name="username"
 						placeholder="Username"
+						v-model="registerUser.username"
 					/><br />
 					<input
 						class="input"
@@ -47,6 +48,7 @@
 						id="name"
 						name="name"
 						placeholder="Name"
+						v-model="registerUser.name"
 					/><br />
 					<input
 						class="input"
@@ -54,6 +56,7 @@
 						id="email"
 						name="email"
 						placeholder="Email"
+						v-model="registerUser.email"
 					/><br />
 					<input
 						class="input"
@@ -61,6 +64,7 @@
 						id="password"
 						name="password"
 						placeholder="Password"
+						v-model="registerUser.password"
 					/><br />
 					<input
 						class="input"
@@ -68,10 +72,12 @@
 						id="password2"
 						name="password2"
 						placeholder="Confirm password"
+						v-model="confirmPassword"
 					/><br />
-					<button class="button" value="Submit" type="Submit" name="Submit">
+					<input class="button" type="submit" value="Register" />
+					<!-- <button class="button" value="Submit" type="Submit" name="Submit">
 						Register user
-					</button>
+					</button> -->
 				</form>
 			</div>
 		</div>
@@ -86,6 +92,7 @@ export default {
 		return {
 			loginUser: new User('', ''),
 			registerUser: new User('', '', '', ''),
+			confirmPassword: '',
 		};
 	},
 	computed: {
@@ -126,19 +133,20 @@ export default {
 			// this.submitted = true;
 			// this.$validator.validate().then(isValid => {
 			//   if (isValid) {
-			this.$store
-				.dispatch('auth/register', this.registerUser)
-				.then
-				// (data) => {
-				// 	this.message = data.message;
-				// 	this.successful = true;
-				// },
-				// (error) => {
-				// this.message =
-				//   (error.response && error.response.data) || error.message || error.toString();
-				// this.successful = false;
-				// },
-				();
+			if (this.confirmPassword === this.registerUser.password) {
+				this.$store
+					.dispatch('auth/register', this.registerUser)
+					.then((data) => {
+						// 	this.message = data.message;
+						// 	this.successful = true;
+						console.log(data);
+						// },
+						// (error) => {
+						// this.message =
+						//   (error.response && error.response.data) || error.message || error.toString();
+						// this.successful = false;
+					});
+			}
 		},
 		// });
 	},
