@@ -11,21 +11,21 @@
 			<div class="item2">
 				<h3>Questions</h3>
 				<form class="bubble">
-					<p>
-						What is the answer? Annan löpande text så att det fyller ut lite
-						utrymme.
-					</p>
-					<input type="radio" id="answer1" name="bridge" value="333 685" />
-					<label for="answer1">333 685</label>
-					<br />
-					<input type="radio" id="answer2" name="bridge" value="7 428 954" />
-					<label for="answer2">7 428 954</label>
-					<br />
-					<input type="radio" id="answer3" name="bridge" value="78 435 785" />
-					<label for="answer3">78 435 785</label>
-					<br />
-					<input type="radio" id="answer4" name="bridge" value="42" />
-					<label for="answer4">42</label>
+					<span v-for="question in quiz.questions" :key="question.Id">
+						<p>
+							{{ question.Question }}
+						</p>
+						<span v-for="answer in question.Answers" :key="answer.Id">
+							<input
+								type="radio"
+								:id="'answer' + answer.Id"
+								:name="'bridge' + question.Id"
+								:value="answer.Answer"
+							/>
+							<label :for="'answer' + answer.Id">{{ answer.Answer }}</label>
+							<br />
+						</span>
+					</span>
 					<br />
 					<button class="button" value="submit" type="submit" name="submit">
 						Submit
@@ -49,16 +49,16 @@
 						General knowledge
 					</button>
 				</p>
-        <h3>Levels</h3>
-        <button class="button" type="button" value="easy">
-          Easy
-        </button>
-        <button class="button" type="button" value="easy">
-          Normal
-        </button>
-        <button class="button" type="button" value="easy">
-          Hard
-        </button>
+				<h3>Levels</h3>
+				<button class="button" type="button" value="easy">
+					Easy
+				</button>
+				<button class="button" type="button" value="easy">
+					Normal
+				</button>
+				<button class="button" type="button" value="easy">
+					Hard
+				</button>
 			</div>
 		</div>
 	</div>
@@ -69,13 +69,49 @@ export default {
 	name: 'Quiz',
 	data() {
 		return {
-			quiz: {},
+			quiz: {
+				category: 'HISTORIA',
+				Questions: [
+					{
+						Question: 'Test',
+						Answers: [
+							{
+								Answer: 'Hello',
+								Correct: false,
+							},
+							{
+								Answer: 'Hello again',
+								Correct: true,
+							},
+						],
+					},
+					{
+						question: 'Testing',
+						answers: [
+							{
+								answer: 'Hello',
+								correct: false,
+							},
+							{
+								answer: 'Hello again',
+								correct: true,
+							},
+						],
+					},
+				],
+			},
+			startQuiz: false,
 		};
 	},
 	mounted() {
 		this.$store.dispatch('quiz/getQuiz').then((response) => {
-			console.log(response);
+			this.quiz = response;
 		});
+	},
+	methods: {
+		getQuiz() {
+			return this.quiz;
+		},
 	},
 };
 </script>

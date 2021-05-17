@@ -9,7 +9,9 @@
 			<router-link to="/quiz" class="routerlink">Quiz | </router-link>
 			<router-link to="/result" class="routerlink">Result | </router-link>
 			<router-link to="/settings" class="routerlink">Settings |</router-link>
-			<a href="/" class="routerlink" v-if="currentUser" @click="logOut"> Logout |</a>
+			<a href="/" class="routerlink" v-if="currentUser" @click="logOut">
+				Logout |</a
+			>
 		</div>
 		<router-view />
 	</div>
@@ -56,8 +58,8 @@ body {
 }
 .routerlink {
 	color: #f2d335;
-  font-size: clamp(20px, 3vw, 30px);
-  text-decoration: none;
+	font-size: clamp(20px, 3vw, 30px);
+	text-decoration: none;
 }
 .bubble {
 	text-align: left;
@@ -143,13 +145,13 @@ h2 {
 	align-content: center;
 	font-family: New Tegomin, serif;
 	text-align: center;
-  margin-top: 2px;
+	margin-top: 2px;
 	margin-bottom: 2px;
 	font-size: clamp(2rem, 4vw, 4rem);
 }
 h3 {
 	font-family: New Tegomin, serif;
-  margin-top: 2px;
+	margin-top: 2px;
 	text-align: left;
 	margin-bottom: 2px;
 	font-size: clamp(2rem, 4vw, 4rem);
