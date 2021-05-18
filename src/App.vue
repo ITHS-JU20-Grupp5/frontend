@@ -50,7 +50,10 @@ body {
 	font-family: Roboto, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	color: #010440;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  user-select:none;
+  color: #010440;
 	margin-top: 20px;
 	font-size: 20px;
 	justify-content: center;
@@ -104,6 +107,9 @@ body {
 
 .item2 {
 	grid-area: b;
+  display: grid;
+  justify-content: center;
+  align-content: start;
 	background: whitesmoke;
 	border-top-right-radius: 25px;
 }
@@ -207,9 +213,55 @@ button:active {
 .img {
 	width: 100%;
 	height: auto;
+  pointer-events: none;
 }
 .banner {
 	width: clamp(350px, 50%, 1200px);
+  pointer-events: none;
+}
+/*Tablet*/
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  .wrapper {
+    display: grid;
+    grid-template-columns: 30% 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 'a b c';
+  }
+
+  .item1 {
+    grid-area: a;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 0px;
+    padding-bottom: 20px;
+  }
+
+  .item2 {
+    grid-area: b;
+    background: whitesmoke;
+    border-top-right-radius: 0px;
+  }
+  .item3 {
+    grid-area: c;
+    background: whitesmoke;
+    align-content: start;
+    padding-inline: 1rem;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+
+  .item4 {
+    grid-area: c;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    padding-bottom: 20px;
+  }
 }
 /* Desktop */
 @media screen and (min-width: 1024px) {
