@@ -1,95 +1,32 @@
 <template>
-	<div class="main">
-		<div class="wrapper">
-			<div class="item1">
-				<img
-					alt="TheGeneral"
-					src="../assets/GeneralKnowledge.png"
-					class="img"
-				/>
-			</div>
-			<div class="item2">
-				<h3>Questions</h3>
-				<form class="bubble">
-          <div id="quiz-container">
-          <!-- New Section for User Statistics -->
-          <div class="correctAnswers">
-            You have
-            <strong>{{ correctAnswers }} correct {{ pluralizeAnswer }}!</strong>
-          </div>
-          <div class="correctAnswers">
-            Currently at question {{ index + 1 }} of {{ questions.length }}
-          </div>
+  <div id="quiz-container">
+    <h1 id="logo-headline">headsUP</h1>
+    <!-- New Section for User Statistics -->
+    <div class="correctAnswers">
+      You have
+      <strong>{{ correctAnswers }} correct {{ pluralizeAnswer }}!</strong>
+    </div>
+    <div class="correctAnswers">
+      Currently at question {{ index + 1 }} of {{ questions.length }}
+    </div>
 
-          <hr class="divider" />
-          <div>
-            <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
-            <form v-if="currentQuestion">
-              <button
-                  v-for="answer in currentQuestion.answers"
-                  :index="currentQuestion.key"
-                  :key="answer"
-                  v-html="answer"
-                  @click.prevent="handleButtonClick"
-              ></button>
-            </form>
-            <hr class="divider" />
-          </div>
-        </div>
-
-<!--					<span v-for="question in quiz.questions" :key="question.Id">-->
-<!--						<p>-->
-<!--							{{ question.Question }}-->
-<!--						</p>-->
-<!--						<span v-for="answer in question.Answers" :key="answer.Id">-->
-<!--							<input-->
-<!--								type="radio"-->
-<!--								:id="'answer' + answer.Id"-->
-<!--								:name="'bridge' + question.Id"-->
-<!--								:value="answer.Answer"-->
-<!--							/>-->
-<!--							<label :for="'answer' + answer.Id">{{ answer.Answer }}</label>-->
-<!--							<br />-->
-<!--						</span>-->
-<!--					</span>-->
-<!--					<br />-->
-<!--					<button class="button" value="submit" type="submit" name="submit">-->
-<!--						Submit-->
-<!--					</button>-->
-				</form>
-			</div>
-			<div class="item4">
-				<h3>Categories</h3>
-				<p>
-					<button class="button" type="button" v-on:click="login()">
-						History
-					</button>
-					<button class="button" type="button" v-on:click="register()">
-						Sports</button
-					><br />
-					<button class="button" type="button" v-on:click="login()">
-						Geography
-					</button>
-					<button class="button" type="button" v-on:click="register()">
-						General knowledge
-					</button>
-				</p>
-				<h3>Levels</h3>
-        <p>
-				<button class="button" type="button" value="easy">
-					Easy
-				</button>
-				<button class="button" type="button" value="easy">
-					Normal
-				</button>
-				<button class="button" type="button" value="easy">
-					Hard
-				</button>
-        </p>
-			</div>
-		</div>
-	</div>
+    <hr class="divider" />
+    <div>
+      <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
+      <form v-if="currentQuestion">
+        <button
+          v-for="answer in currentQuestion.answers"
+          :index="currentQuestion.key"
+          :key="answer"
+          v-html="answer"
+          @click.prevent="handleButtonClick"
+        ></button>
+      </form>
+      <hr class="divider" />
+    </div>
+  </div>
 </template>
+
 <script>
 export default {
   name: "Quiz",
@@ -120,14 +57,14 @@ export default {
             return count;
           }, 0),
           correctlyAnsweredQuestions: this.questions.reduce(
-              (count, currentQuestion) => {
-                if (currentQuestion.rightAnswer) {
-                  // rightAnswer is true, if user answered correctly
-                  count++;
-                }
-                return count;
-              },
-              0
+            (count, currentQuestion) => {
+              if (currentQuestion.rightAnswer) {
+                // rightAnswer is true, if user answered correctly
+                count++;
+              }
+              return count;
+            },
+            0
           ),
         };
       } else {
@@ -177,16 +114,16 @@ export default {
        * returned by quizCompleted computed property true
        */
       completed &&
-      setTimeout(() => {
-        this.$emit("quiz-completed", this.score);
-      }, 3000); // wait 3 seconds until button animation is over
+        setTimeout(() => {
+          this.$emit("quiz-completed", this.score);
+        }, 3000); // wait 3 seconds until button animation is over
     },
   },
   methods: {
     async fetchQuestions() {
       this.loading = true;
       let response = await fetch(
-          "https://opentdb.com/api.php?amount=5&category=9"
+        "https://opentdb.com/api.php?amount=5&category=9"
       );
       let jsonResponse = await response.json();
       let index = 0; // index is used to identify single answer
@@ -242,10 +179,10 @@ export default {
       if (question.userAnswer) {
         if (this.index < this.questions.length - 1) {
           setTimeout(
-              function() {
-                this.index += 1;
-              }.bind(this),
-              3000
+            function() {
+              this.index += 1;
+            }.bind(this),
+            3000
           );
         }
         if (question.userAnswer === question.correct_answer) {
@@ -312,7 +249,7 @@ h1 {
 
 .divider {
   margin: 0.5rem 0;
-  border: 3px solid #0f228c;
+  border: 3px solid rgba(102, 255, 166, 0.7);
   border-radius: 2px;
   box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
 }
@@ -339,7 +276,7 @@ button {
 button:hover:enabled {
   transform: scale(1.02);
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
-  0 3px 1px -1px rgba(0, 0, 0, 0.2);
+    0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 button:focus {
@@ -377,18 +314,18 @@ button.rightAnswer {
   animation-timing-function: ease-in-out;
   color: black;
   background: linear-gradient(
-      210deg,
-      rgba(0, 178, 72, 0.25),
-      rgba(0, 178, 72, 0.5)
+    210deg,
+    rgba(0, 178, 72, 0.25),
+    rgba(0, 178, 72, 0.5)
   );
 }
 
 button.wrongAnswer {
   color: black;
   background: linear-gradient(
-      210deg,
-      rgba(245, 0, 87, 0.25),
-      rgba(245, 0, 87, 0.5)
+    210deg,
+    rgba(245, 0, 87, 0.25),
+    rgba(245, 0, 87, 0.5)
   );
 }
 
@@ -400,9 +337,9 @@ button.showRightAnswer {
   animation-timing-function: ease-in-out;
   color: black;
   background: linear-gradient(
-      210deg,
-      rgba(0, 178, 72, 0.25),
-      rgba(0, 178, 72, 0.5)
+    210deg,
+    rgba(0, 178, 72, 0.25),
+    rgba(0, 178, 72, 0.5)
   );
 }
 
@@ -410,54 +347,3 @@ button.showRightAnswer {
   text-align: center;
 }
 </style>
-<!--<script>-->
-<!--export default {-->
-<!--	name: 'Quiz',-->
-<!--	data() {-->
-<!--		return {-->
-<!--			quiz: {-->
-<!--				category: 'HISTORIA',-->
-<!--				Questions: [-->
-<!--					{-->
-<!--						Question: 'Test',-->
-<!--						Answers: [-->
-<!--							{-->
-<!--								Answer: 'Hello',-->
-<!--								Correct: false,-->
-<!--							},-->
-<!--							{-->
-<!--								Answer: 'Hello again',-->
-<!--								Correct: true,-->
-<!--							},-->
-<!--						],-->
-<!--					},-->
-<!--					{-->
-<!--						question: 'Testing',-->
-<!--						answers: [-->
-<!--							{-->
-<!--								answer: 'Hello',-->
-<!--								correct: false,-->
-<!--							},-->
-<!--							{-->
-<!--								answer: 'Hello again',-->
-<!--								correct: true,-->
-<!--							},-->
-<!--						],-->
-<!--					},-->
-<!--				],-->
-<!--			},-->
-<!--			startQuiz: false,-->
-<!--		};-->
-<!--	},-->
-<!--	mounted() {-->
-<!--		this.$store.dispatch('quiz/getQuiz').then((response) => {-->
-<!--			this.quiz = response;-->
-<!--		});-->
-<!--	},-->
-<!--	methods: {-->
-<!--		getQuiz() {-->
-<!--			return this.quiz;-->
-<!--		},-->
-<!--	},-->
-<!--};-->
-<!--</script>-->
