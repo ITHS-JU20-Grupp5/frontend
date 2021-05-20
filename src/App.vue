@@ -6,19 +6,53 @@
 				src="../src/assets/generalknowledgebanner.png"
 			/><br />
 			<router-link to="/" class="routerlink">| Home | </router-link>
-			<router-link to="/quiz" class="routerlink">Quiz | </router-link>
+			<router-link to="/Quiz" class="routerlink">Quiz | </router-link>
 			<router-link to="/result" class="routerlink">Result | </router-link>
 			<router-link to="/settings" class="routerlink">Settings |</router-link>
 			<a href="/" class="routerlink" v-if="currentUser" @click="logOut">
 				Logout |</a
 			>
 		</div>
-		<router-view />
+
+    <Quiz @quiz-completed="handleQuizCompleted" :key="quizKey" />
+    <Modal
+        v-show="showModal"
+        header="Congratulations!"
+        subheader="You've completed your Quiz!"
+        v-bind:quizScore="quizScore"
+        @reload="updateQuiz"
+        @close="showModal = false"
+    />
+    <footer>
+      <p id="createdBy">
+        created by <a href="https://chrisko.io">Christian Kozalla</a>
+      </p>
+    </footer>
+
 	</div>
 </template>
 
 <script>
+import Quiz from "@/views/Quiz.vue";
+import Modal from "@/views/Modal.vue";
+
 export default {
+  name: "App",
+  components: {
+    Quiz,
+    Modal,
+  },
+  data() {
+    return {
+      quizKey: 0,
+      showModal: false,
+      quizScore: {
+        allQuestions: 0,
+        answeredQuestions: 0,
+        correctlyAnsweredQuestions: 0,
+      },
+    };
+  },
 	computed: {
 		currentUser() {
 			return this.$store.state.auth.user;
@@ -29,6 +63,14 @@ export default {
 			this.$store.dispatch('auth/logout');
 			this.$router.push('/');
 		},
+    handleQuizCompleted(score) {
+      this.quizScore = score;
+      this.showModal = true;
+    },
+    updateQuiz() {
+      this.showModal = false;
+      this.quizKey++;
+    },
 	},
 };
 </script>
@@ -306,5 +348,32 @@ button:active {
 		border-top-right-radius: 25px;
 		padding-bottom: 20px;
 	}
+}
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#app {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  font-size: 0.7rem;
+  background-color: rgb(102, 255, 166);
+}
+
+#createdBy {
+  float: right;
 }
 </style>

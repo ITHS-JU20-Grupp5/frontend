@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:3000/';
 class QuizService {
 	getQuiz() {
 		return axios.post(API_URL + 'quiz', {}).then((response) => {
-			if (response.data.ok) {
+			if (response.status === 200) {
 				return response.data.quiz;
 			}
 			return {};
