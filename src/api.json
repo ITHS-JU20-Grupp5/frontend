@@ -1,0 +1,40 @@
+{
+  "response_code":0,
+  "results":[
+    {
+      "category":"General Knowledge",
+      "type":"multiple",
+      "difficulty":"medium",
+      "question":"What is the Italian word for &quot;tomato&quot;?",
+      "correct_answer":"Pomodoro",
+      "incorrect_answers":["Aglio","Cipolla","Peperoncino"]}
+  ,{
+      "category":"General Knowledge",
+      "type":"multiple",
+      "difficulty":"hard",
+      "question":"The Swedish word &quot;Grunka&quot; means what in English?",
+      "correct_answer":"Thing",
+      "incorrect_answers":["People","Place","Pineapple"]},
+    {
+      "category":"General Knowledge",
+      "type":"multiple",
+      "difficulty":"medium",
+      "question":"Who is the founder of &quot;The Lego Group&quot;?",
+      "correct_answer":"Ole Kirk Christiansen",
+      "incorrect_answers":[" Jens Niels Christiansen","Kirstine Christiansen"," Gerhardt Kirk Christiansen"]},
+    {
+      "category":"General Knowledge",
+      "type":"multiple",
+      "difficulty":"hard",
+      "question":"Which one of these Swedish companies was founded in 1943?",
+      "correct_answer":"IKEA",
+      "incorrect_answers":["H &amp; M","Lindex","Clas Ohlson"]},
+    {
+      "category":"General Knowledge",
+      "type":"boolean",
+      "difficulty":"medium",
+      "question":"&quot;Santa Claus&quot; is a variety of melon.",
+      "correct_answer":"True",
+      "incorrect_answers":["False"]}
+  ]
+}

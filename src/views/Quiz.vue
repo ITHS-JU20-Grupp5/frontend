@@ -23,39 +23,19 @@
 
           <hr class="divider" />
           <div>
-            <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
+            <h1 v-html="loading ? 'Loading...' : currentQuestion.Question"></h1>
             <form v-if="currentQuestion">
               <button
-                  v-for="answer in currentQuestion.answers"
-                  :index="currentQuestion.key"
-                  :key="answer"
-                  v-html="answer"
+                  v-for="answer in currentQuestion.Answers"
+                  :index="currentQuestion.Id"
+                  :key="answer.Id"
+                  v-html="answer.Answer"
                   @click.prevent="handleButtonClick"
               ></button>
             </form>
             <hr class="divider" />
           </div>
         </div>
-
-<!--					<span v-for="question in quiz.questions" :key="question.Id">-->
-<!--						<p>-->
-<!--							{{ question.Question }}-->
-<!--						</p>-->
-<!--						<span v-for="answer in question.Answers" :key="answer.Id">-->
-<!--							<input-->
-<!--								type="radio"-->
-<!--								:id="'answer' + answer.Id"-->
-<!--								:name="'bridge' + question.Id"-->
-<!--								:value="answer.Answer"-->
-<!--							/>-->
-<!--							<label :for="'answer' + answer.Id">{{ answer.Answer }}</label>-->
-<!--							<br />-->
-<!--						</span>-->
-<!--					</span>-->
-<!--					<br />-->
-<!--					<button class="button" value="submit" type="submit" name="submit">-->
-<!--						Submit-->
-<!--					</button>-->
 				</form>
 			</div>
 			<div class="item4">
@@ -98,6 +78,7 @@ export default {
       questions: [],
       loading: true,
       index: 0,
+      correctAnswers: 0,
     };
   },
   computed: {
@@ -138,21 +119,20 @@ export default {
         };
       }
     },
-    correctAnswers() {
-      if (this.questions && this.questions.length > 0) {
-        let streakCounter = 0;
-        this.questions.forEach(function(question) {
-          if (!question.rightAnswer) {
-            return;
-          } else if (question.rightAnswer === true) {
-            streakCounter++;
-          }
-        });
-        return streakCounter;
-      } else {
-        return "--";
-      }
-    },
+    // correctAnswers() {
+    //   if (this.questions && this.questions.length > 0) {
+    //     let streakCounter = 0;
+    //     console.log("Hello")
+    //     this.questions.forEach(function(question) {
+    //       if (question.rightAnswer === true) {
+    //         streakCounter++;
+    //       }
+    //     });
+    //     return streakCounter;
+    //   } else {
+    //     return "--";
+    //   }
+    // },
     pluralizeAnswer() {
       // For grammatical correctness
       return this.correctAnswers === 1 ? "Answer" : "Answers";
@@ -164,52 +144,59 @@ export default {
       /* Check if all questions have been answered */
       let questionsAnswered = 0;
       this.questions.forEach(function(question) {
-        question.rightAnswer !== null ? questionsAnswered++ : null;
+        //question.rightAnswer !== null ? questionsAnswered++ : null;
+        if (question.rightAnswer) {
+          questionsAnswered++
+        }
       });
+      console.log(questionsAnswered, this.questions.length)
       return questionsAnswered === this.questions.length;
     },
   },
   watch: {
-    quizCompleted(completed) {
-      /*
-       * Watcher on quizCompleted fires event "quiz-completed"
-       * up to parent App.vue component when completed parameter
-       * returned by quizCompleted computed property true
-       */
-      completed &&
-      setTimeout(() => {
-        this.$emit("quiz-completed", this.score);
-      }, 3000); // wait 3 seconds until button animation is over
-    },
+    // questions: function () {
+    //   if (this.questions.length === 0) {
+    //     return false;
+    //   }
+    //   /* Check if all questions have been answered */
+    //   let questionsAnswered = 0;
+    //   this.questions.forEach(function(question) {
+    //     //question.rightAnswer !== null ? questionsAnswered++ : null;
+    //     if (question.rightAnswer) {
+    //       questionsAnswered++
+    //     }
+    //   });
+    //   console.log(questionsAnswered, this.questions.length)
+    //   if (questionsAnswered === this.questions.length) {
+    //     setTimeout(() => {
+    //       this.$emit("quiz-completed", this.score);
+    //     })
+    //   }
+    // },
+    // quizCompleted(completed) {
+    //   /*
+    //    * Watcher on quizCompleted fires event "quiz-completed"
+    //    * up to parent App.vue component when completed parameter
+    //    * returned by quizCompleted computed property true
+    //    */
+    //   completed &&
+    //   setTimeout(() => {
+    //     this.$emit("quiz-completed", this.score);
+    //   }, 3000); // wait 3 seconds until button animation is over
+    // },
   },
   methods: {
     async fetchQuestions() {
       this.loading = true;
-      let response = await fetch(
-          "https://opentdb.com/api.php?amount=5&category=9"
-      );
-      let jsonResponse = await response.json();
-      let index = 0; // index is used to identify single answer
-      let data = jsonResponse.results.map((question) => {
-        // put answers on question into single array
-        question.answers = [
-          question.correct_answer,
-          ...question.incorrect_answers,
-        ];
-        /* Shuffle question.answers array */
-        for (let i = question.answers.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [question.answers[i], question.answers[j]] = [
-            question.answers[j],
-            question.answers[i],
-          ];
-        }
-        // mention in Step 1
-        question.rightAnswer = null;
-        question.key = index;
-        index++;
-        return question;
-      });
+
+      // let response = await fetch(
+      //     "https://opentdb.com/api.php?amount=5&category=9"
+      // );
+      let quizVariabel = await this.$store.dispatch('quiz/getQuiz');
+
+      // let jsonResponse = await quizVariabel.json();
+      //let index = 0; // index is used to identify single answer
+      let data = quizVariabel.questions;
       this.questions = data;
       this.loading = false;
     },
@@ -220,8 +207,9 @@ export default {
       /* Clear from pollution with ' */
       let userAnswer = pollutedUserAnswer.replace(/'/, "&#039;");
 
+      //console.log(index, this.questions)
       /* Set userAnswer on question object in data */
-      this.questions[index].userAnswer = userAnswer;
+      this.questions[this.index].userAnswer = userAnswer;
 
       /* Set class "clicked" on button with userAnswer -> for CSS Styles; Disable other sibling buttons */
       event.target.classList.add("clicked");
@@ -237,7 +225,7 @@ export default {
       this.checkAnswer(event, index);
     },
     checkAnswer: function(event, index) {
-      let question = this.questions[index];
+      let question = this.questions[this.index];
 
       if (question.userAnswer) {
         if (this.index < this.questions.length - 1) {
@@ -248,17 +236,38 @@ export default {
               3000
           );
         }
-        if (question.userAnswer === question.correct_answer) {
+        let questionsAnswered = 1;
+        this.questions.forEach(function(question) {
+          //question.rightAnswer !== null ? questionsAnswered++ : null;
+          //console.log(question.rightAnswer)
+          if (question.rightAnswer != null) {
+            questionsAnswered++
+          }
+        });
+       // console.log(questionsAnswered, this.questions.length)
+        if (questionsAnswered === this.questions.length) {
+          setTimeout(function() {
+            this.$emit("quiz-completed", this.score);
+          }.bind(this), 3000)
+        }
+        let correctAnswer
+        question.Answers.forEach((answer) => {
+          if (answer.Correct === 1) {
+            correctAnswer = answer.Answer
+          }
+        })
+        if (question.userAnswer === correctAnswer) {
           /* Set class on Button if user answered right, to celebrate right answer with animation joyfulButton */
           event.target.classList.add("rightAnswer");
           /* Set rightAnswer on question to true, computed property can track a streak out of 10 questions */
-          this.questions[index].rightAnswer = true;
+          this.questions[this.index].rightAnswer = true;
+          this.correctAnswers++
         } else {
           /* Mark users answer as wrong answer */
           event.target.classList.add("wrongAnswer");
-          this.questions[index].rightAnswer = false;
+          this.questions[this.index].rightAnswer = false;
           /* Show right Answer */
-          let correctAnswer = this.questions[index].correct_answer;
+          //let correctAnswer2 = this.questions[index].correct_answer;
           let allButtons = document.querySelectorAll(`[index="${index}"]`);
           allButtons.forEach(function(button) {
             if (button.innerHTML === correctAnswer) {

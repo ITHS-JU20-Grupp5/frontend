@@ -23,12 +23,6 @@
         @reload="updateQuiz"
         @close="showModal = false"
     />
-    <footer>
-      <p id="createdBy">
-        created by <a href="https://chrisko.io">Christian Kozalla</a>
-      </p>
-    </footer>
-
 	</div>
 </template>
 
