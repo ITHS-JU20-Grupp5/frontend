@@ -57,7 +57,7 @@
 
 <script>
 export default {
-  name: "Modal",
+  name: "modal",
   props: {
     header: String,
     subheader: String,

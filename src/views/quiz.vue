@@ -68,11 +68,14 @@
         </p>
 			</div>
 		</div>
+
 	</div>
 </template>
 <script>
+
+
 export default {
-  name: "Quiz",
+  name: "quiz",
   data() {
     return {
       questions: [],

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import index from '../views/index.vue';
-import Quiz from '../views/Quiz.vue';
+import Quiz from '../views/quiz.vue';
 
 Vue.use(VueRouter);
 
@@ -45,7 +45,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	const publicPages = ['/', '/quiz'];
+	const publicPages = ['/'];
 	const authRequired = !publicPages.includes(to.path);
 	const loggedIn = localStorage.getItem('user');
 	// trying to access a restricted page + not logged in
