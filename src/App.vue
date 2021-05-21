@@ -8,7 +8,8 @@
       <router-link to="/" class="routerlink">| Home | </router-link>
       <router-link to="/quiz" class="routerlink">Quiz | </router-link>
       <router-link to="/result" class="routerlink">Result | </router-link>
-      <router-link to="/settings" class="routerlink">Settings |</router-link>
+      <router-link to="/settings" class="routerlink">Settings | </router-link>
+      <router-link to="/admin" class="routerlink" v-if="currentUser">Admin |</router-link>
       <a href="/" class="routerlink" v-if="currentUser" @click="logOut">
         Logout |</a
       >
@@ -160,8 +161,6 @@ body {
 .item4 {
   grid-area: c;
   display: grid;
-  /*grid-template-columns: 1fr 1fr;*/
-  /*justify-self: inherit;*/
   justify-content: center;
   background: whitesmoke;
   padding-inline: 1rem;
@@ -219,17 +218,27 @@ label {
   text-decoration: none;
   text-shadow: 0px 1px 0px #0f228c;
 }
+
 button:hover {
   background: linear-gradient(to bottom, #010440 5%, #0f228c 100%);
   background-color: #010440;
 }
-button:active {
+button:active:enabled {
   position: relative;
   top: 1px;
+  color: #010440;
+  background: linear-gradient(
+      210deg,
+      rgba(0, 178, 72, 0.25),
+      rgba(0, 178, 72, 0.5)
+  );
 }
+
 .buttonSettings {
   margin-left: 5px;
 }
+
+
 .input {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-size: clamp(12px, 1vw, 14px);

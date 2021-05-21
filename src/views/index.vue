@@ -25,11 +25,9 @@
 						v-model="loginUser.password"
 						placeholder="Password"
 					/><br />
-					<!-- <button class="button" type="button">
-						Login
-					</button> -->
-					<input type="submit" class="button" value="Login" />
-				</form>
+
+					<button class="submit" type="submit" value="Login" id="loginButton">Login</button>
+          </form>
 			</div>
 			<div class="item3">
 				<h2>Register</h2>
@@ -74,10 +72,7 @@
 						placeholder="Confirm password"
 						v-model="confirmPassword"
 					/><br />
-					<input class="button" type="submit" value="Register" />
-					<!-- <button class="button" value="Submit" type="Submit" name="Submit">
-						Register user
-					</button> -->
+					<button class="submit" type="submit" value="Register" id="registerButton">Register</button>
 				</form>
 			</div>
 		</div>
@@ -107,58 +102,74 @@ export default {
 	},
 	methods: {
 		handleLogin() {
-			// this.loading = true;
-			// this.$validator.validateAll().then(isValid => {
-			// if (!isValid) {
-			// this.loading = false;
-			// return;
-			// }
-
 			if (this.loginUser.username && this.loginUser.password) {
 				this.$store.dispatch('auth/login', this.loginUser).then(
 					() => {
 						this.$router.push('/quiz');
 					},
-					// (error) => {
-					// this.loading = false;
-					// this.message =
-					//   (error.response && error.response.data) || error.message || error.toString();
-					// },
 				);
 			}
-			// });
 		},
 		handleRegister() {
-			// this.message = "";
-			// this.submitted = true;
-			// this.$validator.validate().then(isValid => {
-			//   if (isValid) {
 			if (this.confirmPassword === this.registerUser.password) {
 				this.$store
 					.dispatch('auth/register', this.registerUser)
 					.then((data) => {
-						// 	this.message = data.message;
-						// 	this.successful = true;
 						console.log(data);
-						// },
-						// (error) => {
-						// this.message =
-						//   (error.response && error.response.data) || error.message || error.toString();
-						// this.successful = false;
 					});
 			}
 		},
-		// });
 	},
-	//         },
-	//         error => {
-	//           this.loading = false;
-	//           this.message =
-	//             (error.response && error.response.data) || error.message || error.toString();
-	//         }
-	//       );
-	//     }
-	//   });
-	// }
 };
 </script>
+
+<style scoped>
+
+.submit {
+  box-shadow: inset 0px 1px 0px 0px #f2d335;
+  background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
+  background-color: #0f228c;
+  border-radius: 6px;
+  border: 1px solid #1f47bf;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 25px;
+  width: clamp(125px, 11vw, 180px);
+  margin-right: 5px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #0f228c;
+}
+
+.button:focus{
+  color: #010440;
+  background: linear-gradient(
+      180deg,
+      rgb(246, 229, 176),
+      rgb(255, 211, 0)
+  );
+}
+#registerButton:active:enabled {
+  position: relative;
+  top: 1px;
+  color: #FFF;
+  background: linear-gradient(
+      180deg,
+      rgb(13, 37, 135),
+      rgb(49, 84, 201)
+  );
+}
+#loginButton:active:enabled {
+  position: relative;
+  top: 1px;
+  color: #FFF;
+  background: linear-gradient(
+      180deg,
+      rgb(13, 37, 135),
+      rgb(49, 84, 201)
+  );
+}
+</style>
