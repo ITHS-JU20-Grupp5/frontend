@@ -53,6 +53,7 @@ export default {
       return this.$store.state.auth.user;
     },
   },
+
   methods: {
     logOut() {
       this.$store.dispatch('auth/logout');
@@ -104,9 +105,9 @@ body {
 .bubble {
   text-align: left;
   position: relative;
-  max-width: 30em;
+  width: clamp(200px, 12vw, 400px);
   background-color: #fff;
-  padding: 1.25em 1.5em;
+  padding: 0.5em 0.2em;
   font-size: 1.25em;
   border-radius: 2rem;
   margin: clamp(10px, 1vw, 20px);
@@ -114,16 +115,28 @@ body {
   0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 }
 .bubble::before {
+  /*content: '';*/
+  /*position: absolute;*/
+  /*width: 0;*/
+  /*height: 0;*/
+  /*bottom: 100%;*/
+  /*left: 1.5em;*/
+  /*border: 0.75rem solid transparent;*/
+  /*border-top: none;*/
+  /*border-bottom-color: #fff;*/
+  /*filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));*/
   content: '';
   position: absolute;
+  left: 0;
+  top: 20%;
   width: 0;
   height: 0;
-  bottom: 100%;
-  left: 1.5em;
-  border: 0.75rem solid transparent;
-  border-top: none;
-  border-bottom-color: #fff;
-  filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));
+  border: 20px solid transparent;
+  border-right-color: #fff;
+  border-left: 0;
+  margin-top: -20px;
+  margin-left: -20px;
+  filter: drop-shadow(-0.0855rem 0rem 0.0625rem rgba(0, 0, 0, 0.1));
 }
 .wrapper {
   display: grid;
@@ -190,11 +203,12 @@ h2 {
 h3 {
   font-family: New Tegomin, serif;
   margin-top: 2px;
-  text-align: left;
+  text-align: center;
   margin-bottom: 2px;
   font-size: clamp(2rem, 4vw, 4rem);
 }
 .form {
+  justify-self: center;
   line-height: 35px;
 }
 label {
@@ -212,8 +226,9 @@ label {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-size: 15px;
   font-weight: bold;
-  padding: 6px 25px;
-  width: clamp(125px, 11vw, 180px);
+  padding-left: 50px;
+  padding-right: 50px;
+  width: clamp(135px, 12vw, 180px);
   margin-right: 5px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #0f228c;
@@ -280,17 +295,20 @@ button:active:enabled {
   }
   .item2 {
     grid-area: b;
+    padding-left: 20px;
+    padding-right: 5px;
     background: whitesmoke;
     border-top-right-radius: 0px;
   }
   .item3 {
     grid-area: c;
     background: whitesmoke;
-    align-content: start;
-    padding-inline: 1rem;
+    /*align-content: start;*/
+    /*padding-inline: 1rem;*/
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
+    padding-bottom: 20px;
   }
   .item4 {
     grid-area: c;
@@ -328,7 +346,7 @@ button:active:enabled {
     grid-area: c;
     background: whitesmoke;
     align-content: start;
-    padding-inline: 1rem;
+    /*padding-inline: 1rem;*/
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;

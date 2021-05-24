@@ -9,7 +9,10 @@
 				/>
 			</div>
 			<div class="item2">
-				<h3>Login</h3>
+        <div class="bubble">Tjo bre</div>
+      </div>
+			<div class="item3">
+				<h2>Login</h2>
 				<form class="form" @submit.prevent="handleLogin">
 					<input
 						class="input"
@@ -28,52 +31,52 @@
 
 					<button class="submit" type="submit" value="Login" id="loginButton">Login</button>
           </form>
-			</div>
-			<div class="item3">
-				<h2>Register</h2>
-				<form class="form" @submit.prevent="handleRegister">
-					<input
-						class="input"
-						type="text"
-						id="username"
-						name="username"
-						placeholder="Username"
-						v-model="registerUser.username"
-					/><br />
-					<input
-						class="input"
-						type="text"
-						id="name"
-						name="name"
-						placeholder="Name"
-						v-model="registerUser.name"
-					/><br />
-					<input
-						class="input"
-						type="email"
-						id="email"
-						name="email"
-						placeholder="Email"
-						v-model="registerUser.email"
-					/><br />
-					<input
-						class="input"
-						type="password"
-						id="password"
-						name="password"
-						placeholder="Password"
-						v-model="registerUser.password"
-					/><br />
-					<input
-						class="input"
-						type="password"
-						id="password2"
-						name="password2"
-						placeholder="Confirm password"
-						v-model="confirmPassword"
-					/><br />
-					<button class="submit" type="submit" value="Register" id="registerButton">Register</button>
-				</form>
+        <h2>Register</h2>
+        <form class="form" @submit.prevent="handleRegister">
+          <input
+              class="input"
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              v-model="registerUser.username"
+          /><br />
+          <input
+              class="input"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Name"
+              v-model="registerUser.name"
+          /><br />
+          <input
+              class="input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              v-model="registerUser.email"
+          /><br />
+          <input
+              class="input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              v-model="registerUser.password"
+          /><br />
+          <input
+              class="input"
+              type="password"
+              id="password2"
+              name="password2"
+              placeholder="Confirm password"
+              v-model="confirmPassword"
+          /><br />
+          <button class="submit" type="submit" value="Register" id="registerButton">Register</button>
+          <p class="warning" v-if="confirmPassword !==registerUser.password && confirmPassword">Passwords must match!</p>
+        </form>
+
 			</div>
 		</div>
 	</div>
@@ -142,6 +145,11 @@ export default {
   margin-right: 5px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #0f228c;
+}
+
+.warning{
+  color: red;
+  font-weight: bolder;
 }
 
 .button:focus{

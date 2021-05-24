@@ -26,6 +26,7 @@
             <h1 v-html="loading ? 'Loading...' : currentQuestion.Question"></h1>
             <form v-if="currentQuestion">
               <button
+                  class="quizbutton"
                   v-for="answer in currentQuestion.Answers"
                   :index="currentQuestion.Id"
                   :key="answer.Id"
@@ -40,20 +41,18 @@
 			</div>
 			<div class="item4">
 				<h3>Categories</h3>
-				<p>
-					<button class="button" type="button" v-on:click="login()">
+					<button class="button" type="button" v-on:click="login()" value="History">
 						History
 					</button>
 					<button class="button" type="button" v-on:click="register()">
 						Sports</button
-					><br />
+					>
 					<button class="button" type="button" v-on:click="login()">
 						Geography
 					</button>
 					<button class="button" type="button" v-on:click="register()">
 						General knowledge
 					</button>
-				</p>
 				<h3>Levels</h3>
         <p>
 				<button class="button" type="button" value="easy">
@@ -334,18 +333,57 @@ form {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: center;
 }
 
-button {
+.quizbutton {
   font-size: 1.1rem;
+  display: block;
   box-sizing: border-box;
-  padding: 1rem;
+  white-space:break-spaces !important;
+  word-wrap:break-word;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   margin: 0.3rem;
-  width: 47%;
+  width: clamp(150px, 14vw, 200px);
   background-color: rgba(100, 100, 100, 0.3);
   border: none;
   border-radius: 0.4rem;
   box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+  box-shadow: inset 0px 1px 0px 0px #f2d335;
+  background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
+  background-color: #0f228c;
+  border-radius: 6px;
+  border: 1px solid #1f47bf;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 25px;
+  width: clamp(150px, 11vw, 180px);
+  margin-right: 5px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #0f228c;
+}
+
+button:hover:enabled {
+  transform: scale(1.02);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
+  0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active:enabled {
+  transform: scale(1.05);
 }
 
 button:hover:enabled {
