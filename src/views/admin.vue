@@ -14,6 +14,7 @@
           <input class="input" type="text" name="addQuestionField" placeholder="Answer 3"><br/>
           <input class="input" type="text" name="addQuestionField" placeholder="Answer 4"><br/>
           <input class="input" type="text" name="addQuestionField" placeholder="Answer 5"><br/>
+          <input class="input" type="text" name="addQuestionField" placeholder="Answer 6"><br/>
           <br>
         </form>
         </div>

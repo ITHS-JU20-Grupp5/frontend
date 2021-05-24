@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import index from '../views/index.vue';
-import Quiz from '../views/quiz.vue';
+import Quiz from '../views/Quiz.vue';
 
 Vue.use(VueRouter);
 

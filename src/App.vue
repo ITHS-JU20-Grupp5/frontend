@@ -14,28 +14,28 @@
         Logout |</a
       >
     </div>
-
-    <Quiz @quiz-completed="handleQuizCompleted" :key="quizKey" />
-    <Modal
-        v-show="showModal"
-        header="Congratulations!"
-        subheader="You've completed your Quiz!"
-        v-bind:quizScore="quizScore"
-        @reload="updateQuiz"
-        @close="showModal = false"
-    />
-    <router-view />
+    <router-view>
+      <Quiz @quiz-completed="handleQuizCompleted" :key="quizKey" />
+      <Modal
+          v-show="showModal"
+          header="Congratulations!"
+          subheader="You've completed your Quiz!"
+          v-bind:quizScore="quizScore"
+          @reload="updateQuiz"
+          @close="showModal = false"
+      />
+    </router-view>
   </div>
 </template>
 
 <script>
-import quiz from "@/views/quiz.vue";
-import modal from "@/views/modal.vue";
+import Quiz from "@/views/Quiz.vue";
+import Modal from "@/views/Modal.vue";
 export default {
   name: "App",
   components: {
-    quiz,
-    modal,
+    Quiz,
+    Modal,
   },
   data() {
     return {

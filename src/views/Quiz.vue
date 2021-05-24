@@ -75,7 +75,7 @@
 
 
 export default {
-  name: "quiz",
+  name: "Quiz",
   data() {
     return {
       questions: [],
