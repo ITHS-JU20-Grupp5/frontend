@@ -23,14 +23,14 @@
 
           <hr class="divider" />
           <div>
-            <h1 v-html="loading ? 'Loading...' : currentQuestion.Question"></h1>
+            <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
             <form v-if="currentQuestion">
               <button
                   class="quizbutton"
-                  v-for="answer in currentQuestion.Answers"
-                  :index="currentQuestion.Id"
-                  :key="answer.Id"
-                  v-html="answer.Answer"
+                  v-for="answer in currentQuestion.answers"
+                  :index="currentQuestion.id"
+                  :key="answer.id"
+                  v-html="answer.answer"
                   @click.prevent="handleButtonClick"
               ></button>
             </form>
@@ -121,26 +121,12 @@ export default {
         };
       }
     },
-    // correctAnswers() {
-    //   if (this.questions && this.questions.length > 0) {
-    //     let streakCounter = 0;
-    //     console.log("Hello")
-    //     this.questions.forEach(function(question) {
-    //       if (question.rightAnswer === true) {
-    //         streakCounter++;
-    //       }
-    //     });
-    //     return streakCounter;
-    //   } else {
-    //     return "--";
-    //   }
-    // },
     pluralizeAnswer() {
       // For grammatical correctness
-      return this.correctAnswers === 1 ? "Answer" : "Answers";
+      return this.correctAnswers === true ? "Answer" : "Answers";
     },
     quizCompleted() {
-      if (this.questions.length === 0) {
+      if (this.questions.length === false) {
         return false;
       }
       /* Check if all questions have been answered */
@@ -154,38 +140,6 @@ export default {
       console.log(questionsAnswered, this.questions.length)
       return questionsAnswered === this.questions.length;
     },
-  },
-  watch: {
-    // questions: function () {
-    //   if (this.questions.length === 0) {
-    //     return false;
-    //   }
-    //   /* Check if all questions have been answered */
-    //   let questionsAnswered = 0;
-    //   this.questions.forEach(function(question) {
-    //     //question.rightAnswer !== null ? questionsAnswered++ : null;
-    //     if (question.rightAnswer) {
-    //       questionsAnswered++
-    //     }
-    //   });
-    //   console.log(questionsAnswered, this.questions.length)
-    //   if (questionsAnswered === this.questions.length) {
-    //     setTimeout(() => {
-    //       this.$emit("quiz-completed", this.score);
-    //     })
-    //   }
-    // },
-    // quizCompleted(completed) {
-    //   /*
-    //    * Watcher on quizCompleted fires event "quiz-completed"
-    //    * up to parent App.vue component when completed parameter
-    //    * returned by quizCompleted computed property true
-    //    */
-    //   completed &&
-    //   setTimeout(() => {
-    //     this.$emit("quiz-completed", this.score);
-    //   }, 3000); // wait 3 seconds until button animation is over
-    // },
   },
   methods: {
     async fetchQuestions() {
@@ -253,9 +207,9 @@ export default {
           }.bind(this), 3000)
         }
         let correctAnswer
-        question.Answers.forEach((answer) => {
-          if (answer.Correct === 1) {
-            correctAnswer = answer.Answer
+        question.answers.forEach((answer) => {
+          if (answer.correct === true) {
+            correctAnswer = answer.answer
           }
         })
         if (question.userAnswer === correctAnswer) {
