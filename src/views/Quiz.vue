@@ -12,7 +12,6 @@
 				<h3>Questions</h3>
 				<form class="bubble">
           <div id="quiz-container">
-          <!-- New Section for User Statistics -->
           <div class="correctAnswers">
             You have
             <strong>{{ correctAnswers }} correct {{ pluralizeAnswer }}!</strong>
@@ -41,7 +40,7 @@
 			</div>
 			<div class="item4">
 				<h3>Categories</h3>
-					<button class="button" type="button" v-on:click="login()" value="History">
+					<button class="button" type="button" v-on:click="login()">
 						History
 					</button>
 					<button class="button" type="button" v-on:click="register()">
@@ -121,20 +120,6 @@ export default {
         };
       }
     },
-    // correctAnswers() {
-    //   if (this.questions && this.questions.length > 0) {
-    //     let streakCounter = 0;
-    //     console.log("Hello")
-    //     this.questions.forEach(function(question) {
-    //       if (question.rightAnswer === true) {
-    //         streakCounter++;
-    //       }
-    //     });
-    //     return streakCounter;
-    //   } else {
-    //     return "--";
-    //   }
-    // },
     pluralizeAnswer() {
       // For grammatical correctness
       return this.correctAnswers === 1 ? "Answer" : "Answers";

@@ -9,7 +9,7 @@
       <router-link to="/quiz" class="routerlink">Quiz | </router-link>
       <router-link to="/result" class="routerlink">Result | </router-link>
       <router-link to="/settings" class="routerlink">Settings | </router-link>
-      <router-link to="/admin" class="routerlink" v-if="currentUser">Admin |</router-link>
+<!--      <router-link to="/admin" class="routerlink" v-if="currentUser">Admin |</router-link>-->
       <a href="/" class="routerlink" v-if="currentUser" @click="logOut">
         Logout |</a
       >
