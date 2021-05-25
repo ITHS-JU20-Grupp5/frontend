@@ -23,14 +23,14 @@
 
           <hr class="divider" />
           <div>
-            <h1 v-html="loading ? 'Loading...' : currentQuestion.Question"></h1>
+            <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
             <form v-if="currentQuestion">
               <button
                   class="quizbutton"
-                  v-for="answer in currentQuestion.Answers"
-                  :index="currentQuestion.Id"
-                  :key="answer.Id"
-                  v-html="answer.Answer"
+                  v-for="answer in currentQuestion.answers"
+                  :index="currentQuestion.id"
+                  :key="answer.id"
+                  v-html="answer.answer"
                   @click.prevent="handleButtonClick"
               ></button>
             </form>
@@ -233,6 +233,16 @@ export default {
         if (this.index < this.questions.length - 1) {
           setTimeout(
               function() {
+                let allButtons = document.querySelectorAll(`[index="${index}"]`);
+                for (let i = 0; i < allButtons.length; i++) {
+                  allButtons[i].removeAttribute('disabled');
+                  allButtons[i].classList.remove(
+                      'rightAnswer',
+                      'wrongAnswer',
+                      'showRightAnswer',
+                      'clicked',
+                  );
+                }
                 this.index += 1;
               }.bind(this),
               3000
@@ -253,9 +263,9 @@ export default {
           }.bind(this), 3000)
         }
         let correctAnswer
-        question.Answers.forEach((answer) => {
-          if (answer.Correct === 1) {
-            correctAnswer = answer.Answer
+        question.answers.forEach((answer) => {
+          if (answer.correct === true) {
+            correctAnswer = answer.answer
           }
         })
         if (question.userAnswer === correctAnswer) {
@@ -273,6 +283,7 @@ export default {
           let allButtons = document.querySelectorAll(`[index="${index}"]`);
           allButtons.forEach(function(button) {
             if (button.innerHTML === correctAnswer) {
+              console.log()
               button.classList.add("showRightAnswer");
             }
           });
@@ -341,9 +352,12 @@ form {
   display: block;
   box-sizing: border-box;
   white-space:break-spaces !important;
+  text-overflow:ellipsis;
   word-wrap:break-word;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin: 0.3rem;
   width: clamp(150px, 14vw, 200px);
   background-color: rgba(100, 100, 100, 0.3);
