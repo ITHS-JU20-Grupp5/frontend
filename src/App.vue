@@ -85,26 +85,18 @@ body {
   width: clamp(200px, 80vw, 90%);
   padding: 20px;
 }
-/**#app {*/
-/*  font-family: Roboto, Helvetica, Arial, sans-serif;*/
-/*  -webkit-font-smoothing: antialiased;*/
-/*  -moz-osx-font-smoothing: grayscale;*/
-/*  -webkit-user-select:none;*/
-/*  -moz-user-select:none;*/
-/*  user-select:none;*/
-/*  color: #010440;*/
-/*  margin-top: 20px;*/
-/*  font-size: 20px;*/
-/*  justify-content: center;*/
-/*  align-items: center;*/
-/*}*/
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+*#app {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  user-select:none;
+  color: #010440;
+  margin-top: 20px;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
 }
 .routerlink {
   color: #f2d335;
@@ -116,10 +108,10 @@ body {
   position: relative;
   width: clamp(200px, 12vw, 400px);
   background-color: #fff;
-  padding: 0.5em 0.2em;
-  font-size: 1.25em;
+  padding: 0.5em 3em;
+  font-size: 1em;
   border-radius: 2rem;
-  margin: clamp(10px, 1vw, 20px);
+  margin: clamp(30px, 1vw, 20px);
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
   0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 }
@@ -145,7 +137,7 @@ body {
   border-left: 0;
   margin-top: -20px;
   margin-left: -20px;
-  filter: drop-shadow(-0.0855rem 0rem 0.0625rem rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(-0.0855rem 0rem 0.0625rem rgba(0, 0, 0, 0.2));
 }
 .wrapper {
   display: grid;
