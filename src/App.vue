@@ -31,11 +31,14 @@
 <script>
 import Quiz from "@/views/Quiz.vue";
 import Modal from "@/views/Modal.vue";
+
 export default {
   name: "App",
   components: {
     Quiz,
     Modal,
+    // PlanetChart,
+    // HelloWorld
   },
   data() {
     return {
@@ -84,18 +87,26 @@ body {
   width: clamp(200px, 80vw, 90%);
   padding: 20px;
 }
-*#app {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+/**#app {*/
+/*  font-family: Roboto, Helvetica, Arial, sans-serif;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*  -webkit-user-select:none;*/
+/*  -moz-user-select:none;*/
+/*  user-select:none;*/
+/*  color: #010440;*/
+/*  margin-top: 20px;*/
+/*  font-size: 20px;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*}*/
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  user-select:none;
-  color: #010440;
-  margin-top: 20px;
-  font-size: 20px;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 .routerlink {
   color: #f2d335;
