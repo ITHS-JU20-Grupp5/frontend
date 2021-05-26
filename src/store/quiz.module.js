@@ -4,8 +4,8 @@ export const quiz = {
 	namespaced: true,
 	state: {},
 	actions: {
-		getQuiz({ commit }) {
-			return QuizService.getQuiz().then(
+		getQuiz({ commit }, options) {
+			return QuizService.getQuiz(options).then(
 				(quiz) => {
 					commit('getSuccess', quiz);
 					return Promise.resolve(quiz);

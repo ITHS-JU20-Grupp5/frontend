@@ -17,8 +17,7 @@ import PlanetChart from '@/components/PlanetChart.vue'
 
 export default {
   components: {
-    PlanetChart,
-    // HelloWorld
+    PlanetChart
   },
 }
 </script>

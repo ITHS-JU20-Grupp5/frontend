@@ -176,10 +176,7 @@ export default {
     async fetchQuestions() {
       this.loading = true;
 
-      // let response = await fetch(
-      //     "https://opentdb.com/api.php?amount=5&category=9"
-      // );
-      let quizVariabel = await this.$store.dispatch('quiz/getQuiz');
+      let quizVariabel = await this.$store.dispatch('quiz/getQuiz', {category: "Historia", difficulty: "hard"});
 
       // let jsonResponse = await quizVariabel.json();
       //let index = 0; // index is used to identify single answer

@@ -37,8 +37,6 @@ export default {
   components: {
     Quiz,
     Modal,
-    // PlanetChart,
-    // HelloWorld
   },
   data() {
     return {
