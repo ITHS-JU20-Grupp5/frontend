@@ -7,6 +7,7 @@
 <script>
 import Chart from 'chart.js'
 import planetChartData from '@/planet-data.js'
+import axios from "axios";
 
 export default {
   name: 'PlanetChart',
@@ -15,7 +16,11 @@ export default {
       planetChartData: planetChartData
     }
   },
-  mounted() {
+  async mounted() {
+    axios.defaults.headers.common.Authorization = "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken
+    const data = await axios.get("http://localhost:3000/scores")
+    const scores = data.data
+    console.log(scores)
     const ctx = document.getElementById('planet-chart');
     new Chart(ctx, this.planetChartData);
   }
