@@ -1396,6 +1396,13 @@
   optionalDependencies:
     "prettier" "^1.18.2"
 
+"@vue/composition-api@^1.0.0-rc.9":
+  "integrity" "sha512-U//BqmGRVaPyZbYsPfRlmCKnnFkhRzUBu7cjrWn4PSwQ5Oh+M0KcYIHlupUd+Qmd8KwaiYiuUpJLncl3wFsrdg=="
+  "resolved" "https://registry.npmjs.org/@vue/composition-api/-/composition-api-1.0.0-rc.9.tgz"
+  "version" "1.0.0-rc.9"
+  dependencies:
+    "tslib" "^2.2.0"
+
 "@vue/preload-webpack-plugin@^1.1.0":
   "integrity" "sha1-zrkktOyzucQ4ccekKaAvhCPmIas="
   "resolved" "https://registry.npm.taobao.org/@vue/preload-webpack-plugin/download/@vue/preload-webpack-plugin-1.1.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Fpreload-webpack-plugin%2Fdownload%2F%40vue%2Fpreload-webpack-plugin-1.1.2.tgz"
@@ -2391,6 +2398,29 @@
   "resolved" "https://registry.npm.taobao.org/chardet/download/chardet-0.7.0.tgz?cache=0&sync_timestamp=1601032487499&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fchardet%2Fdownload%2Fchardet-0.7.0.tgz"
   "version" "0.7.0"
 
+"chart.js@^2.9.4":
+  "integrity" "sha512-B07aAzxcrikjAPyV+01j7BmOpxtQETxTSlQ26BEYJ+3iUkbNKaOJ/nDbT6JjyqYxseM0ON12COHYdU2cTIjC7A=="
+  "resolved" "https://registry.npmjs.org/chart.js/-/chart.js-2.9.4.tgz"
+  "version" "2.9.4"
+  dependencies:
+    "chartjs-color" "^2.1.0"
+    "moment" "^2.10.2"
+
+"chartjs-color-string@^0.6.0":
+  "integrity" "sha512-TIB5OKn1hPJvO7JcteW4WY/63v6KwEdt6udfnDE9iCAZgy+V4SrbSxoIbTw/xkUIapjEI4ExGtD0+6D3KyFd7A=="
+  "resolved" "https://registry.npmjs.org/chartjs-color-string/-/chartjs-color-string-0.6.0.tgz"
+  "version" "0.6.0"
+  dependencies:
+    "color-name" "^1.0.0"
+
+"chartjs-color@^2.1.0":
+  "integrity" "sha512-haqOg1+Yebys/Ts/9bLo/BqUcONQOdr/hoEr2LLTRl6C5LXctUdHxsCYfvQVg5JIxITrfCNUDr4ntqmQk9+/0w=="
+  "resolved" "https://registry.npmjs.org/chartjs-color/-/chartjs-color-2.4.1.tgz"
+  "version" "2.4.1"
+  dependencies:
+    "chartjs-color-string" "^0.6.0"
+    "color-convert" "^1.9.3"
+
 "check-types@^8.0.3":
   "integrity" "sha1-M1bMoZyIlUTy16le1JzlCKDs9VI="
   "resolved" "https://registry.npm.taobao.org/check-types/download/check-types-8.0.3.tgz"
@@ -2568,7 +2598,7 @@
     "map-visit" "^1.0.0"
     "object-visit" "^1.0.0"
 
-"color-convert@^1.9.0", "color-convert@^1.9.1":
+"color-convert@^1.9.0", "color-convert@^1.9.1", "color-convert@^1.9.3":
   "integrity" "sha1-u3GFBpDh8TZWfeYp0tVHHe2kweg="
   "resolved" "https://registry.npm.taobao.org/color-convert/download/color-convert-1.9.3.tgz"
   "version" "1.9.3"
@@ -3339,6 +3369,14 @@
   dependencies:
     "jsbn" "~0.1.0"
     "safer-buffer" "^2.1.0"
+
+"echarts@^5.1.1":
+  "integrity" "sha512-b3nP8M9XwZM2jISuA+fP0EuJv8lcfgWrinel185Npy8bE/UhXTDIPJcqgQOCWdvk0c5CeT6Dsm1xBjmJXAGlxQ=="
+  "resolved" "https://registry.npmjs.org/echarts/-/echarts-5.1.1.tgz"
+  "version" "5.1.1"
+  dependencies:
+    "tslib" "2.0.3"
+    "zrender" "5.1.0"
 
 "ee-first@1.1.1":
   "integrity" "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
@@ -5592,6 +5630,11 @@
   dependencies:
     "minimist" "^1.2.5"
 
+"moment@^2.10.2":
+  "integrity" "sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ=="
+  "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.1.tgz"
+  "version" "2.29.1"
+
 "move-concurrently@^1.0.1":
   "integrity" "sha1-viwAX9oy4LKa8fBdfEszIUxwH5I="
   "resolved" "https://registry.npm.taobao.org/move-concurrently/download/move-concurrently-1.0.1.tgz"
@@ -7018,6 +7061,11 @@
   "resolved" "https://registry.npm.taobao.org/requires-port/download/requires-port-1.0.0.tgz"
   "version" "1.0.0"
 
+"resize-detector@^0.3.0":
+  "integrity" "sha512-R/tCuvuOHQ8o2boRP6vgx8hXCCy87H1eY9V5imBYeVNyNVpuL9ciReSccLj2gDcax9+2weXy3bc8Vv+NRXeEvQ=="
+  "resolved" "https://registry.npmjs.org/resize-detector/-/resize-detector-0.3.0.tgz"
+  "version" "0.3.0"
+
 "resolve-cwd@^2.0.0":
   "integrity" "sha1-AKn3OHVW4nA46uIyyqNypqWbZlo="
   "resolved" "https://registry.npm.taobao.org/resolve-cwd/download/resolve-cwd-2.0.0.tgz?cache=0&sync_timestamp=1598869147002&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fresolve-cwd%2Fdownload%2Fresolve-cwd-2.0.0.tgz"
@@ -7988,6 +8036,16 @@
   "resolved" "https://registry.npm.taobao.org/tslib/download/tslib-1.14.1.tgz?cache=0&sync_timestamp=1617647466458&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz"
   "version" "1.14.1"
 
+"tslib@^2.2.0":
+  "integrity" "sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.2.0.tgz"
+  "version" "2.2.0"
+
+"tslib@2.0.3":
+  "integrity" "sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.0.3.tgz"
+  "version" "2.0.3"
+
 "tty-browserify@0.0.0":
   "integrity" "sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY="
   "resolved" "https://registry.npm.taobao.org/tty-browserify/download/tty-browserify-0.0.0.tgz"
@@ -8269,6 +8327,19 @@
   "resolved" "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.2.tgz"
   "version" "1.1.2"
 
+"vue-demi@^0.7.4":
+  "integrity" "sha512-eFSQSvbQdY7C9ujOzvM6tn7XxwLjn0VQDXQsiYBLBwf28Na+2nTQR4BBBcomhmdP6mmHlBKAwarq6a0BPG87hQ=="
+  "resolved" "https://registry.npmjs.org/vue-demi/-/vue-demi-0.7.5.tgz"
+  "version" "0.7.5"
+
+"vue-echarts@^6.0.0-rc.5":
+  "integrity" "sha512-qG7jM4tz2Ipygn5r88s2nHFftakQyWpoM2IXwpzWrQwl/UZIQ1bbqyyLHqMLtgzEU/QhD/maFG9tnMkjVR75sg=="
+  "resolved" "https://registry.npmjs.org/vue-echarts/-/vue-echarts-6.0.0-rc.5.tgz"
+  "version" "6.0.0-rc.5"
+  dependencies:
+    "resize-detector" "^0.3.0"
+    "vue-demi" "^0.7.4"
+
 "vue-eslint-parser@^7.0.0":
   "integrity" "sha1-AeoaKTL1gf8kQzZWXXEoAfj3JWE="
   "resolved" "https://registry.npm.taobao.org/vue-eslint-parser/download/vue-eslint-parser-7.6.0.tgz"
@@ -8332,7 +8403,7 @@
   "resolved" "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2.0.0", "vue@^2.6.11":
+"vue@^2.6.11":
   "integrity" "sha1-9evU+mvShpQD4pqJau1JBEVskSM="
   "resolved" "https://registry.npm.taobao.org/vue/download/vue-2.6.12.tgz"
   "version" "2.6.12"
@@ -8686,3 +8757,10 @@
     "is-ci" "^1.0.10"
     "normalize-path" "^1.0.0"
     "strip-indent" "^2.0.0"
+
+"zrender@5.1.0":
+  "integrity" "sha512-c+8VRx52ycbmqwHeHLlo/BAfIHBl/JZNLM6cfDQFgzIH05yb+f5J9F/fbRsP+zGc8dW9XHuhdt8/iqukgMZSeg=="
+  "resolved" "https://registry.npmjs.org/zrender/-/zrender-5.1.0.tgz"
+  "version" "5.1.0"
+  dependencies:
+    "tslib" "2.0.3"

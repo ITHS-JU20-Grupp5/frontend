@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas id="planet-chart"></canvas>
+    <canvas class="hej" id="planet-chart"></canvas>
   </div>
 </template>
 
@@ -27,8 +27,12 @@ export default {
 }
 </script>
 <style scoped>
-canvas {
+.hej{
+  display: flex;
+}
+canvas#planet-chart{
+  display: flex;
   height: auto;
-  width: clamp(200px, 50vw, 600px);
+  width: clamp(200px, 50vw, 1000px);
 }
 </style>

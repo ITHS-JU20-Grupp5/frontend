@@ -190,6 +190,7 @@ body {
   border-bottom-left-radius: 25px;
   padding-bottom: 20px;
 }
+
 p {
   font-family: Roboto, Helvetica, Arial, sans-serif, serif;
   font-size: 20px;
