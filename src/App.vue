@@ -8,6 +8,7 @@
       <router-link to="/" class="routerlink">| Home | </router-link>
       <router-link to="/quiz" class="routerlink">Quiz | </router-link>
       <router-link to="/result" class="routerlink">Result | </router-link>
+      <router-link to="/planetChart" class="routerlink">Planet Chart | </router-link>
       <router-link to="/settings" class="routerlink">Settings | </router-link>
 <!--      <router-link to="/admin" class="routerlink" v-if="currentUser">Admin |</router-link>-->
       <a href="/" class="routerlink" v-if="currentUser" @click="logOut">
@@ -76,8 +77,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
 /* Mobile */
-body {
-  background-image: linear-gradient(#010440, #0f228c);
+html {
+  background: linear-gradient(#010440, #0f228c);
 }
 .main {
   margin: 0 auto;
@@ -97,6 +98,8 @@ body {
   font-size: 20px;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(#010440, #0f228c);
+  width: 100%;
 }
 .routerlink {
   color: #f2d335;

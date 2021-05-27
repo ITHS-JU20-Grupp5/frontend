@@ -43,6 +43,71 @@
   </div>
 
 </template>
+<script>
+export default {
+  name: "admin",
+  data() {
+    return {
+      questions: [],
+      loading: true,
+      index: 0,
+      correctAnswers: 0,
+    };
+  },
+  computed: {
+    currentQuestion() {
+      if (this.questions !== []) {
+        return this.questions[this.index];
+      }
+      return null;
+    },
+  },
+  methods: {
+    async fetchQuestions() {
+      this.loading = true;
+
+      let quizVariabel = await this.$store.dispatch('quiz/getQuiz', {category: "Historia", difficulty: "hard"});
+
+      // let jsonResponse = await quizVariabel.json();
+      //let index = 0; // index is used to identify single answer
+      let data = quizVariabel.questions;
+      this.questions = data;
+      this.loading = false;
+    },
+    submit(){
+      console.log('Hej')
+    },
+    handleButtonClick: function(event) {
+      /* Find index to identiy question object in data */
+      let index = event.target.getAttribute("index");
+      let pollutedUserAnswer = event.target.innerHTML; // innerHTML is polluted with decoded HTML entities e.g ' from &#039;
+      /* Clear from pollution with ' */
+      let userAnswer = pollutedUserAnswer.replace(/'/, "&#039;");
+
+      //console.log(index, this.questions)
+      /* Set userAnswer on question object in data */
+      this.questions[this.index].userAnswer = userAnswer;
+
+      /* Set class "clicked" on button with userAnswer -> for CSS Styles; Disable other sibling buttons */
+      event.target.classList.add("clicked");
+      let allButtons = document.querySelectorAll(`[index="${index}"]`);
+
+      for (let i = 0; i < allButtons.length; i++) {
+        if (allButtons[i] === event.target) continue;
+
+        allButtons[i].setAttribute("disabled", "");
+      }
+
+      /* Invoke checkAnswer to check Answer */
+      this.checkAnswer(event, index);
+    },
+  },
+  mounted() {
+    this.fetchQuestions();
+  },
+};
+</script>
+
 <style scoped>
 
 .submit {

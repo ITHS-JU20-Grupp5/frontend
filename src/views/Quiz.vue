@@ -40,16 +40,16 @@
 			</div>
 			<div class="item4">
 				<h3>Categories</h3>
-					<button class="button" type="button" v-on:click="login()">
+					<button class="button" type="button" v-on:click="categoryHistory()">
 						History
 					</button>
-					<button class="button" type="button" v-on:click="register()">
+					<button class="button" type="button" v-on:click="categorySports()">
 						Sports</button
 					>
-					<button class="button" type="button" v-on:click="login()">
+					<button class="button" type="button" v-on:click="categoryGeography()">
 						Geography
 					</button>
-					<button class="button" type="button" v-on:click="register()">
+					<button class="button" type="button" v-on:click="categoryGeneralKnowledge()">
 						General knowledge
 					</button>
 				<h3>Levels</h3>
@@ -57,13 +57,16 @@
 				<button class="button" type="button" value="easy">
 					Easy
 				</button>
-				<button class="button" type="button" value="easy">
+				<button class="button" type="button" value="normal">
 					Normal
 				</button>
-				<button class="button" type="button" value="easy">
+				<button class="button" type="button" value="hard">
 					Hard
 				</button>
         </p>
+        <button class="button" type="button" value="submit">
+          Submit
+        </button>
 			</div>
 		</div>
 
@@ -456,54 +459,3 @@ button.showRightAnswer {
   text-align: center;
 }
 </style>
-<!--<script>-->
-<!--export default {-->
-<!--	name: 'Quiz',-->
-<!--	data() {-->
-<!--		return {-->
-<!--			quiz: {-->
-<!--				category: 'HISTORIA',-->
-<!--				Questions: [-->
-<!--					{-->
-<!--						Question: 'Test',-->
-<!--						Answers: [-->
-<!--							{-->
-<!--								Answer: 'Hello',-->
-<!--								Correct: false,-->
-<!--							},-->
-<!--							{-->
-<!--								Answer: 'Hello again',-->
-<!--								Correct: true,-->
-<!--							},-->
-<!--						],-->
-<!--					},-->
-<!--					{-->
-<!--						question: 'Testing',-->
-<!--						answers: [-->
-<!--							{-->
-<!--								answer: 'Hello',-->
-<!--								correct: false,-->
-<!--							},-->
-<!--							{-->
-<!--								answer: 'Hello again',-->
-<!--								correct: true,-->
-<!--							},-->
-<!--						],-->
-<!--					},-->
-<!--				],-->
-<!--			},-->
-<!--			startQuiz: false,-->
-<!--		};-->
-<!--	},-->
-<!--	mounted() {-->
-<!--		this.$store.dispatch('quiz/getQuiz').then((response) => {-->
-<!--			this.quiz = response;-->
-<!--		});-->
-<!--	},-->
-<!--	methods: {-->
-<!--		getQuiz() {-->
-<!--			return this.quiz;-->
-<!--		},-->
-<!--	},-->
-<!--};-->
-<!--</script>-->

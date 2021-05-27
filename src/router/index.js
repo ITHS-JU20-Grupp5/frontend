@@ -58,6 +58,24 @@ const routes = [
 		// 	import(/* webpackChunkName: "about" */ '../views/adminLogin.vue'),
 		component: adminLogin,
 	},
+	{
+		path: '/planetChart',
+		name: 'PlanetChart',
+		// route level code-splitting
+		// this generates a separate chunk (about.[hash].js) for this route
+		// which is lazy-loaded when the route is visited.
+		component: () =>
+			import(/* webpackChunkName: "about" */ '../components/PlanetChart.vue'),
+	},
+	{
+		path: '/startQuiz',
+		name: 'startQuiz',
+		// route level code-splitting
+		// this generates a separate chunk (about.[hash].js) for this route
+		// which is lazy-loaded when the route is visited.
+		component: () =>
+			import(/* webpackChunkName: "about" */ '../views/startQuiz.vue'),
+	},
 ];
 
 const router = new VueRouter({

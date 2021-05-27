@@ -20,7 +20,12 @@ export default {
     PlanetChart
   },
 }
+
 </script>
+
+
+
+
 <style scoped>
 
 .wrapper {

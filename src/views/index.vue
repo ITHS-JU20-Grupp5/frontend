@@ -107,7 +107,7 @@ export default {
 	},
 	mounted() {
 		if (this.loggedIn) {
-			this.$router.push('/quiz');
+			this.$router.push('/startQuiz');
 		}
 	},
 	methods: {
@@ -115,7 +115,7 @@ export default {
 			if (this.loginUser.username && this.loginUser.password) {
 				this.$store.dispatch('auth/login', this.loginUser).then(
 					() => {
-						this.$router.push('/quiz');
+						this.$router.push('/startQuiz');
 					},
 				);
 			}

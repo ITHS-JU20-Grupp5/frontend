@@ -1,11 +1,11 @@
 export const planetChartData = {
     type: "bar",
     data: {
-        labels: ["History", "Sports", "Geography", "Music", "General Knowledge"],
+        labels: ["General Knowledge", "Music", "History", "Sports", "Geography"],
         datasets: [
             {
                 label: "Statistik",
-                data: [1, 2, 3, 4, 5],
+                data: [3, 2, 5, 4, 2],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
