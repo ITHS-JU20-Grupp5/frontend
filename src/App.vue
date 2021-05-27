@@ -25,6 +25,8 @@
           @close="showModal = false"
       />
     </router-view>
+    <audio preload="auto" loop id="audio" :src="require('./assets/Generalknowledge.mp3')"></audio>
+    <div @click="changeOn" :class="isOff?'isOff':'isOn'"></div>
   </div>
 </template>
 
@@ -47,6 +49,7 @@ export default {
         answeredQuestions: 0,
         correctlyAnsweredQuestions: 0,
       },
+      isOff: true,
     };
   },
   computed: {
@@ -68,6 +71,32 @@ export default {
       this.showModal = false;
       this.quizKey++;
     },
+    changeOn() {
+      let oAudio = document.querySelector("#audio");
+      if(this.isOff){
+        oAudio.play();
+      }else{
+        oAudio.pause();
+      }
+      this.isOff = !this.isOff;
+    },
+    audioAutoPlay() {
+      let audio = document.getElementById('audio');
+      this.isOff = false;
+      audio.play();
+      document.removeEventListener('touchstart',this.audioAutoPlay);
+    }
+  },
+
+  mounted() {
+    this.audioAutoPlay('audio');
+    document.addEventListener('touchstart', this.audioAutoPlay, false);
+    document.addEventListener('WeixinJSBridgeReady', this.audioAutoPlay, false);
+    let oAudio = document.querySelector('#audio');
+      oAudio.onended = function () {
+        oAudio.load();
+        oAudio.Play();
+      }
   },
 };
 </script>
