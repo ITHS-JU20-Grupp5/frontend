@@ -1,5 +1,8 @@
 <template>
 	<div class="main">
+    <audio autoplay controls="controls" id="audio">
+      <source src="../assets/Generalknowledge.mp3" type="audio/mpeg">
+    </audio>
 		<div class="wrapper">
 			<div class="item1">
 				<img
@@ -79,6 +82,9 @@ export default {
 			this.started = false;
 		},
 	},
+  mounted() {
+    document.getElementById("audio").volume=0.1;
+  },
 };
 </script>
 
@@ -259,54 +265,3 @@ button.showRightAnswer {
 	text-align: center;
 }
 </style>
-<!--<script>-->
-<!--export default {-->
-<!--	name: 'Quiz',-->
-<!--	data() {-->
-<!--		return {-->
-<!--			quiz: {-->
-<!--				category: 'HISTORIA',-->
-<!--				Questions: [-->
-<!--					{-->
-<!--						Question: 'Test',-->
-<!--						Answers: [-->
-<!--							{-->
-<!--								Answer: 'Hello',-->
-<!--								Correct: false,-->
-<!--							},-->
-<!--							{-->
-<!--								Answer: 'Hello again',-->
-<!--								Correct: true,-->
-<!--							},-->
-<!--						],-->
-<!--					},-->
-<!--					{-->
-<!--						question: 'Testing',-->
-<!--						answers: [-->
-<!--							{-->
-<!--								answer: 'Hello',-->
-<!--								correct: false,-->
-<!--							},-->
-<!--							{-->
-<!--								answer: 'Hello again',-->
-<!--								correct: true,-->
-<!--							},-->
-<!--						],-->
-<!--					},-->
-<!--				],-->
-<!--			},-->
-<!--			startQuiz: false,-->
-<!--		};-->
-<!--	},-->
-<!--	mounted() {-->
-<!--		this.$store.dispatch('quiz/getQuiz').then((response) => {-->
-<!--			this.quiz = response;-->
-<!--		});-->
-<!--	},-->
-<!--	methods: {-->
-<!--		getQuiz() {-->
-<!--			return this.quiz;-->
-<!--		},-->
-<!--	},-->
-<!--};-->
-<!--</script>-->

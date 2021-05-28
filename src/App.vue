@@ -129,6 +129,18 @@ body {
 		'a b'
 		'c c';
 }
+#audio {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  opacity: 10%;
+  width: 5%;
+  resize: vertical;
+}
+#audio:hover {
+  opacity: 70%;
+  width: 30%;
+}
 .item1 {
 	grid-area: a;
 	background: whitesmoke;
