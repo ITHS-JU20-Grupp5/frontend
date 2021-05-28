@@ -75,7 +75,16 @@ router.beforeEach((to, from, next) => {
 					next('/');
 				});
 		} else {
-			next();
+			axios.defaults.headers.common.Authorization =
+				'Bearer ' + JSON.parse(loggedIn).accessToken;
+			axios
+				.get('https://generalknowledge.azurewebsites.net/auth/user')
+				.then((res) => {
+					if (res.status === 200) next();
+				})
+				.catch(() => {
+					next('/');
+				});
 		}
 	}
 });
