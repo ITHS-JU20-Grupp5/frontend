@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import index from '../views/index.vue';
 import Quiz from '../views/Quiz.vue';
 import adminLogin from '../views/adminLogin.vue';
-import axios from "axios";
+import axios from 'axios';
 
 Vue.use(VueRouter);
 
@@ -74,15 +74,19 @@ router.beforeEach((to, from, next) => {
 	if (authRequired && !loggedIn) {
 		next('/');
 	} else {
-		if (to.path === "/admin") {
-			axios.defaults.headers.common.Authorization = "Bearer " + JSON.parse(loggedIn).accessToken
-			axios.get("http://localhost:3000/auth/admin").then(res =>{
-				if (res.status === 200)	next()
-			}).catch(() => {
-				next("/")
-			})
+		if (to.path === '/admin') {
+			axios.defaults.headers.common.Authorization =
+				'Bearer ' + JSON.parse(loggedIn).accessToken;
+			axios
+				.get('https://generalknowledge.azurewebsites.com/auth/admin')
+				.then((res) => {
+					if (res.status === 200) next();
+				})
+				.catch(() => {
+					next('/');
+				});
 		} else {
-			next()
+			next();
 		}
 	}
 });
