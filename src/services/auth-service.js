@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://generalknowledge.azurewebsites.net/auth/';
+const API_URL = 'http://localhost:3000/auth/';
 
 class AuthService {
 	login(user) {
