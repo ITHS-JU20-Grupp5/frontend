@@ -96,6 +96,8 @@ router.beforeEach((to, from, next) => {
 				});
 			next('/verify');
 		}
+	} else {
+		next();
 	}
 });
 
