@@ -34,6 +34,7 @@
 import QuizGame from '@/components/QuizGame';
 import QuizSettings from '@/components/QuizSettings';
 import Modal from '@/views/Modal';
+import axios from 'axios';
 
 export default {
 	name: 'Quiz',
@@ -57,8 +58,12 @@ export default {
 			this.difficulty = difficulty;
 			this.started = true;
 		},
-		quizCompleted(score) {
+		async quizCompleted(score) {
 			// TODO: Run code to add score
+			await axios.post('https://generalknowledge.azurewebsites.net/scores', {
+				score: score.correctlyAnsweredQuestions,
+				category: this.category,
+			});
 			this.score = score;
 			this.showModal = true;
 		},
