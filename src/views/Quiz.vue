@@ -52,6 +52,11 @@ export default {
 			score: {},
 		};
 	},
+	computed: {
+		currentUser() {
+			return this.$store.state.auth.user;
+		},
+	},
 	methods: {
 		startQuiz(category, difficulty) {
 			this.category = category;
@@ -60,6 +65,8 @@ export default {
 		},
 		async quizCompleted(score) {
 			// TODO: Run code to add score
+			axios.defaults.headers.common.Authorization =
+				'Bearer ' + this.currentUser.accessToken;
 			await axios.post('https://generalknowledge.azurewebsites.net/scores', {
 				score: score.correctlyAnsweredQuestions,
 				category: this.category,
