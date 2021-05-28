@@ -64,15 +64,23 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	const publicPages = ['/'];
-	const authRequired = !publicPages.includes(to.path);
+	const publicPage = '/';
+	const verifyPage = '/verify';
+	const adminPage = '/admin';
 	const loggedIn = localStorage.getItem('user');
 	// trying to access a restricted page + not logged in
 	// redirect to login page
-	if (authRequired && !loggedIn) {
-		next('/');
-	} else if (authRequired && loggedIn) {
-		if (to.path === '/admin') {
+
+	// Public and not logged in
+	if (to.path === publicPage && !loggedIn) {
+		next();
+		// not public and logged in
+	} else if (to.path != publicPage && loggedIn) {
+		// verify
+		if (to.path === verifyPage) {
+			next();
+			// admin
+		} else if (to.path === adminPage) {
 			axios.defaults.headers.common.Authorization =
 				'Bearer ' + JSON.parse(loggedIn).accessToken;
 			axios
@@ -81,8 +89,9 @@ router.beforeEach((to, from, next) => {
 					if (res.status === 200) next();
 				})
 				.catch(() => {
-					next('/');
+					next('/quiz');
 				});
+			// Normal
 		} else {
 			axios.defaults.headers.common.Authorization =
 				'Bearer ' + JSON.parse(loggedIn).accessToken;
@@ -90,14 +99,14 @@ router.beforeEach((to, from, next) => {
 				.get('https://generalknowledge.azurewebsites.net/auth/user')
 				.then((res) => {
 					if (res.status === 200) next();
+					else if (res.status === 401) next('/verify');
 				})
 				.catch(() => {
 					next('/verify');
 				});
-			next('/verify');
 		}
 	} else {
-		next();
+		next('/');
 	}
 });
 
