@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://generalknowledge.azurewebsites.com/';
+const API_URL = 'https://generalknowledge.azurewebsites.net/';
 
 class QuizService {
 	getQuiz(options) {
