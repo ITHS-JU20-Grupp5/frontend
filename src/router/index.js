@@ -78,7 +78,7 @@ router.beforeEach((to, from, next) => {
 			axios.defaults.headers.common.Authorization =
 				'Bearer ' + JSON.parse(loggedIn).accessToken;
 			axios
-				.get('https://generalknowledge.azurewebsites.com/auth/admin')
+				.get('https://generalknowledge.azurewebsites.net/auth/admin')
 				.then((res) => {
 					if (res.status === 200) next();
 				})
