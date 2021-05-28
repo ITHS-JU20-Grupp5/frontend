@@ -2,8 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import index from '../views/index.vue';
 import Quiz from '../views/Quiz.vue';
-import adminLogin from '../views/adminLogin.vue';
-import axios from "axios";
+import axios from 'axios';
 
 Vue.use(VueRouter);
 
@@ -48,16 +47,6 @@ const routes = [
 		component: () =>
 			import(/* webpackChunkName: "about" */ '../views/admin.vue'),
 	},
-	{
-		path: '/adminLogin',
-		name: 'adminLogin',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
-		// component: () =>
-		// 	import(/* webpackChunkName: "about" */ '../views/adminLogin.vue'),
-		component: adminLogin,
-	},
 ];
 
 const router = new VueRouter({
@@ -66,7 +55,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	const publicPages = ['/', '/adminLogin'];
+	const publicPages = ['/'];
 	const authRequired = !publicPages.includes(to.path);
 	const loggedIn = localStorage.getItem('user');
 	// trying to access a restricted page + not logged in
@@ -74,15 +63,19 @@ router.beforeEach((to, from, next) => {
 	if (authRequired && !loggedIn) {
 		next('/');
 	} else {
-		if (to.path === "/admin") {
-			axios.defaults.headers.common.Authorization = "Bearer " + JSON.parse(loggedIn).accessToken
-			axios.get("http://localhost:3000/auth/admin").then(res =>{
-				if (res.status === 200)	next()
-			}).catch(() => {
-				next("/")
-			})
+		if (to.path === '/admin') {
+			axios.defaults.headers.common.Authorization =
+				'Bearer ' + JSON.parse(loggedIn).accessToken;
+			axios
+				.get('https://generalknowledge.azurewebsites.net/auth/admin')
+				.then((res) => {
+					if (res.status === 200) next();
+				})
+				.catch(() => {
+					next('/');
+				});
 		} else {
-			next()
+			next();
 		}
 	}
 });

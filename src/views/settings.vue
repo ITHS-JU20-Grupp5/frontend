@@ -24,3 +24,16 @@
   </div>
 
 </template>
+
+<style scoped>
+
+.item2 {
+  grid-area: b;
+  display: grid;
+  justify-content: left;
+  justify-self: left;
+  align-content: start;
+  background: whitesmoke;
+}
+
+</style>
