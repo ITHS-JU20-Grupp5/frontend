@@ -1,7 +1,8 @@
 <template>
-	<form @submit="startQuiz">
+	<form @submit="startQuiz" class="form">
 		<h3>Categories</h3>
 		<fieldset id="category">
+      <div class="radio-btn-group">
 			<input
 				id="history"
 				name="category"
@@ -46,10 +47,11 @@
 				v-model="category"
 			/>
 			<label for="general">General Knowledge</label>
+      </div>
 		</fieldset>
-
 		<h3>Difficulty</h3>
 		<fieldset id="difficulty">
+      <div class="radio-btn-group">
 			<input
 				id="easy"
 				name="difficulty"
@@ -77,10 +79,12 @@
 				v-model="difficulty"
 			/>
 			<label for="hard">Hard</label>
+      </div>
 		</fieldset>
 
 		<input type="submit" class="button" value="Start" />
 	</form>
+
 </template>
 
 <script>
@@ -100,4 +104,44 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+#difficulty{
+  border: none;
+}
+#category{
+  border: none;
+}
+.radio-btn-group {
+  display: flex;
+  padding-top: 20px;
+  text-align: center;
+}
+label {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: .5rem 1.25rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #444;
+  transition: box-shadow 400ms ease;
+}
+label:hover {
+   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+ }
+
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"]:checked+label {
+  background: #2196F3;
+  color: #fff;
+  border-color: #2196F3;
+}
+</style>
