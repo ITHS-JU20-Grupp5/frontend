@@ -2,7 +2,6 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import index from '../views/index.vue';
 import Quiz from '../views/Quiz.vue';
-import adminLogin from '../views/adminLogin.vue';
 import axios from 'axios';
 
 Vue.use(VueRouter);
@@ -48,16 +47,6 @@ const routes = [
 		component: () =>
 			import(/* webpackChunkName: "about" */ '../views/admin.vue'),
 	},
-	{
-		path: '/adminLogin',
-		name: 'adminLogin',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
-		// component: () =>
-		// 	import(/* webpackChunkName: "about" */ '../views/adminLogin.vue'),
-		component: adminLogin,
-	},
 ];
 
 const router = new VueRouter({
@@ -66,7 +55,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	const publicPages = ['/', '/adminLogin'];
+	const publicPages = ['/'];
 	const authRequired = !publicPages.includes(to.path);
 	const loggedIn = localStorage.getItem('user');
 	// trying to access a restricted page + not logged in
