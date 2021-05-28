@@ -278,6 +278,7 @@ export default {
   },
   mounted() {
     this.fetchQuestions();
+    document.getElementById("audio").volume=0.1;
   },
 };
 </script>

@@ -22,6 +22,9 @@ export default {
   components: {
     PlanetChart
   },
+  mounted() {
+    document.getElementById("audio").volume=0.1;
+  },
 }
 </script>
 <style scoped>
