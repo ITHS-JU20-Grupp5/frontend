@@ -71,7 +71,7 @@ router.beforeEach((to, from, next) => {
 	// redirect to login page
 	if (authRequired && !loggedIn) {
 		next('/');
-	} else {
+	} else if (authRequired && loggedIn) {
 		if (to.path === '/admin') {
 			axios.defaults.headers.common.Authorization =
 				'Bearer ' + JSON.parse(loggedIn).accessToken;
