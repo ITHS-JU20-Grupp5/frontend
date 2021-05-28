@@ -47,6 +47,15 @@ const routes = [
 		component: () =>
 			import(/* webpackChunkName: "about" */ '../views/admin.vue'),
 	},
+	{
+		path: '/verify',
+		name: 'verify',
+		// route level code-splitting
+		// this generates a separate chunk (about.[hash].js) for this route
+		// which is lazy-loaded when the route is visited.
+		component: () =>
+			import(/* webpackChunkName: "about" */ '../views/verify.vue'),
+	},
 ];
 
 const router = new VueRouter({
@@ -83,8 +92,9 @@ router.beforeEach((to, from, next) => {
 					if (res.status === 200) next();
 				})
 				.catch(() => {
-					next('/');
+					next('/verify');
 				});
+			next('/verify');
 		}
 	}
 });
