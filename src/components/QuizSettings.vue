@@ -1,5 +1,5 @@
 <template>
-	<form @submit="startQuiz" class="form">
+	<form @submit="startQuiz">
 		<h3>Categories</h3>
 		<fieldset id="category">
       <div class="radio-btn-group">
@@ -38,7 +38,7 @@
 				v-model="category"
 			/>
 			<label for="music">Music</label>
-
+        <p></p>
 			<input
 				id="general"
 				type="radio"
@@ -105,13 +105,6 @@ export default {
 </script>
 
 <style scoped>
-.form {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-}
 #difficulty{
   border: none;
 }
@@ -119,8 +112,8 @@ export default {
   border: none;
 }
 .radio-btn-group {
-  display: flex;
   padding-top: 20px;
+  padding-bottom: 10px;
   text-align: center;
 }
 label {
@@ -131,13 +124,14 @@ label {
   cursor: pointer;
   color: #444;
   transition: box-shadow 400ms ease;
+
 }
 label:hover {
    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
  }
-
 input[type="radio"] {
   display: none;
+
 }
 input[type="radio"]:checked+label {
   background: #2196F3;
