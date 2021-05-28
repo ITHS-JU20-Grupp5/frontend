@@ -1,5 +1,8 @@
 <template>
   <div class="main">
+    <audio autoplay controls="controls" id="audio">
+      <source src="../assets/Fanfare.mp3" type="audio/mpeg">
+    </audio>
     <div class="wrapper">
       <div class="item1">
         <img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img">
@@ -18,6 +21,9 @@ import PlanetChart from '@/components/PlanetChart.vue'
 export default {
   components: {
     PlanetChart
+  },
+  mounted() {
+    document.getElementById("audio").volume=0.1;
   },
 }
 </script>
