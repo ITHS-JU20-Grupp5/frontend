@@ -48,7 +48,7 @@
 			<label for="general">General Knowledge</label>
       </div>
 		</fieldset>
-		<h3>Difficulty</h3><p></p>
+		<h3>Difficulty</h3>
 		<fieldset id="difficulty">
       <div class="radio-btn-group">
 			<input

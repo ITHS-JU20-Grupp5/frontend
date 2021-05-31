@@ -289,6 +289,8 @@ button.showRightAnswer {
   .item2 {
     grid-area: b;
     background: whitesmoke;
+    justify-content: left;
+    padding-left: 150px;
     border-radius: 0 25px 25px 0;
   }
 }

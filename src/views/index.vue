@@ -134,57 +134,96 @@ export default {
 </script>
 
 <style scoped>
-
-.submit {
-  box-shadow: inset 0px 1px 0px 0px #f2d335;
-  background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
-  background-color: #0f228c;
-  border-radius: 6px;
-  border: 1px solid #1f47bf;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 6px 25px;
-  width: clamp(125px, 11vw, 180px);
-  margin-right: 5px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #0f228c;
+@media screen and (max-width: 767px){
+  .wrapper {
+    display: grid;
+    grid-template-columns: 100% 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        'a'
+        'b'
+        'c';
+  }
+  .item1 {
+    grid-area: a;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+  .item2 {
+    grid-area: b;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0;
+    background: whitesmoke;
+    border-top-right-radius: 0px;
+  }
+  .item3 {
+    grid-area: c;
+    background: whitesmoke;
+    /*align-content: start;*/
+    /*padding-inline: 1rem;*/
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding-bottom: 20px;
+  }
 }
 
-.warning{
-  color: red;
-  font-weight: bolder;
-}
+@media screen and (min-width: 768px) {
+  .submit {
+    box-shadow: inset 0px 1px 0px 0px #f2d335;
+    background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
+    background-color: #0f228c;
+    border-radius: 6px;
+    border: 1px solid #1f47bf;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 25px;
+    width: clamp(125px, 11vw, 180px);
+    margin-right: 5px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #0f228c;
+  }
 
-.button:focus{
-  color: #010440;
-  background: linear-gradient(
-      180deg,
-      rgb(246, 229, 176),
-      rgb(255, 211, 0)
-  );
-}
-#registerButton:active:enabled {
-  position: relative;
-  top: 1px;
-  color: #FFF;
-  background: linear-gradient(
-      180deg,
-      rgb(13, 37, 135),
-      rgb(49, 84, 201)
-  );
-}
-#loginButton:active:enabled {
-  position: relative;
-  top: 1px;
-  color: #FFF;
-  background: linear-gradient(
-      180deg,
-      rgb(13, 37, 135),
-      rgb(49, 84, 201)
-  );
+  .warning {
+    color: red;
+    font-weight: bolder;
+  }
+
+  .button:focus {
+    color: #010440;
+    background: linear-gradient(
+        180deg,
+        rgb(246, 229, 176),
+        rgb(255, 211, 0)
+    );
+  }
+
+  #registerButton:active:enabled {
+    position: relative;
+    top: 1px;
+    color: #FFF;
+    background: linear-gradient(
+        180deg,
+        rgb(13, 37, 135),
+        rgb(49, 84, 201)
+    );
+  }
+
+  #loginButton:active:enabled {
+    position: relative;
+    top: 1px;
+    color: #FFF;
+    background: linear-gradient(
+        180deg,
+        rgb(13, 37, 135),
+        rgb(49, 84, 201)
+    );
+  }
 }
 </style>

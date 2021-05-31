@@ -58,8 +58,17 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
 /* Mobile */
+div#app {
+  background-image: linear-gradient(#010440, #0f228c);
+  margin: 0;
+  /*padding: 0;*/
+  padding-top: 20px;
+}
 body {
-	background-image: linear-gradient(#010440, #0f228c);
+	background-color: #0f228c;
+  display: flex;
+  margin: 0;
+  /*padding-top: 20px;*/
 }
 .main {
 	margin: 0 auto;
@@ -88,7 +97,7 @@ body {
 .bubble {
 	text-align: left;
 	position: relative;
-	width: clamp(200px, 12vw, 400px);
+	width: clamp(150px, 12vw, 400px);
 	background-color: #fff;
 	padding: 0.5em 3em;
 	font-size: 1em;
@@ -97,30 +106,30 @@ body {
 	box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
 		0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 }
-.bubble::before {
-	/*content: '';*/
-	/*position: absolute;*/
-	/*width: 0;*/
-	/*height: 0;*/
-	/*bottom: 100%;*/
-	/*left: 1.5em;*/
-	/*border: 0.75rem solid transparent;*/
-	/*border-top: none;*/
-	/*border-bottom-color: #fff;*/
-	/*filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));*/
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 20%;
-	width: 0;
-	height: 0;
-	border: 20px solid transparent;
-	border-right-color: #fff;
-	border-left: 0;
-	margin-top: -20px;
-	margin-left: -20px;
-	filter: drop-shadow(-0.0855rem 0rem 0.0625rem rgba(0, 0, 0, 0.2));
-}
+/*.bubble::before {*/
+/*	!*content: '';*!*/
+/*	!*position: absolute;*!*/
+/*	!*width: 0;*!*/
+/*	!*height: 0;*!*/
+/*	!*bottom: 100%;*!*/
+/*	!*left: 1.5em;*!*/
+/*	!*border: 0.75rem solid transparent;*!*/
+/*	!*border-top: none;*!*/
+/*	!*border-bottom-color: #fff;*!*/
+/*	!*filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));*!*/
+/*	content: '';*/
+/*	position: absolute;*/
+/*	left: 20%;*/
+/*	top: 0;*/
+/*	width: 0;*/
+/*	height: 0;*/
+/*	border: 20px solid transparent;*/
+/*	border-right-color: #fff;*/
+/*	border-left: 0;*/
+/*	margin-top: -20px;*/
+/*	margin-left: -20px;*/
+/*	filter: drop-shadow(-0.0855rem 0rem 0.0625rem rgba(0, 0, 0, 0.2));*/
+/*}*/
 .wrapper {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -146,7 +155,7 @@ body {
 	background: whitesmoke;
 	padding-inline: 1rem;
 	border-top-left-radius: 25px;
-	padding-bottom: 20px;
+	/*padding-bottom: 20px;*/
 }
 .item2 {
 	grid-area: b;
@@ -320,6 +329,42 @@ input.button {
 		border-top-right-radius: 25px;
 		padding-bottom: 20px;
 	}
+  .bubble {
+    text-align: left;
+    position: relative;
+    width: clamp(150px, 12vw, 400px);
+    background-color: #fff;
+    padding: 0.5em 3em;
+    font-size: 1em;
+    border-radius: 2rem;
+    margin: clamp(30px, 1vw, 20px);
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
+    0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+  }
+  .bubble::before {
+    /*content: '';*/
+    /*position: absolute;*/
+    /*width: 0;*/
+    /*height: 0;*/
+    /*bottom: 100%;*/
+    /*left: 1.5em;*/
+    /*border: 0.75rem solid transparent;*/
+    /*border-top: none;*/
+    /*border-bottom-color: #fff;*/
+    /*filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));*/
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-right-color: #fff;
+    border-left: 0;
+    margin-top: -20px;
+    margin-left: -20px;
+    filter: drop-shadow(-0.0855rem 0rem 0.0625rem rgba(0, 0, 0, 0.2));
+  }
 }
 /* Desktop */
 @media screen and (min-width: 1024px) {
@@ -361,5 +406,29 @@ input.button {
 		border-top-right-radius: 25px;
 		padding-bottom: 20px;
 	}
+  .bubble::before {
+    /*content: '';*/
+    /*position: absolute;*/
+    /*width: 0;*/
+    /*height: 0;*/
+    /*bottom: 100%;*/
+    /*left: 1.5em;*/
+    /*border: 0.75rem solid transparent;*/
+    /*border-top: none;*/
+    /*border-bottom-color: #fff;*/
+    /*filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));*/
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-right-color: #fff;
+    border-left: 0;
+    margin-top: -20px;
+    margin-left: -20px;
+    filter: drop-shadow(-0.0855rem 0rem 0.0625rem rgba(0, 0, 0, 0.2));
+  }
 }
 </style>
