@@ -143,12 +143,12 @@ export default {
     // eslint-disable-next-line no-unused-vars
     playApplause: function(event) {
       // eslint-disable-next-line no-mixed-spaces-and-tabs
-		  this.$refs.applause.play().volume=0.1;
+		  this.$refs.applause.play();
     },
     // eslint-disable-next-line no-unused-vars
     playWrong: function(event) {
       // eslint-disable-next-line no-mixed-spaces-and-tabs
-      this.$refs.ooo.play().volume=0.1;
+      this.$refs.ooo.play();
     },
 		checkAnswer: function(event, index) {
 			let question = this.questions[this.index];
@@ -198,14 +198,14 @@ export default {
 				if (question.userAnswer === correctAnswer) {
 					/* Set class on Button if user answered right, to celebrate right answer with animation joyfulButton */
 					event.target.classList.add('rightAnswer');
-         this.playApplause()
+          this.playApplause();
 					/* Set rightAnswer on question to true, computed property can track a streak out of 10 questions */
 					this.questions[this.index].rightAnswer = true;
 					this.correctAnswers++;
 				} else {
 					/* Mark users answer as wrong answer */
 					event.target.classList.add('wrongAnswer');
-					this.playWrong()
+					this.playWrong();
 					this.questions[this.index].rightAnswer = false;
 					/* Show right Answer */
 					//let correctAnswer2 = this.questions[index].correct_answer;

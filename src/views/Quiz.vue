@@ -30,6 +30,12 @@
 				@reload="updateQuiz"
 				@close="showModal = false"
 			/>
+      <audio ref="allWrong" src="../assets/AllWrong.mp3"></audio>
+      <audio ref="one" src="../assets/LowestFormOfLife.mp3"></audio>
+      <audio ref="two" src="../assets/Offend.mp3"></audio>
+      <audio ref="three" src="../assets/AnswerTheQuestion.mp3"></audio>
+      <audio ref="four" src="../assets/GeneralSomeday.mp3"></audio>
+      <audio ref="five" src="../assets/Genius.mp3"></audio>
 		</div>
 	</div>
 </template>
@@ -66,6 +72,36 @@ export default {
 			this.difficulty = difficulty;
 			this.started = true;
 		},
+    // eslint-disable-next-line no-unused-vars
+    playAllWrong: function(event) {
+      // eslint-disable-next-line no-mixed-spaces-and-tabs
+      this.$refs.allWrong.play();
+    },
+    // eslint-disable-next-line no-unused-vars
+    playOne: function(event) {
+      // eslint-disable-next-line no-mixed-spaces-and-tabs
+      this.$refs.one.play();
+    },
+    // eslint-disable-next-line no-unused-vars
+    playTwo: function(event) {
+      // eslint-disable-next-line no-mixed-spaces-and-tabs
+      this.$refs.two.play();
+    },
+    // eslint-disable-next-line no-unused-vars
+    playThree: function(event) {
+      // eslint-disable-next-line no-mixed-spaces-and-tabs
+      this.$refs.three.play();
+    },
+    // eslint-disable-next-line no-unused-vars
+    playFour: function(event) {
+      // eslint-disable-next-line no-mixed-spaces-and-tabs
+      this.$refs.four.play();
+    },
+    // eslint-disable-next-line no-unused-vars
+    playFive: function(event) {
+      // eslint-disable-next-line no-mixed-spaces-and-tabs
+      this.$refs.five.play();
+    },
 		async quizCompleted(score) {
 			// TODO: Run code to add score
 			axios.defaults.headers.common.Authorization =
@@ -76,6 +112,29 @@ export default {
 			});
 			this.score = score;
 			this.showModal = true;
+			if (this.score === 0) {
+        // eslint-disable-next-line no-mixed-spaces-and-tabs
+			  this.playAllWrong();
+      }
+			else if (this.score === 1) {
+          this.playOne();
+        }
+			else if (this.score === 2) {
+        // eslint-disable-next-line no-mixed-spaces-and-tabs
+			  this.playTwo();
+        }
+			else if (this.score === 3) {
+        // eslint-disable-next-line no-mixed-spaces-and-tabs
+			  this.playThree();
+      }
+      else if (this.score === 4) {
+        // eslint-disable-next-line no-mixed-spaces-and-tabs
+        this.playFour();
+      }
+      else if (this.score === 5) {
+        // eslint-disable-next-line no-mixed-spaces-and-tabs
+        this.playFive();
+      }
 		},
 		updateQuiz() {
 			this.showModal = false;
