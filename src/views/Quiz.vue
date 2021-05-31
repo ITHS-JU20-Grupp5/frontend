@@ -20,8 +20,6 @@
 				/>
 				<QuizSettings v-else @startQuiz="startQuiz" />
 			</div>
-			<div class="item4"></div>
-
 			<Modal
 				v-if="showModal"
 				header="Congratulations!"
@@ -107,8 +105,33 @@ export default {
 	width: 40%;
 	margin: 0 auto;
 }
+/*fieldset{*/
+/*  display: grid;*/
+/*  grid-template-columns: 100%;*/
+/*  grid-template-rows: 50vh;*/
+/*  grid-template-areas:*/
+/*		'b';*/
+/*}*/
+  .wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas:
+		'b';
+  }
+  .item1 {
+    grid-area: a;
+    display: none;
+  }
+  .item2 {
+    grid-area: b;
+    display: grid;
+    justify-content: center;
+    align-content: start;
+    background: whitesmoke;
+    border-radius: 25px;
+  }
 
-@media only screen and (max-width: 500px) {
 	#logo-crown {
 		width: 30%;
 	}
@@ -116,7 +139,7 @@ export default {
 	#logo-headline {
 		font-size: 1.8rem;
 	}
-}
+
 
 h1 {
 	font-size: 1.3rem;
@@ -132,7 +155,7 @@ h1 {
 
 form {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-content: center;
@@ -157,53 +180,6 @@ form {
 	box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-.button {
-	box-shadow: inset 0px 1px 0px 0px #f2d335;
-	background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
-	background-color: #0f228c;
-	border-radius: 6px;
-	border: 1px solid #1f47bf;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-family: Roboto, Helvetica, Arial, sans-serif;
-	font-size: 15px;
-	font-weight: bold;
-	padding: 6px 25px;
-	width: clamp(150px, 11vw, 180px);
-	margin-right: 5px;
-	margin-bottom: 10px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #0f228c;
-}
-
-button:hover:enabled {
-	transform: scale(1.02);
-	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
-		0 3px 1px -1px rgba(0, 0, 0, 0.2);
-}
-
-button:focus {
-	outline: none;
-}
-
-button:active:enabled {
-	transform: scale(1.05);
-}
-
-button:hover:enabled {
-	transform: scale(1.02);
-	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
-		0 3px 1px -1px rgba(0, 0, 0, 0.2);
-}
-
-button:focus {
-	outline: none;
-}
-
-button:active:enabled {
-	transform: scale(1.05);
-}
 
 @keyframes flashButton {
 	0% {
@@ -219,6 +195,7 @@ button:active:enabled {
 		transform: scale(1);
 	}
 }
+
 
 button.clicked {
 	pointer-events: none;
@@ -263,5 +240,56 @@ button.showRightAnswer {
 
 .correctAnswers {
 	text-align: center;
+}
+
+/*Tablet*/
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  .wrapper {
+    display: grid;
+    grid-template-columns: 25% 50%;
+    grid-template-rows: 60vh;
+    grid-template-areas: 'a b';
+  }
+  .item1 {
+    grid-area: a;
+    display: grid;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 0px;
+    padding-bottom: 20px;
+  }
+  .item2 {
+    grid-area: b;
+    padding-left: 20px;
+    padding-right: 5px;
+    background: whitesmoke;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 'a b';
+  }
+  .item1 {
+    grid-area: a;
+    display: grid;
+    background: whitesmoke;
+    padding-inline: 1rem;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 0px;
+    padding-bottom: 20px;
+  }
+  .item2 {
+    grid-area: b;
+    background: whitesmoke;
+    border-radius: 0 25px 25px 0;
+  }
 }
 </style>

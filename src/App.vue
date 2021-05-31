@@ -203,10 +203,10 @@ h3 {
 	margin-bottom: 2px;
 	font-size: clamp(2rem, 4vw, 4rem);
 }
-.form {
-	justify-self: center;
-	line-height: 35px;
-}
+/*.form {*/
+/*	justify-self: center;*/
+/*	line-height: 35px;*/
+/*}*/
 label {
 	font-size: 20px;
 }
@@ -216,7 +216,7 @@ label {
 	background-color: #0f228c;
 	border-radius: 6px;
 	border: 1px solid #1f47bf;
-	display: inline-block;
+	/*display: inline-block;*/
 	cursor: pointer;
 	color: #ffffff;
 	font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -228,12 +228,13 @@ label {
 	margin-right: 5px;
 	text-decoration: none;
 	text-shadow: 0px 1px 0px #0f228c;
+  justify-content: center;
 }
 
-button:hover {
-	background: linear-gradient(to bottom, #010440 5%, #0f228c 100%);
-	background-color: #010440;
-}
+/*button:hover {*/
+/*	background: linear-gradient(to bottom, #010440 5%, #0f228c 100%);*/
+/*	background-color: #010440;*/
+/*}*/
 button:active:enabled {
 	position: relative;
 	top: 1px;
@@ -256,6 +257,11 @@ button:active:enabled {
 	box-shadow: 0 0.125rem 0.5rem #010440, 0 0.0625rem 0.125rem #0f228c;
 	margin-bottom: 10px;
 	width: clamp(120px, 11vw, 170px);
+
+}
+input.button {
+  align-self: center;
+  margin-bottom: 20px;
 }
 #nav {
 	font-family: New Tegomin, serif;

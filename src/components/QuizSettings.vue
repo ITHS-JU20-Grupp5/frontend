@@ -38,7 +38,6 @@
 				v-model="category"
 			/>
 			<label for="music">Music</label>
-        <p></p>
 			<input
 				id="general"
 				type="radio"
@@ -49,8 +48,7 @@
 			<label for="general">General Knowledge</label>
       </div>
 		</fieldset>
-
-		<h3>Difficulty</h3>
+		<h3>Difficulty</h3><p></p>
 		<fieldset id="difficulty">
       <div class="radio-btn-group">
 			<input
@@ -82,7 +80,6 @@
 			<label for="hard">Hard</label>
       </div>
 		</fieldset>
-    <p></p>
 		<input type="submit" class="button" value="Start" />
 	</form>
 </template>
@@ -105,6 +102,7 @@ export default {
 </script>
 
 <style scoped>
+
 #difficulty{
   border: none;
 }
@@ -112,11 +110,12 @@ export default {
   border: none;
 }
 .radio-btn-group {
+  display: grid;
   padding-top: 20px;
   padding-bottom: 10px;
   text-align: center;
 }
-label {
+label{
   background: #fff;
   border: 1px solid #ddd;
   padding: .5rem 1.25rem;
@@ -135,5 +134,10 @@ input[type="radio"]:checked+label {
   background: #2196F3;
   color: #fff;
   border-color: #2196F3;
+}
+.button{
+  justify-content: center;
+  align-content: center;
+  justify-self: center;
 }
 </style>
