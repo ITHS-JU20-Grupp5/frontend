@@ -9,7 +9,14 @@
 				/>
 			</div>
 			<div class="item2">
-        <div class="bubble">Tjo bre</div>
+        <div class="bubble">
+          Ready to challenge yourself?<br/>
+          Well, you’re in luck!<p/>
+          Don’t you worry, we’ve got the best general knowledge questions to test how smart you really are!<p/>
+<!--          If you just need a break from the hectic world around you - give this quiz a try!<p/>-->
+          So take a breath,<br/>
+          stop whatever you’re doing, and get ready to have a little fun. <p/>
+          This three-minute escape is exactly what you need!</div>
       </div>
 			<div class="item3">
 				<h2>Login</h2>
