@@ -4,7 +4,7 @@
       <source src="../assets/Fanfare.mp3" type="audio/mpeg">
     </audio>
     <div class="wrapper">
-      <div class="item1">
+      <div class="item1">npm run serve
         <img alt="TheGeneral" src="../assets/GeneralKnowledge.png" class="img">
       </div>
       <div class="item2">
