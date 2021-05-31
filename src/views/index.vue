@@ -13,14 +13,13 @@
           Ready to challenge yourself?<br/>
           Well, you’re in luck!<p/>
           Don’t you worry, we’ve got the best general knowledge questions to test how smart you really are!<p/>
-<!--          If you just need a break from the hectic world around you - give this quiz a try!<p/>-->
           So take a breath,<br/>
           stop whatever you’re doing, and get ready to have a little fun. <p/>
           This three-minute escape is exactly what you need!</div>
       </div>
 			<div class="item3">
 				<h2>Login</h2>
-				<form class="form" @submit.prevent="handleLogin">
+				<form class="registerForm" @submit.prevent="handleLogin">
 					<input
 						class="input"
 						type="text"
@@ -39,7 +38,7 @@
 					<button class="submit" type="submit" value="Login" id="loginButton">Login</button>
           </form>
         <h2>Register</h2>
-        <form class="form" @submit.prevent="handleRegister">
+        <form class="registerForm" @submit.prevent="handleRegister">
           <input
               class="input"
               type="text"
@@ -162,11 +161,35 @@ export default {
   .item3 {
     grid-area: c;
     background: whitesmoke;
-    /*align-content: start;*/
-    /*padding-inline: 1rem;*/
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding-bottom: 20px;
+  }
+  .registerForm{
+    justify-self: center;
+  }
+  .submit {
+    box-shadow: inset 0px 1px 0px 0px #f2d335;
+    background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
+    background-color: #0f228c;
+    border-radius: 6px;
+    border: 1px solid #1f47bf;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 25px;
+    width: clamp(125px, 11vw, 180px);
+    margin-right: 5px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #0f228c;
+  }
+
+  .warning {
+    color: red;
+    font-weight: bolder;
   }
 }
 
@@ -224,6 +247,9 @@ export default {
         rgb(13, 37, 135),
         rgb(49, 84, 201)
     );
+  }
+  .registerForm{
+    justify-self: center;
   }
 }
 </style>

@@ -27,11 +27,6 @@
 <style scoped>
 @media screen and (max-width: 767px) {
 
-  /*.container {*/
-  /*  display: grid;*/
-  /*  grid-row-end: span 3;*/
-  /*}*/
-
   .wrapper {
     display: grid;
     grid-template-columns: 100%;

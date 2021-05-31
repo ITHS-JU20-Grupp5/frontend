@@ -105,13 +105,6 @@ export default {
 	width: 40%;
 	margin: 0 auto;
 }
-/*fieldset{*/
-/*  display: grid;*/
-/*  grid-template-columns: 100%;*/
-/*  grid-template-rows: 50vh;*/
-/*  grid-template-areas:*/
-/*		'b';*/
-/*}*/
   .wrapper {
     display: grid;
     grid-template-columns: 100%;
@@ -139,20 +132,16 @@ export default {
 	#logo-headline {
 		font-size: 1.8rem;
 	}
-
-
 h1 {
 	font-size: 1.3rem;
 	padding: 0.7rem;
 }
-
 .divider {
 	margin: 0.5rem 0;
 	border: 3px solid #0f228c;
 	border-radius: 2px;
 	box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
 }
-
 form {
 	display: flex;
 	flex-direction: column;
@@ -160,7 +149,6 @@ form {
 	justify-content: center;
 	align-content: center;
 }
-
 .quizbutton {
 	font-size: 1.1rem;
 	display: block;
@@ -180,7 +168,6 @@ form {
 	box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-
 @keyframes flashButton {
 	0% {
 		opacity: 1;
@@ -195,12 +182,9 @@ form {
 		transform: scale(1);
 	}
 }
-
-
 button.clicked {
 	pointer-events: none;
 }
-
 button.rightAnswer {
 	animation: flashButton;
 	animation-duration: 700ms;
@@ -214,7 +198,6 @@ button.rightAnswer {
 		rgba(0, 178, 72, 0.5)
 	);
 }
-
 button.wrongAnswer {
 	color: black;
 	background: linear-gradient(
@@ -223,7 +206,6 @@ button.wrongAnswer {
 		rgba(245, 0, 87, 0.5)
 	);
 }
-
 button.showRightAnswer {
 	animation: flashButton;
 	animation-duration: 700ms;

@@ -131,13 +131,8 @@ input[type="radio"] {
   display: none;
 }
 input[type="radio"]:checked+label {
-  background: #2196F3;
+  background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
+  background-color: #0f228c;
   color: #fff;
-  border-color: #2196F3;
-}
-.button{
-  justify-content: center;
-  align-content: center;
-  justify-self: center;
 }
 </style>
