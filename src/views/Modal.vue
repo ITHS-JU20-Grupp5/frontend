@@ -30,6 +30,13 @@
             </div>
           </div>
 
+          <audio ref="allWrong" src="../assets/AllWrong.mp3"></audio>
+          <audio ref="one" src="../assets/LowestFormOfLife.mp3"></audio>
+          <audio ref="two" src="../assets/Offend.mp3"></audio>
+          <audio ref="three" src="../assets/AnswerTheQuestion.mp3"></audio>
+          <audio ref="four" src="../assets/GeneralSomeday.mp3"></audio>
+          <audio ref="five" src="../assets/Genius.mp3"></audio>
+
           <div class="modal-footer">
             <button
               id="play-again"
@@ -37,6 +44,13 @@
               @click="$emit('reload')"
             >
               Play Again
+            </button>
+            <button
+                id="feedback"
+                class="button-footer"
+                @click="playResultSfx()"
+            >
+              The General's Feedback!
             </button>
             <button
               id="close-button"
@@ -60,6 +74,23 @@ export default {
     subheader: String,
     quizScore: Object,
   },
+  methods: {
+    playResultSfx: function () {
+      if (this.quizScore.correctlyAnsweredQuestions === 0) {
+        this.$refs.allWrong.play();
+      } else if (this.quizScore.correctlyAnsweredQuestions === 1) {
+        this.$refs.one.play();
+      } else if (this.quizScore.correctlyAnsweredQuestions === 2) {
+        this.$refs.two.play();
+      } else if (this.quizScore.correctlyAnsweredQuestions === 3) {
+        this.$refs.three.play();
+      } else if (this.quizScore.correctlyAnsweredQuestions === 4) {
+        this.$refs.four.play();
+      } else if (this.quizScore.correctlyAnsweredQuestions === 5) {
+        this.$refs.five.play();
+      }
+    }
+  }
 };
 </script>
 
@@ -114,6 +145,27 @@ export default {
   justify-content: space-between;
 }
 
+.button-footer {
+  padding: 1rem 2rem;
+  background: linear-gradient(
+    210deg,
+    rgba(187, 0, 47, 0.8),
+    rgba(245, 0, 87, 0.6)
+  );
+  border-radius: 7px;
+  border: none;
+}
+
+#feedback {
+  padding: 1rem 2rem;
+  background: linear-gradient(
+      210deg,
+      #0f228c,
+      yellow
+  );
+  border-radius: 7px;
+  border: none;
+}
 .anchor-footer {
   color: black;
   text-decoration: none;

@@ -1,5 +1,5 @@
 <template>
-	<div class="main">
+  <div class="main">
     <audio autoplay controls="controls" id="audio">
       <source src="../assets/Generalknowledge.mp3" type="audio/mpeg">
     </audio>
@@ -38,72 +38,73 @@ import Modal from '@/views/Modal';
 import axios from 'axios';
 
 export default {
-	name: 'Quiz',
-	components: {
-		QuizGame,
-		QuizSettings,
-		Modal,
-	},
-	data() {
-		return {
-			category: 'RANDOM',
-			difficulty: 'easy',
-			started: false,
-			showModal: false,
-			score: {},
-		};
-	},
-	computed: {
-		currentUser() {
-			return this.$store.state.auth.user;
-		},
-	},
-	methods: {
-		startQuiz(category, difficulty) {
-			this.category = category;
-			this.difficulty = difficulty;
-			this.started = true;
-		},
-		async quizCompleted(score) {
-			// TODO: Run code to add score
-			axios.defaults.headers.common.Authorization =
-				'Bearer ' + this.currentUser.accessToken;
-			await axios.post('https://generalknowledge.azurewebsites.net/scores', {
-				score: score.correctlyAnsweredQuestions,
-				category: this.category,
-			});
-			this.score = score;
-			this.showModal = true;
-		},
-		updateQuiz() {
-			this.showModal = false;
-			this.started = false;
-		},
-	},
+  name: 'Quiz',
+  components: {
+    QuizGame,
+    QuizSettings,
+    Modal,
+  },
+  data() {
+    return {
+      category: 'RANDOM',
+      difficulty: 'easy',
+      started: false,
+      showModal: false,
+      score: {},
+    };
+  },
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    },
+  },
+  methods: {
+    startQuiz(category, difficulty) {
+      this.category = category;
+      this.difficulty = difficulty;
+      this.started = true;
+    },
+    async quizCompleted(score) {
+      // TODO: Run code to add score
+      axios.defaults.headers.common.Authorization =
+          'Bearer ' + this.currentUser.accessToken;
+      await axios.post('https://generalknowledge.azurewebsites.net/scores', {
+        score: score.correctlyAnsweredQuestions,
+        category: this.category,
+      });
+      this.score = score;
+      this.showModal = true;
+      console.log("At end of quizCompleted");
+    },
+    updateQuiz() {
+      this.showModal = false;
+      this.started = false;
+    },
+  },
   mounted() {
-    document.getElementById("audio").volume=0.1;
+    document.getElementById("audio").volume = 0.1;
   },
 };
 </script>
 
 <style scoped>
 #quiz-container {
-	margin: 1rem auto;
-	padding: 1rem;
-	max-width: 750px;
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 750px;
 }
 
 #logo-headline {
-	font-size: 3rem;
-	padding: 0.5rem;
-	color: #f50057;
-	text-align: center;
+  font-size: 3rem;
+  padding: 0.5rem;
+  color: #f50057;
+  text-align: center;
 }
 
 #logo-crown {
-	display: block;
-	width: 40%;
-	margin: 0 auto;
+  display: block;
+  width: 40%;
+  margin: 0 auto;
 }
   .wrapper {
     display: grid;
@@ -125,6 +126,7 @@ export default {
     border-radius: 25px;
   }
 
+
 	#logo-crown {
 		width: 30%;
 	}
@@ -133,14 +135,14 @@ export default {
 		font-size: 1.8rem;
 	}
 h1 {
-	font-size: 1.3rem;
-	padding: 0.7rem;
+  font-size: 1.3rem;
+  padding: 0.7rem;
 }
 .divider {
-	margin: 0.5rem 0;
-	border: 3px solid #0f228c;
-	border-radius: 2px;
-	box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
+  margin: 0.5rem 0;
+  border: 3px solid #0f228c;
+  border-radius: 2px;
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
 }
 form {
 	display: flex;
@@ -150,78 +152,125 @@ form {
 	align-content: center;
 }
 .quizbutton {
-	font-size: 1.1rem;
-	display: block;
-	box-sizing: border-box;
-	white-space: break-spaces !important;
-	text-overflow: ellipsis;
-	word-wrap: break-word;
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin: 0.3rem;
-	width: clamp(150px, 14vw, 200px);
-	background-color: rgba(100, 100, 100, 0.3);
-	border: none;
-	border-radius: 0.4rem;
-	box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+  font-size: 1.1rem;
+  display: block;
+  box-sizing: border-box;
+  white-space: break-spaces !important;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0.3rem;
+  width: clamp(150px, 14vw, 200px);
+  background-color: rgba(100, 100, 100, 0.3);
+  border: none;
+  border-radius: 0.4rem;
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
+.button {
+  box-shadow: inset 0px 1px 0px 0px #f2d335;
+  background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
+  background-color: #0f228c;
+  border-radius: 6px;
+  border: 1px solid #1f47bf;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 25px;
+  width: clamp(150px, 11vw, 180px);
+  margin-right: 5px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #0f228c;
+}
+
+button:hover:enabled {
+  transform: scale(1.02);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
+  0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active:enabled {
+  transform: scale(1.05);
+}
+
+button:hover:enabled {
+  transform: scale(1.02);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
+  0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active:enabled {
+  transform: scale(1.05);
+}
 @keyframes flashButton {
-	0% {
-		opacity: 1;
-		transform: scale(1.01);
-	}
-	50% {
-		opacity: 0.7;
-		transform: scale(1.02);
-	}
-	100% {
-		opacity: 1;
-		transform: scale(1);
-	}
+  0% {
+    opacity: 1;
+    transform: scale(1.01);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 button.clicked {
-	pointer-events: none;
+  pointer-events: none;
 }
 button.rightAnswer {
-	animation: flashButton;
-	animation-duration: 700ms;
-	animation-delay: 200ms;
-	animation-iteration-count: 3;
-	animation-timing-function: ease-in-out;
-	color: black;
-	background: linear-gradient(
-		210deg,
-		rgba(0, 178, 72, 0.25),
-		rgba(0, 178, 72, 0.5)
-	);
+  animation: flashButton;
+  animation-duration: 700ms;
+  animation-delay: 200ms;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-in-out;
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(0, 178, 72, 0.25),
+      rgba(0, 178, 72, 0.5)
+  );
 }
 button.wrongAnswer {
-	color: black;
-	background: linear-gradient(
-		210deg,
-		rgba(245, 0, 87, 0.25),
-		rgba(245, 0, 87, 0.5)
-	);
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(245, 0, 87, 0.25),
+      rgba(245, 0, 87, 0.5)
+  );
 }
 button.showRightAnswer {
-	animation: flashButton;
-	animation-duration: 700ms;
-	animation-delay: 200ms;
-	animation-iteration-count: 2;
-	animation-timing-function: ease-in-out;
-	color: black;
-	background: linear-gradient(
-		210deg,
-		rgba(0, 178, 72, 0.25),
-		rgba(0, 178, 72, 0.5)
-	);
+  animation: flashButton;
+  animation-duration: 700ms;
+  animation-delay: 200ms;
+  animation-iteration-count: 2;
+  animation-timing-function: ease-in-out;
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(0, 178, 72, 0.25),
+      rgba(0, 178, 72, 0.5)
+  );
 }
 
 .correctAnswers {
-	text-align: center;
+  text-align: center;
 }
 
 /*Tablet*/
