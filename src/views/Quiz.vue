@@ -22,13 +22,6 @@
       </div>
       <div class="item4"></div>
 
-      <audio ref="allWrong" src="../assets/AllWrong.mp3"></audio>
-      <audio ref="one" src="../assets/LowestFormOfLife.mp3"></audio>
-      <audio ref="two" src="../assets/Offend.mp3"></audio>
-      <audio ref="three" src="../assets/AnswerTheQuestion.mp3"></audio>
-      <audio ref="four" src="../assets/GeneralSomeday.mp3"></audio>
-      <audio ref="five" src="../assets/Genius.mp3"></audio>
-
       <Modal
           v-if="showModal"
           header="Congratulations!"
@@ -73,21 +66,6 @@ export default {
       this.difficulty = difficulty;
       this.started = true;
     },
-    playResultSfx: function () {
-      if (this.score === 0) {
-        this.$refs.allWrong.play();
-      } else if (this.score === 1) {
-        this.$refs.one.play();
-      } else if (this.score === 2) {
-        this.$refs.two.play();
-      } else if (this.score === 3) {
-        this.$refs.three.play();
-      } else if (this.score === 4) {
-        this.$refs.four.play();
-      } else if (this.score === 5) {
-        this.$refs.five.play();
-      }
-    },
     async quizCompleted(score) {
       // TODO: Run code to add score
       axios.defaults.headers.common.Authorization =
@@ -98,7 +76,6 @@ export default {
       });
       this.score = score;
       this.showModal = true;
-      console.log(this.playResultSfx());
       console.log("At end of quizCompleted");
     },
     updateQuiz() {
