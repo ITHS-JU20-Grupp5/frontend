@@ -47,6 +47,14 @@
 					v-model="category"
 				/>
 				<label for="general">General Knowledge</label>
+				<input
+					id="random"
+					name="category"
+					type="radio"
+					value="RANDOM"
+					v-model="category"
+				/>
+				<label for="random">Random</label>
 			</div>
 		</fieldset>
 		<h3>Difficulty</h3>
@@ -99,7 +107,21 @@ export default {
 		},
 	},
 	mounted() {
-		document.getElementById('general').checked = true;
+		const categories = [
+			'history',
+			'music',
+			'sports',
+			'geography',
+			'generalknowledge',
+		];
+		if (
+			this.$route.query.category &&
+			categories.includes(this.$route.query.category)
+		) {
+			document.getElementById(this.$route.query.category).checked = true;
+		} else {
+			document.getElementById('history').checked = true;
+		}
 		document.getElementById('easy').checked = true;
 	},
 };
