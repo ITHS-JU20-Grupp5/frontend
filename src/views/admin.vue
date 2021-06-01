@@ -119,30 +119,7 @@
 						v-model="category"
 					/>
 					<label for="general">General Knowledge</label>
-					<!-- <button class="button" type="button" v-on:click="history()">
-						History
-					</button>
-					<button class="button" type="button" v-on:click="sports()">
-						Sports</button
-					><br />
-					<button class="button" type="button" v-on:click="geography()">
-						Geography
-					</button>
-					<button class="button" type="button" v-on:click="generalKnowledge()">
-						General knowledge
-					</button> -->
 				</p>
-
-				<!-- <p>
-					<button
-						class="submit"
-						type="submit"
-						v-on:click="submit()"
-						id="submitQuiz"
-					>
-						Submit
-					</button>
-				</p> -->
 			</div>
 		</div>
 	</div>

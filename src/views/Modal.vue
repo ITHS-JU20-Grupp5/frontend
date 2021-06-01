@@ -28,22 +28,33 @@
               </span>
               questions.
             </div>
-            <div id="chooseCategory">
-              Wanna choose another category?
-            </div>
           </div>
+
+          <audio ref="allWrong" src="../assets/AllWrong.mp3"></audio>
+          <audio ref="one" src="../assets/LowestFormOfLife.mp3"></audio>
+          <audio ref="two" src="../assets/Offend.mp3"></audio>
+          <audio ref="three" src="../assets/AnswerTheQuestion.mp3"></audio>
+          <audio ref="four" src="../assets/GeneralSomeday.mp3"></audio>
+          <audio ref="five" src="../assets/Genius.mp3"></audio>
 
           <div class="modal-footer">
             <button
               id="play-again"
-              class="button-footer"
+              class="button"
               @click="$emit('reload')"
             >
               Play Again
             </button>
             <button
+                id="feedback"
+                class="button-footer"
+                @click="playResultSfx()"
+            >
+              The General's Feedback!
+            </button>
+            <button
               id="close-button"
-              class="button-footer"
+              class="button"
               @click="$emit('close')"
             >
               Close
@@ -63,6 +74,23 @@ export default {
     subheader: String,
     quizScore: Object,
   },
+  methods: {
+    playResultSfx: function () {
+      if (this.quizScore.correctlyAnsweredQuestions === 0) {
+        this.$refs.allWrong.play();
+      } else if (this.quizScore.correctlyAnsweredQuestions === 1) {
+        this.$refs.one.play();
+      } else if (this.quizScore.correctlyAnsweredQuestions === 2) {
+        this.$refs.two.play();
+      } else if (this.quizScore.correctlyAnsweredQuestions === 3) {
+        this.$refs.three.play();
+      } else if (this.quizScore.correctlyAnsweredQuestions === 4) {
+        this.$refs.four.play();
+      } else if (this.quizScore.correctlyAnsweredQuestions === 5) {
+        this.$refs.five.play();
+      }
+    }
+  }
 };
 </script>
 
@@ -99,13 +127,6 @@ export default {
   text-align: center;
 }
 
-.modal-header h2 {
-  color: rgb(0, 178, 72);
-}
-
-.modal-header h3 {
-  color: rgb(0, 178, 72);
-}
 
 .modal-body {
   display: flex;
@@ -135,6 +156,16 @@ export default {
   border: none;
 }
 
+#feedback {
+  padding: 1rem 2rem;
+  background: linear-gradient(
+      210deg,
+      #0f228c,
+      yellow
+  );
+  border-radius: 7px;
+  border: none;
+}
 .anchor-footer {
   color: black;
   text-decoration: none;
@@ -152,29 +183,12 @@ export default {
 
 .highlight {
   border-radius: 4px;
-  background-color: rgba(187, 0, 47, 0.3);
+  background-color: rgba(0, 178, 72, 0.5);
   padding: 0.25rem 0.5rem;
 }
 
-.twitter-dm-button {
-  display: flex;
-  justify-content: space-between;
-  width: 280px;
-  background-color: #1da1f2;
-  padding: 0 2rem;
-  border-radius: 7px;
-  text-decoration: none;
-  color: black;
-  margin: 0 auto;
-}
-
-.twitter-logo {
-  width: 48px;
-  height: 48px;
-}
-
 #score {
-  background-color: rgb(210, 200, 200);
+  background-color: whitesmoke;
   border-radius: 5px;
   box-shadow: 2px 3px 9px gray;
 }
@@ -182,15 +196,6 @@ export default {
 #chooseCategory {
   text-align: center;
 }
-
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
 
 .modal-enter {
   opacity: 0;

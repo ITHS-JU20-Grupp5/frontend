@@ -1,8 +1,8 @@
 <template>
 	<div class="main">
-    <audio autoplay controls="controls" id="audio">
-      <source src="../assets/Generalknowledge.mp3" type="audio/mpeg">
-    </audio>
+		<audio autoplay controls="controls" id="audio">
+			<source src="../assets/Generalknowledge.mp3" type="audio/mpeg" />
+		</audio>
 		<div class="wrapper">
 			<div class="item1">
 				<img
@@ -20,8 +20,6 @@
 				/>
 				<QuizSettings v-else @startQuiz="startQuiz" />
 			</div>
-			<div class="item4"></div>
-
 			<Modal
 				v-if="showModal"
 				header="Congratulations!"
@@ -82,9 +80,9 @@ export default {
 			this.started = false;
 		},
 	},
-  mounted() {
-    document.getElementById("audio").volume=0.1;
-  },
+	mounted() {
+		document.getElementById('audio').volume = 0.1;
+	},
 };
 </script>
 
@@ -107,37 +105,49 @@ export default {
 	width: 40%;
 	margin: 0 auto;
 }
-
-@media only screen and (max-width: 500px) {
-	#logo-crown {
-		width: 30%;
-	}
-
-	#logo-headline {
-		font-size: 1.8rem;
-	}
+.wrapper {
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: auto;
+	grid-template-areas: 'b';
+}
+.item1 {
+	grid-area: a;
+	display: none;
+}
+.item2 {
+	grid-area: b;
+	display: grid;
+	justify-content: center;
+	align-content: start;
+	background: whitesmoke;
+	border-radius: 25px;
 }
 
+#logo-crown {
+	width: 30%;
+}
+
+#logo-headline {
+	font-size: 1.8rem;
+}
 h1 {
 	font-size: 1.3rem;
 	padding: 0.7rem;
 }
-
 .divider {
 	margin: 0.5rem 0;
 	border: 3px solid #0f228c;
 	border-radius: 2px;
 	box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
 }
-
 form {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-content: center;
 }
-
 .quizbutton {
 	font-size: 1.1rem;
 	display: block;
@@ -204,7 +214,6 @@ button:focus {
 button:active:enabled {
 	transform: scale(1.05);
 }
-
 @keyframes flashButton {
 	0% {
 		opacity: 1;
@@ -219,11 +228,9 @@ button:active:enabled {
 		transform: scale(1);
 	}
 }
-
 button.clicked {
 	pointer-events: none;
 }
-
 button.rightAnswer {
 	animation: flashButton;
 	animation-duration: 700ms;
@@ -237,7 +244,6 @@ button.rightAnswer {
 		rgba(0, 178, 72, 0.5)
 	);
 }
-
 button.wrongAnswer {
 	color: black;
 	background: linear-gradient(
@@ -246,7 +252,6 @@ button.wrongAnswer {
 		rgba(245, 0, 87, 0.5)
 	);
 }
-
 button.showRightAnswer {
 	animation: flashButton;
 	animation-duration: 700ms;
@@ -263,5 +268,58 @@ button.showRightAnswer {
 
 .correctAnswers {
 	text-align: center;
+}
+
+/*Tablet*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	.wrapper {
+		display: grid;
+		grid-template-columns: 25% 50%;
+		grid-template-rows: 60vh;
+		grid-template-areas: 'a b';
+	}
+	.item1 {
+		grid-area: a;
+		display: grid;
+		background: whitesmoke;
+		padding-inline: 1rem;
+		border-bottom-left-radius: 25px;
+		border-top-left-radius: 25px;
+		border-top-right-radius: 0px;
+		padding-bottom: 20px;
+	}
+	.item2 {
+		grid-area: b;
+		padding-left: 20px;
+		padding-right: 5px;
+		background: whitesmoke;
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+	}
+}
+@media screen and (min-width: 1024px) {
+	.wrapper {
+		display: grid;
+		grid-template-columns: 25% 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: 'a b';
+	}
+	.item1 {
+		grid-area: a;
+		display: grid;
+		background: whitesmoke;
+		padding-inline: 1rem;
+		border-bottom-left-radius: 25px;
+		border-top-left-radius: 25px;
+		border-top-right-radius: 0px;
+		padding-bottom: 20px;
+	}
+	.item2 {
+		grid-area: b;
+		background: whitesmoke;
+		justify-content: left;
+		padding-left: 150px;
+		border-radius: 0 25px 25px 0;
+	}
 }
 </style>

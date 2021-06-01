@@ -58,8 +58,17 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
 /* Mobile */
+div#app {
+  background-image: linear-gradient(#010440, #0f228c);
+  margin: 0;
+  /*padding: 0;*/
+  padding-top: 20px;
+}
 body {
-	background-image: linear-gradient(#010440, #0f228c);
+	background-color: #0f228c;
+  display: flex;
+  margin: 0;
+  /*padding-top: 20px;*/
 }
 .main {
 	margin: 0 auto;
@@ -88,7 +97,7 @@ body {
 .bubble {
 	text-align: left;
 	position: relative;
-	width: clamp(200px, 12vw, 400px);
+	width: clamp(150px, 12vw, 400px);
 	background-color: #fff;
 	padding: 0.5em 3em;
 	font-size: 1em;
@@ -97,30 +106,7 @@ body {
 	box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
 		0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 }
-.bubble::before {
-	/*content: '';*/
-	/*position: absolute;*/
-	/*width: 0;*/
-	/*height: 0;*/
-	/*bottom: 100%;*/
-	/*left: 1.5em;*/
-	/*border: 0.75rem solid transparent;*/
-	/*border-top: none;*/
-	/*border-bottom-color: #fff;*/
-	/*filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));*/
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 20%;
-	width: 0;
-	height: 0;
-	border: 20px solid transparent;
-	border-right-color: #fff;
-	border-left: 0;
-	margin-top: -20px;
-	margin-left: -20px;
-	filter: drop-shadow(-0.0855rem 0rem 0.0625rem rgba(0, 0, 0, 0.2));
-}
+
 .wrapper {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -146,7 +132,7 @@ body {
 	background: whitesmoke;
 	padding-inline: 1rem;
 	border-top-left-radius: 25px;
-	padding-bottom: 20px;
+	/*padding-bottom: 20px;*/
 }
 .item2 {
 	grid-area: b;
@@ -203,10 +189,7 @@ h3 {
 	margin-bottom: 2px;
 	font-size: clamp(2rem, 4vw, 4rem);
 }
-.form {
-	justify-self: center;
-	line-height: 35px;
-}
+
 label {
 	font-size: 20px;
 }
@@ -216,7 +199,6 @@ label {
 	background-color: #0f228c;
 	border-radius: 6px;
 	border: 1px solid #1f47bf;
-	display: inline-block;
 	cursor: pointer;
 	color: #ffffff;
 	font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -228,12 +210,9 @@ label {
 	margin-right: 5px;
 	text-decoration: none;
 	text-shadow: 0px 1px 0px #0f228c;
+  justify-content: center;
 }
 
-button:hover {
-	background: linear-gradient(to bottom, #010440 5%, #0f228c 100%);
-	background-color: #010440;
-}
 button:active:enabled {
 	position: relative;
 	top: 1px;
@@ -256,6 +235,11 @@ button:active:enabled {
 	box-shadow: 0 0.125rem 0.5rem #010440, 0 0.0625rem 0.125rem #0f228c;
 	margin-bottom: 10px;
 	width: clamp(120px, 11vw, 170px);
+
+}
+input.button {
+  align-self: center;
+  margin-bottom: 20px;
 }
 #nav {
 	font-family: New Tegomin, serif;
@@ -298,8 +282,6 @@ button:active:enabled {
 	.item3 {
 		grid-area: c;
 		background: whitesmoke;
-		/*align-content: start;*/
-		/*padding-inline: 1rem;*/
 		border-bottom-left-radius: 0px;
 		border-bottom-right-radius: 25px;
 		border-top-right-radius: 25px;
@@ -314,6 +296,32 @@ button:active:enabled {
 		border-top-right-radius: 25px;
 		padding-bottom: 20px;
 	}
+  .bubble {
+    text-align: left;
+    position: relative;
+    width: clamp(150px, 12vw, 400px);
+    background-color: #fff;
+    padding: 0.5em 3em;
+    font-size: 1em;
+    border-radius: 2rem;
+    margin: clamp(30px, 1vw, 20px);
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
+    0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+  }
+  .bubble::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-right-color: #fff;
+    border-left: 0;
+    margin-top: -20px;
+    margin-left: -20px;
+    filter: drop-shadow(-0.0855rem 0rem 0.0625rem rgba(0, 0, 0, 0.2));
+  }
 }
 /* Desktop */
 @media screen and (min-width: 1024px) {
@@ -355,5 +363,19 @@ button:active:enabled {
 		border-top-right-radius: 25px;
 		padding-bottom: 20px;
 	}
+  .bubble::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-right-color: #fff;
+    border-left: 0;
+    margin-top: -20px;
+    margin-left: -20px;
+    filter: drop-shadow(-0.0855rem 0rem 0.0625rem rgba(0, 0, 0, 0.2));
+  }
 }
 </style>
