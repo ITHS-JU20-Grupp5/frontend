@@ -64,13 +64,13 @@ export default {
 			this.difficulty = difficulty;
 			this.started = true;
 		},
-		async quizCompleted(score) {
+		async quizCompleted(category, score) {
 			// TODO: Run code to add score
 			axios.defaults.headers.common.Authorization =
 				'Bearer ' + this.currentUser.accessToken;
 			await axios.post('https://generalknowledge.azurewebsites.net/scores', {
 				score: score.correctlyAnsweredQuestions,
-				category: this.category,
+				category,
 			});
 			this.score = score;
 			this.showModal = true;
