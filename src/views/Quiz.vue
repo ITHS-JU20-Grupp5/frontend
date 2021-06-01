@@ -1,43 +1,44 @@
 <template>
-	<div class="main">
+  <div class="main">
     <audio autoplay controls="controls" id="audio">
       <source src="../assets/Generalknowledge.mp3" type="audio/mpeg">
     </audio>
-		<div class="wrapper">
-			<div class="item1">
-				<img
-					alt="TheGeneral"
-					src="../assets/GeneralKnowledge.png"
-					class="img"
-				/>
-			</div>
-			<div class="item2">
-				<QuizGame
-					v-if="started"
-					:category="category"
-					:difficulty="difficulty"
-					@quizCompleted="quizCompleted"
-				/>
-				<QuizSettings v-else @startQuiz="startQuiz" />
-			</div>
-			<div class="item4"></div>
+    <div class="wrapper">
+      <div class="item1">
+        <img
+            alt="TheGeneral"
+            src="../assets/GeneralKnowledge.png"
+            class="img"
+        />
+      </div>
+      <div class="item2">
+        <QuizGame
+            v-if="started"
+            :category="category"
+            :difficulty="difficulty"
+            @quizCompleted="quizCompleted"
+        />
+        <QuizSettings v-else @startQuiz="startQuiz"/>
+      </div>
+      <div class="item4"></div>
 
-			<Modal
-				v-if="showModal"
-				header="Congratulations!"
-				subheader="You've completed your Quiz!"
-				:quizScore="score"
-				@reload="updateQuiz"
-				@close="showModal = false"
-			/>
       <audio ref="allWrong" src="../assets/AllWrong.mp3"></audio>
       <audio ref="one" src="../assets/LowestFormOfLife.mp3"></audio>
       <audio ref="two" src="../assets/Offend.mp3"></audio>
       <audio ref="three" src="../assets/AnswerTheQuestion.mp3"></audio>
       <audio ref="four" src="../assets/GeneralSomeday.mp3"></audio>
       <audio ref="five" src="../assets/Genius.mp3"></audio>
-		</div>
-	</div>
+
+      <Modal
+          v-if="showModal"
+          header="Congratulations!"
+          subheader="You've completed your Quiz!"
+          :quizScore="score"
+          @reload="updateQuiz"
+          @close="showModal = false"
+      />
+    </div>
+  </div>
 </template>
 <script>
 import QuizGame from '@/components/QuizGame';
@@ -46,281 +47,246 @@ import Modal from '@/views/Modal';
 import axios from 'axios';
 
 export default {
-	name: 'Quiz',
-	components: {
-		QuizGame,
-		QuizSettings,
-		Modal,
-	},
-	data() {
-		return {
-			category: 'RANDOM',
-			difficulty: 'easy',
-			started: false,
-			showModal: false,
-			score: {},
-		};
-	},
-	computed: {
-		currentUser() {
-			return this.$store.state.auth.user;
-		},
-	},
-	methods: {
-		startQuiz(category, difficulty) {
-			this.category = category;
-			this.difficulty = difficulty;
-			this.started = true;
-		},
-    // eslint-disable-next-line no-unused-vars
-    playAllWrong: function(event) {
-      // eslint-disable-next-line no-mixed-spaces-and-tabs
-      this.$refs.allWrong.play();
+  name: 'Quiz',
+  components: {
+    QuizGame,
+    QuizSettings,
+    Modal,
+  },
+  data() {
+    return {
+      category: 'RANDOM',
+      difficulty: 'easy',
+      started: false,
+      showModal: false,
+      score: {},
+    };
+  },
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    },
+  },
+  methods: {
+    startQuiz(category, difficulty) {
+      this.category = category;
+      this.difficulty = difficulty;
+      this.started = true;
     },
     // eslint-disable-next-line no-unused-vars
-    playOne: function(event) {
-      // eslint-disable-next-line no-mixed-spaces-and-tabs
-      this.$refs.one.play();
-    },
-    // eslint-disable-next-line no-unused-vars
-    playTwo: function(event) {
-      // eslint-disable-next-line no-mixed-spaces-and-tabs
-      this.$refs.two.play();
-    },
-    // eslint-disable-next-line no-unused-vars
-    playThree: function(event) {
-      // eslint-disable-next-line no-mixed-spaces-and-tabs
-      this.$refs.three.play();
-    },
-    // eslint-disable-next-line no-unused-vars
-    playFour: function(event) {
-      // eslint-disable-next-line no-mixed-spaces-and-tabs
-      this.$refs.four.play();
-    },
-    // eslint-disable-next-line no-unused-vars
-    playFive: function(event) {
-      // eslint-disable-next-line no-mixed-spaces-and-tabs
-      this.$refs.five.play();
-    },
-		async quizCompleted(score) {
-			// TODO: Run code to add score
-			axios.defaults.headers.common.Authorization =
-				'Bearer ' + this.currentUser.accessToken;
-			await axios.post('https://generalknowledge.azurewebsites.net/scores', {
-				score: score.correctlyAnsweredQuestions,
-				category: this.category,
-			});
-			this.score = score;
-			this.showModal = true;
-			if (this.score === 0) {
-        // eslint-disable-next-line no-mixed-spaces-and-tabs
-			  this.playAllWrong();
+    playResultSfx: function () {
+      if (this.score === 0) {
+        this.$refs.allWrong.play();
+      } else if (this.score === 1) {
+        this.$refs.one.play();
+      } else if (this.score === 2) {
+        this.$refs.two.play();
+      } else if (this.score === 3) {
+        this.$refs.three.play();
+      } else if (this.score === 4) {
+        this.$refs.four.play();
+      } else if (this.score === 5) {
+        this.$refs.five.play();
       }
-			else if (this.score === 1) {
-          this.playOne();
-        }
-			else if (this.score === 2) {
-        // eslint-disable-next-line no-mixed-spaces-and-tabs
-			  this.playTwo();
-        }
-			else if (this.score === 3) {
-        // eslint-disable-next-line no-mixed-spaces-and-tabs
-			  this.playThree();
-      }
-      else if (this.score === 4) {
-        // eslint-disable-next-line no-mixed-spaces-and-tabs
-        this.playFour();
-      }
-      else if (this.score === 5) {
-        // eslint-disable-next-line no-mixed-spaces-and-tabs
-        this.playFive();
-      }
-		},
-		updateQuiz() {
-			this.showModal = false;
-			this.started = false;
-		},
-	},
+    },
+    async quizCompleted(score) {
+      // TODO: Run code to add score
+      axios.defaults.headers.common.Authorization =
+          'Bearer ' + this.currentUser.accessToken;
+      await axios.post('https://generalknowledge.azurewebsites.net/scores', {
+        score: score.correctlyAnsweredQuestions,
+        category: this.category,
+      });
+      this.score = score;
+      this.showModal = true;
+      console.log(this.playResultSfx());
+      console.log("At end of quizCompleted");
+    },
+    updateQuiz() {
+      this.showModal = false;
+      this.started = false;
+    },
+  },
   mounted() {
-    document.getElementById("audio").volume=0.1;
+    document.getElementById("audio").volume = 0.1;
   },
 };
 </script>
 
 <style scoped>
 #quiz-container {
-	margin: 1rem auto;
-	padding: 1rem;
-	max-width: 750px;
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 750px;
 }
 
 #logo-headline {
-	font-size: 3rem;
-	padding: 0.5rem;
-	color: #f50057;
-	text-align: center;
+  font-size: 3rem;
+  padding: 0.5rem;
+  color: #f50057;
+  text-align: center;
 }
 
 #logo-crown {
-	display: block;
-	width: 40%;
-	margin: 0 auto;
+  display: block;
+  width: 40%;
+  margin: 0 auto;
 }
 
 @media only screen and (max-width: 500px) {
-	#logo-crown {
-		width: 30%;
-	}
+  #logo-crown {
+    width: 30%;
+  }
 
-	#logo-headline {
-		font-size: 1.8rem;
-	}
+  #logo-headline {
+    font-size: 1.8rem;
+  }
 }
 
 h1 {
-	font-size: 1.3rem;
-	padding: 0.7rem;
+  font-size: 1.3rem;
+  padding: 0.7rem;
 }
 
 .divider {
-	margin: 0.5rem 0;
-	border: 3px solid #0f228c;
-	border-radius: 2px;
-	box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
+  margin: 0.5rem 0;
+  border: 3px solid #0f228c;
+  border-radius: 2px;
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 form {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
 }
 
 .quizbutton {
-	font-size: 1.1rem;
-	display: block;
-	box-sizing: border-box;
-	white-space: break-spaces !important;
-	text-overflow: ellipsis;
-	word-wrap: break-word;
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin: 0.3rem;
-	width: clamp(150px, 14vw, 200px);
-	background-color: rgba(100, 100, 100, 0.3);
-	border: none;
-	border-radius: 0.4rem;
-	box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+  font-size: 1.1rem;
+  display: block;
+  box-sizing: border-box;
+  white-space: break-spaces !important;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0.3rem;
+  width: clamp(150px, 14vw, 200px);
+  background-color: rgba(100, 100, 100, 0.3);
+  border: none;
+  border-radius: 0.4rem;
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .button {
-	box-shadow: inset 0px 1px 0px 0px #f2d335;
-	background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
-	background-color: #0f228c;
-	border-radius: 6px;
-	border: 1px solid #1f47bf;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-family: Roboto, Helvetica, Arial, sans-serif;
-	font-size: 15px;
-	font-weight: bold;
-	padding: 6px 25px;
-	width: clamp(150px, 11vw, 180px);
-	margin-right: 5px;
-	margin-bottom: 10px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #0f228c;
+  box-shadow: inset 0px 1px 0px 0px #f2d335;
+  background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
+  background-color: #0f228c;
+  border-radius: 6px;
+  border: 1px solid #1f47bf;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 25px;
+  width: clamp(150px, 11vw, 180px);
+  margin-right: 5px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #0f228c;
 }
 
 button:hover:enabled {
-	transform: scale(1.02);
-	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
-		0 3px 1px -1px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
+  0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 button:focus {
-	outline: none;
+  outline: none;
 }
 
 button:active:enabled {
-	transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 button:hover:enabled {
-	transform: scale(1.02);
-	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
-		0 3px 1px -1px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
+  0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 button:focus {
-	outline: none;
+  outline: none;
 }
 
 button:active:enabled {
-	transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 @keyframes flashButton {
-	0% {
-		opacity: 1;
-		transform: scale(1.01);
-	}
-	50% {
-		opacity: 0.7;
-		transform: scale(1.02);
-	}
-	100% {
-		opacity: 1;
-		transform: scale(1);
-	}
+  0% {
+    opacity: 1;
+    transform: scale(1.01);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 button.clicked {
-	pointer-events: none;
+  pointer-events: none;
 }
 
 button.rightAnswer {
-	animation: flashButton;
-	animation-duration: 700ms;
-	animation-delay: 200ms;
-	animation-iteration-count: 3;
-	animation-timing-function: ease-in-out;
-	color: black;
-	background: linear-gradient(
-		210deg,
-		rgba(0, 178, 72, 0.25),
-		rgba(0, 178, 72, 0.5)
-	);
+  animation: flashButton;
+  animation-duration: 700ms;
+  animation-delay: 200ms;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-in-out;
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(0, 178, 72, 0.25),
+      rgba(0, 178, 72, 0.5)
+  );
 }
 
 button.wrongAnswer {
-	color: black;
-	background: linear-gradient(
-		210deg,
-		rgba(245, 0, 87, 0.25),
-		rgba(245, 0, 87, 0.5)
-	);
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(245, 0, 87, 0.25),
+      rgba(245, 0, 87, 0.5)
+  );
 }
 
 button.showRightAnswer {
-	animation: flashButton;
-	animation-duration: 700ms;
-	animation-delay: 200ms;
-	animation-iteration-count: 2;
-	animation-timing-function: ease-in-out;
-	color: black;
-	background: linear-gradient(
-		210deg,
-		rgba(0, 178, 72, 0.25),
-		rgba(0, 178, 72, 0.5)
-	);
+  animation: flashButton;
+  animation-duration: 700ms;
+  animation-delay: 200ms;
+  animation-iteration-count: 2;
+  animation-timing-function: ease-in-out;
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(0, 178, 72, 0.25),
+      rgba(0, 178, 72, 0.5)
+  );
 }
 
 .correctAnswers {
-	text-align: center;
+  text-align: center;
 }
 </style>
