@@ -74,6 +74,9 @@ router.beforeEach((to, from, next) => {
 	// Public and not logged in
 	if (to.path === publicPage && !loggedIn) {
 		next();
+		// Public and logged in
+	} else if (to.path === publicPage && loggedIn) {
+		next('/quiz');
 		// not public and logged in
 	} else if (to.path != publicPage && loggedIn) {
 		// verify
