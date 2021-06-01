@@ -227,31 +227,6 @@ export default {
   padding: 1rem;
   max-width: 750px;
 }
-
-/*
-#logo-headline {
-	font-size: 3rem;
-	padding: 0.5rem;
-	color: #f50057;
-	text-align: center;
-}
-
-#logo-crown {
-	display: block;
-	width: 40%;
-	margin: 0 auto;
-}
-
-@media only screen and (max-width: 500px) {
-	#logo-crown {
-		width: 30%;
-	}
-
-	#logo-headline {
-		font-size: 1.8rem;
-	}
-}
-*/
 h1 {
   font-size: 1.3rem;
   padding: 0.7rem;
@@ -290,27 +265,6 @@ form {
   border-radius: 0.4rem;
   box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
 }
-
-/* .button {
-	box-shadow: inset 0px 1px 0px 0px #f2d335;
-	background: linear-gradient(to bottom, #0f228c 5%, #010440 100%);
-	background-color: #0f228c;
-	border-radius: 6px;
-	border: 1px solid #1f47bf;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-family: Roboto, Helvetica, Arial, sans-serif;
-	font-size: 15px;
-	font-weight: bold;
-	padding: 6px 25px;
-	width: clamp(150px, 11vw, 180px);
-	margin-right: 5px;
-	margin-bottom: 10px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #0f228c;
-} */
-
 button:hover:enabled {
   transform: scale(1.02);
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
