@@ -79,9 +79,17 @@
               placeholder="Confirm password"
               v-model="confirmPassword"
           /><br />
-          <button class="submit" type="submit" value="Register" id="registerButton">Register</button>
+          <button class="submit" type="submit" value="Register"  id="registerButton">Register</button>
           <p class="warning" v-if="confirmPassword !==registerUser.password && confirmPassword">Passwords must match!</p>
         </form>
+        <ModalRegister
+            v-if="showModalRegister"
+            header="Congratulations!"
+            subheader="You've completed your Quiz!"
+            :quizScore="score"
+            @reload="updateQuiz"
+            @close="showModalRegister = false"
+        />
 
 			</div>
 		</div>
@@ -89,14 +97,20 @@
 </template>
 
 <script>
+import ModalRegister from "@/views/ModalRegister";
 import User from '../models/user';
+
 export default {
 	name: 'Login',
-	data() {
+  components: {
+    ModalRegister,
+  },
+  data() {
 		return {
 			loginUser: new User('', ''),
 			registerUser: new User('', '', '', ''),
 			confirmPassword: '',
+      showModalRegister: true,
 		};
 	},
 	computed: {
