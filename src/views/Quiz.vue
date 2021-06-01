@@ -73,7 +73,6 @@ export default {
       this.difficulty = difficulty;
       this.started = true;
     },
-    // eslint-disable-next-line no-unused-vars
     playResultSfx: function () {
       if (this.score === 0) {
         this.$refs.allWrong.play();
