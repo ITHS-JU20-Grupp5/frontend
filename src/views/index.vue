@@ -103,10 +103,6 @@
 				</form>
 				<ModalRegister
 					v-if="showModalRegister"
-					header="Congratulations!"
-					subheader="You've completed your Quiz!"
-					:quizScore="score"
-					@reload="updateQuiz"
 					@close="showModalRegister = false"
 				/>
 			</div>
@@ -128,7 +124,7 @@ export default {
 			loginUser: new User('', ''),
 			registerUser: new User('', '', '', ''),
 			confirmPassword: '',
-			showModalRegister: true,
+			showModalRegister: false,
 		};
 	},
 	computed: {
@@ -153,8 +149,13 @@ export default {
 			if (this.confirmPassword === this.registerUser.password) {
 				this.$store
 					.dispatch('auth/register', this.registerUser)
-					.then((data) => {
-						console.log(data);
+					.then(() => {
+						this.showModalRegister = true;
+					})
+					.catch((err) => {
+						if (err) {
+							console.error(err);
+						}
 					});
 			}
 		},

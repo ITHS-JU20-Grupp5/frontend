@@ -13,7 +13,7 @@ export const auth = {
 			return AuthService.login(user).then(
 				(user) => {
 					commit('loginSuccess', user);
-					return Promise.resolve(user);
+					return Promise.resolve({ status: 200, user });
 				},
 				(error) => {
 					commit('loginFailure');

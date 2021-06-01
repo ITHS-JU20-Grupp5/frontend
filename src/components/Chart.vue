@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<!-- <canvas class="hej" id="planet-chart"></canvas> -->
 		<h1>High Score</h1>
 		<canvas id="categoryhighscore"></canvas>
 		<h1>Average Score</h1>
@@ -10,14 +9,12 @@
 
 <script>
 import Chart from 'chart.js';
-import planetChartData from '@/planet-data.js';
 import axios from 'axios';
 
 export default {
-	name: 'PlanetChart',
+	name: 'Chart',
 	data() {
 		return {
-			planetChartData: planetChartData,
 			categoryHighScores: {},
 			scores: [],
 		};
